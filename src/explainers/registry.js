@@ -29,6 +29,7 @@ import ZeroDivExplainer from "./ZeroDivExplainer.jsx";
 import IdealExplainer from "./IdealExplainer.jsx";
 import HomomorphismExplainer from "./HomomorphismExplainer.jsx";
 import BigOExplainer from "./BigOExplainer.jsx";
+import AutomatonExplainer from "./AutomatonExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -81,4 +82,6 @@ export const EXPLAINERS = {
   planar: PlanarExplainer,
   // daa
   bigo: BigOExplainer,
+  // automata
+  automaton: AutomatonExplainer,
 };

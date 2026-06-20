@@ -80,7 +80,7 @@ export const TEACH_AUTOMATA = {
     {
       id: "dfa",
       title: "Deterministic Finite Automata",
-      explainer: null,
+      explainer: "automaton",
       what: "A DFA is $(Q,\\Sigma,\\delta,q_0,F)$: states, alphabet, a total transition function, a start state and accepting states. It accepts a string if reading it ends in $F$.",
       why: "The DFA is the simplest machine and the exact recogniser for regular languages. Everything else in this chapter reduces to or builds on it.",
       intuition: "A DFA is a controlled walk: you sit in a state, read one symbol, and the transition tells you exactly which state to move to. No choices, no memory beyond the current state.",
@@ -104,7 +104,7 @@ export const TEACH_AUTOMATA = {
     {
       id: "nfa",
       title: "Nondeterministic Finite Automata",
-      explainer: null,
+      explainer: "automaton",
       what: "An NFA may have several transitions (or none) per symbol and may take $\\varepsilon$-moves. It accepts if some path leads to an accepting state.",
       why: "NFAs are far easier to design (and to build from regular expressions), yet recognise exactly the same languages as DFAs.",
       intuition: "An NFA explores all choices in parallel. The string is accepted if at least one of those parallel paths ends in an accepting state.",
