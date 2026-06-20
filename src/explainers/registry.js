@@ -45,6 +45,9 @@ import CflPumpExplainer from "./CflPumpExplainer.jsx";
 import ParseTreeExplainer from "./ParseTreeExplainer.jsx";
 import TuringExplainer from "./TuringExplainer.jsx";
 import HaltingExplainer from "./HaltingExplainer.jsx";
+import GreedyExplainer from "./GreedyExplainer.jsx";
+import DpTableExplainer from "./DpTableExplainer.jsx";
+import DijkstraExplainer from "./DijkstraExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -115,4 +118,7 @@ export const EXPLAINERS = {
   complexity: ComplexityExplainer,
   master: MasterExplainer,
   rectree: RecTreeExplainer,
+  greedy: GreedyExplainer,
+  dptable: DpTableExplainer,
+  dijkstra: DijkstraExplainer,
 };
