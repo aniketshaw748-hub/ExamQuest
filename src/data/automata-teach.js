@@ -200,7 +200,7 @@ export const TEACH_AUTOMATA = {
     {
       id: "closure-minimization",
       title: "Closure Properties and DFA Minimization",
-      explainer: null,
+      explainer: "minimize",
       what: "Regular languages are closed under union, intersection, complement, concatenation and star. Every DFA has a unique minimal equivalent DFA.",
       why: "Closure lets you build complex regular languages from simple ones; minimization gives the smallest machine and a canonical form for testing equivalence.",
       intuition: "Closure: combine automata (product machine for intersection, swap accepting states for complement). Minimization: merge states that behave identically on all future input.",
