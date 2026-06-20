@@ -43,6 +43,8 @@ import RecTreeExplainer from "./RecTreeExplainer.jsx";
 import PdaExplainer from "./PdaExplainer.jsx";
 import CflPumpExplainer from "./CflPumpExplainer.jsx";
 import ParseTreeExplainer from "./ParseTreeExplainer.jsx";
+import TuringExplainer from "./TuringExplainer.jsx";
+import HaltingExplainer from "./HaltingExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -107,6 +109,8 @@ export const EXPLAINERS = {
   parsetree: ParseTreeExplainer,
   cflpump: CflPumpExplainer,
   pda: PdaExplainer,
+  turing: TuringExplainer,
+  halting: HaltingExplainer,
   // daa (more)
   complexity: ComplexityExplainer,
   master: MasterExplainer,
