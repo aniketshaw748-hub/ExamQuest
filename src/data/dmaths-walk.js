@@ -143,4 +143,23 @@ export const WALK = {
       tip: "CNF comes from the FALSE rows, one maxterm each, T-atoms negated. (The DNF would instead come from the true rows TTF, TFT, TFF.) Select this exact formula in the explainer above to see the rows light up.",
     },
   ],
+  ch5: [
+    {
+      id: "finite-domain-is-field",
+      question: "Prove that every finite integral domain is a field.",
+      years: [],
+      model: true,
+      marks: 10,
+      explainer: "zerodiv",
+      steps: [
+        { label: "What is left to show", body: "An integral domain is already a commutative ring with unity and no zero divisors. To be a field, only one thing is missing: every non-zero element must have a multiplicative inverse." },
+        { label: "Fix a non-zero element", body: "Let $D = \\{a_1,\\ldots,a_n\\}$ be finite and take any non-zero $a\\in D$. Form the products $a\\,a_1, a\\,a_2, \\ldots, a\\,a_n$." },
+        { label: "The products are all distinct", body: "If $a\\,a_i = a\\,a_j$ then $a(a_i - a_j)=0$. Since $a\\ne 0$ and $D$ has no zero divisors, $a_i - a_j = 0$, so $a_i=a_j$. Hence the $n$ products are distinct." },
+        { label: "Distinct + finite means they fill D", body: "There are $n$ distinct products inside the $n$-element set $D$, so they are exactly all of $D$. In particular the unity $1$ appears: $a\\,a_k = 1$ for some $a_k$." },
+        { label: "That partner is the inverse", body: "By commutativity $a\\,a_k = a_k\\,a = 1$, so $a_k = a^{-1}$. Every non-zero $a$ has an inverse, so $D$ is a field." },
+      ],
+      answer: "Distinctness of $a\\,a_i$ (no zero divisors) plus finiteness forces some $a\\,a_k=1$, giving every non-zero element an inverse. Hence a finite integral domain is a field.",
+      tip: "The engine is: no zero divisors gives cancellation, cancellation makes the map $x\\mapsto ax$ injective, and an injective self-map of a finite set is onto, so $1$ is hit. Toggle the table above to a prime $n$ to see a zero-divisor-free $\\mathbb{Z}_p$.",
+    },
+  ],
 };
