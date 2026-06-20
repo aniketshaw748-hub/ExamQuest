@@ -6,7 +6,7 @@ export const TEACH_CA = {
     {
       id: "pipeline-basics",
       title: "Pipelining: The Assembly Line",
-      explainer: null,
+      explainer: "pipeline",
       what: "A pipeline splits instruction execution into $k$ stages so that, like an assembly line, several instructions are in different stages at the same time.",
       why: "Without overlap a processor finishes one instruction before starting the next. Pipelining overlaps them to raise throughput, the central idea of modern CPUs.",
       intuition: "Stage 1 works on instruction 3 while stage 2 works on instruction 2 and stage 3 on instruction 1. Once full, one instruction completes every cycle.",
@@ -30,7 +30,7 @@ export const TEACH_CA = {
     {
       id: "speedup-throughput",
       title: "Speedup, Efficiency and Throughput",
-      explainer: null,
+      explainer: "pipeline",
       what: "A $k$-stage pipeline completes $n$ tasks in $k + (n-1)$ cycles, giving speedup $\\dfrac{nk}{k+n-1}$, which approaches $k$ for large $n$.",
       why: "These formulas are the most common pipeline PYQs. They quantify how much overlap actually buys you and why it never quite reaches a perfect $k\\times$.",
       intuition: "The first task takes $k$ cycles to fill the pipe; after that each extra task adds just one cycle. So $n$ tasks cost $k + (n-1)$, not $nk$.",
@@ -54,7 +54,7 @@ export const TEACH_CA = {
     {
       id: "pipeline-hazards",
       title: "Pipeline Hazards",
-      explainer: null,
+      explainer: "pipeline",
       what: "Hazards stall a pipeline: structural (resource conflict), data (an instruction needs a result not ready yet), and control (branches change the next instruction).",
       why: "Hazards are why real speedup falls short of $k$. Naming the three types and their fixes is the most-asked pipeline concept.",
       intuition: "The smooth one-per-cycle flow breaks whenever an instruction cannot proceed: the hardware is busy, the data is not computed, or the branch target is unknown.",

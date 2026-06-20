@@ -51,6 +51,7 @@ import DijkstraExplainer from "./DijkstraExplainer.jsx";
 import NpClassesExplainer from "./NpClassesExplainer.jsx";
 import ReductionExplainer from "./ReductionExplainer.jsx";
 import ApproxRatioExplainer from "./ApproxRatioExplainer.jsx";
+import PipelineExplainer from "./PipelineExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -127,4 +128,6 @@ export const EXPLAINERS = {
   npclasses: NpClassesExplainer,
   reduction: ReductionExplainer,
   approxratio: ApproxRatioExplainer,
+  // ca
+  pipeline: PipelineExplainer,
 };
