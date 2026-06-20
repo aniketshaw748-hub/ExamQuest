@@ -31,6 +31,7 @@ import HomomorphismExplainer from "./HomomorphismExplainer.jsx";
 import BigOExplainer from "./BigOExplainer.jsx";
 import AutomatonExplainer from "./AutomatonExplainer.jsx";
 import PumpingExplainer from "./PumpingExplainer.jsx";
+import SubsetExplainer from "./SubsetExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -86,4 +87,5 @@ export const EXPLAINERS = {
   // automata
   automaton: AutomatonExplainer,
   pumping: PumpingExplainer,
+  subset: SubsetExplainer,
 };

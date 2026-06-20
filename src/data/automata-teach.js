@@ -128,7 +128,7 @@ export const TEACH_AUTOMATA = {
     {
       id: "nfa-to-dfa",
       title: "Subset Construction (NFA to DFA)",
-      explainer: null,
+      explainer: "subset",
       what: "Every NFA converts to an equivalent DFA whose states are sets of NFA states (the subset construction).",
       why: "It proves NFAs and DFAs are equally powerful, and it is the standard way to turn an easy-to-design NFA into a deterministic machine for implementation.",
       intuition: "Track the set of all NFA states you could currently be in. That set is one DFA state; reading a symbol moves the whole set at once.",
