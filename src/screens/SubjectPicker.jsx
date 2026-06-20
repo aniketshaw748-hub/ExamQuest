@@ -1,12 +1,25 @@
 import { motion } from "motion/react";
-import { ArrowRight, Sparkle } from "@phosphor-icons/react";
+import { ArrowRight, Sparkle, GithubLogo, Star } from "@phosphor-icons/react";
 import { SUBJECTS } from "../data/subjects.js";
 
 const spring = { type: "spring", stiffness: 220, damping: 26 };
+const REPO_URL = "https://github.com/aniketshaw748-hub/ExamQuest";
 
 export default function SubjectPicker({ openSubject }) {
   return (
-    <div className="px-5 pb-28 pt-16">
+    <div className="relative px-5 pb-28 pt-16">
+      <motion.a
+        href={REPO_URL} target="_blank" rel="noopener noreferrer"
+        initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+        whileHover={{ y: -2 }}
+        className="group absolute right-5 top-5 inline-flex items-center gap-2 rounded-full border border-line bg-surface/70 px-3.5 py-2 text-[12px] text-muted backdrop-blur-sm transition-colors hover:border-amber/50 hover:text-text"
+        title="If you like this or if it helped you, give us a GitHub star">
+        <GithubLogo size={16} weight="fill" className="text-text" />
+        <span className="hidden sm:inline">If it helped you, give us a GitHub star</span>
+        <span className="sm:hidden">Star us</span>
+        <Star size={14} weight="fill" className="text-amber transition-transform group-hover:scale-110" />
+      </motion.a>
+
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.05 }}
         className="font-mono text-[12px] uppercase tracking-[0.3em] text-amber/80">MAKAUT / WBUT · Semester 4</motion.p>
       <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ ...spring, delay: 0.08 }}

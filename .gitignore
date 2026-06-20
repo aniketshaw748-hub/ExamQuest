@@ -28,3 +28,5 @@ dist-ssr
 
 # Source study notes + scanned PDFs (read locally by tools/parse.mjs; not needed in the game repo)
 Clg shit/
+
+.vercel
