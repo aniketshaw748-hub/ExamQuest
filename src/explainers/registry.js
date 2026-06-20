@@ -28,6 +28,7 @@ import RingExplainer from "./RingExplainer.jsx";
 import ZeroDivExplainer from "./ZeroDivExplainer.jsx";
 import IdealExplainer from "./IdealExplainer.jsx";
 import HomomorphismExplainer from "./HomomorphismExplainer.jsx";
+import BigOExplainer from "./BigOExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -78,4 +79,6 @@ export const EXPLAINERS = {
   chromatic: ChromaticPolyExplainer,
   gmatrix: AdjMatrixExplainer,
   planar: PlanarExplainer,
+  // daa
+  bigo: BigOExplainer,
 };
