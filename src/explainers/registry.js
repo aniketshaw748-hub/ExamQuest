@@ -48,6 +48,9 @@ import HaltingExplainer from "./HaltingExplainer.jsx";
 import GreedyExplainer from "./GreedyExplainer.jsx";
 import DpTableExplainer from "./DpTableExplainer.jsx";
 import DijkstraExplainer from "./DijkstraExplainer.jsx";
+import NpClassesExplainer from "./NpClassesExplainer.jsx";
+import ReductionExplainer from "./ReductionExplainer.jsx";
+import ApproxRatioExplainer from "./ApproxRatioExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -121,4 +124,7 @@ export const EXPLAINERS = {
   greedy: GreedyExplainer,
   dptable: DpTableExplainer,
   dijkstra: DijkstraExplainer,
+  npclasses: NpClassesExplainer,
+  reduction: ReductionExplainer,
+  approxratio: ApproxRatioExplainer,
 };
