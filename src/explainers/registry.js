@@ -52,6 +52,8 @@ import NpClassesExplainer from "./NpClassesExplainer.jsx";
 import ReductionExplainer from "./ReductionExplainer.jsx";
 import ApproxRatioExplainer from "./ApproxRatioExplainer.jsx";
 import PipelineExplainer from "./PipelineExplainer.jsx";
+import MemHierarchyExplainer from "./MemHierarchyExplainer.jsx";
+import CacheExplainer from "./CacheExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -130,4 +132,6 @@ export const EXPLAINERS = {
   approxratio: ApproxRatioExplainer,
   // ca
   pipeline: PipelineExplainer,
+  memhierarchy: MemHierarchyExplainer,
+  cache: CacheExplainer,
 };
