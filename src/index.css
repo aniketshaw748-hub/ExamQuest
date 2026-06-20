@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+/* locked design tokens — ink-navy canvas, single amber accent, one radius system */
+@theme {
+  --color-ink: #0a0e17;
+  --color-ink-2: #0e1422;
+  --color-surface: #131b2c;
+  --color-raised: #1a2336;
+  --color-line: #25304a;
+  --color-text: #eaf0fb;
+  --color-muted: #94a3bd;
+  --color-dim: #5e6b85;
+  --color-amber: #f6b53d;
+  --color-amber-deep: #b9801f;
+  --color-emerald: #34d39a;
+  --color-rose: #fb7185;
+
+  --font-display: "Space Grotesk Variable", system-ui, sans-serif;
+  --font-sans: "Manrope Variable", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+
+  --radius-card: 20px;
+  --radius-tile: 16px;
+  --radius-field: 12px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: color-mix(in oklab, var(--color-amber) 35%, transparent); }
+
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }
+
+.katex { font-size: 1.02em; }
+
+/* assistant chat replies: tighten the WHAT IT IS / WHY / ... structure */
+.chat-prose p { margin: 0 0 0.5rem; }
+.chat-prose p:last-child { margin-bottom: 0; }
+.chat-prose strong { color: var(--color-amber); font-weight: 500; font-family: var(--font-mono); font-size: 0.82em; letter-spacing: 0.04em; text-transform: uppercase; }
+.chat-prose ul, .chat-prose ol { margin: 0.25rem 0 0.6rem; padding-left: 1.1rem; }
+.chat-prose li { margin: 0.15rem 0; }
+.chat-prose code { background: var(--color-raised); padding: 1px 5px; border-radius: 5px; font-size: 0.9em; }
+.chat-prose .katex { font-size: 1em; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
