@@ -152,7 +152,7 @@ export const TEACH_AUTOMATA = {
     {
       id: "regular-expressions",
       title: "Regular Expressions and Kleene's Theorem",
-      explainer: null,
+      explainer: "regex",
       what: "Regular expressions build languages from $\\varnothing$, $\\varepsilon$ and symbols using union ($+$), concatenation and Kleene star. Kleene's theorem: regex and finite automata describe exactly the same languages.",
       why: "Regular expressions are the algebraic, human-friendly way to specify regular languages; the equivalence with automata is the backbone of the whole regular theory.",
       intuition: "A regular expression is a recipe; a finite automaton is a machine. Kleene's theorem says every recipe has a machine and every machine has a recipe.",

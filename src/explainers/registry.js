@@ -32,6 +32,7 @@ import BigOExplainer from "./BigOExplainer.jsx";
 import AutomatonExplainer from "./AutomatonExplainer.jsx";
 import PumpingExplainer from "./PumpingExplainer.jsx";
 import SubsetExplainer from "./SubsetExplainer.jsx";
+import RegexExplainer from "./RegexExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -88,4 +89,5 @@ export const EXPLAINERS = {
   automaton: AutomatonExplainer,
   pumping: PumpingExplainer,
   subset: SubsetExplainer,
+  regex: RegexExplainer,
 };
