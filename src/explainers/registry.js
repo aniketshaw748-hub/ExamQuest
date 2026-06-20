@@ -28,6 +28,12 @@ import RingExplainer from "./RingExplainer.jsx";
 import ZeroDivExplainer from "./ZeroDivExplainer.jsx";
 import IdealExplainer from "./IdealExplainer.jsx";
 import HomomorphismExplainer from "./HomomorphismExplainer.jsx";
+import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
+import TreeExplainer from "./TreeExplainer.jsx";
+import ColoringExplainer from "./ColoringExplainer.jsx";
+import ChromaticPolyExplainer from "./ChromaticPolyExplainer.jsx";
+import AdjMatrixExplainer from "./AdjMatrixExplainer.jsx";
+import PlanarExplainer from "./PlanarExplainer.jsx";
 
 export const EXPLAINERS = {
   // ch1 — sets, relations, functions
@@ -65,4 +71,11 @@ export const EXPLAINERS = {
   zerodiv: ZeroDivExplainer,
   ideal: IdealExplainer,
   homomorphism: HomomorphismExplainer,
+  // ch6 — graphs and trees
+  graph: GraphDegreeExplainer,
+  tree: TreeExplainer,
+  coloring: ColoringExplainer,
+  chromatic: ChromaticPolyExplainer,
+  gmatrix: AdjMatrixExplainer,
+  planar: PlanarExplainer,
 };

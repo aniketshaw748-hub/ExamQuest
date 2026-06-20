@@ -6,6 +6,7 @@ import {
   Medal, Handshake, ArrowsClockwise, Package, CirclesThree,
   Circuitry, CheckSquare, Scales, UsersThree,
   GridFour, Stack, Gear, Magnet, FlowArrow,
+  Tree, Palette, Function, Polygon,
 } from "@phosphor-icons/react";
 import { Rich } from "../lib/rich.jsx";
 
@@ -15,6 +16,7 @@ const ANALOGY_ICONS = {
   podium: Medal, handshake: Handshake, circular: ArrowsClockwise, boxes: Package, clubs: CirclesThree,
   circuitry: Circuitry, checklist: CheckSquare, balance: Scales, crowd: UsersThree,
   grid: GridFour, stack: Stack, gear: Gear, magnet: Magnet, map: FlowArrow,
+  treeIcon: Tree, palette: Palette, poly: Function, planar: Polygon,
 };
 const reveal = {
   initial: { opacity: 0, y: 22 },

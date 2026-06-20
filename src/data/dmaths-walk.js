@@ -162,4 +162,21 @@ export const WALK = {
       tip: "The engine is: no zero divisors gives cancellation, cancellation makes the map $x\\mapsto ax$ injective, and an injective self-map of a finite set is onto, so $1$ is hit. Toggle the table above to a prime $n$ to see a zero-divisor-free $\\mathbb{Z}_p$.",
     },
   ],
+  ch6: [
+    {
+      id: "bipartite-2-chromatic",
+      question: "Show that every bipartite graph is 2-chromatic.",
+      years: [2012, 2014, 2016, 2017],
+      marks: 5,
+      explainer: "coloring",
+      steps: [
+        { label: "Use the bipartition", body: "A bipartite graph splits its vertices into two disjoint sets: $V(G) = V_1 \\cup V_2$ with $V_1 \\cap V_2 = \\varnothing$, and every edge runs between $V_1$ and $V_2$, never inside one side." },
+        { label: "Colour each side", body: "Give every vertex in $V_1$ colour 1 and every vertex in $V_2$ colour 2." },
+        { label: "Check it is proper", body: "Every edge joins a $V_1$ vertex to a $V_2$ vertex, so its endpoints get different colours. No edge has both ends the same colour, so the colouring is proper." },
+        { label: "Count the colours", body: "Two colours sufficed, and at least 2 are needed since there is an edge. So $\\chi(G) = 2$." },
+      ],
+      answer: "Colour $V_1$ with one colour and $V_2$ with another; every edge crosses sides, so the colouring is proper. Hence a bipartite graph is 2-chromatic.",
+      tip: "Bipartite $\\iff$ no odd cycle $\\iff$ 2-chromatic. The same one-colour-per-side trick works for trees (which are always bipartite). Pick the bipartite preset above to see it.",
+    },
+  ],
 };
