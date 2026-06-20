@@ -54,6 +54,8 @@ import ApproxRatioExplainer from "./ApproxRatioExplainer.jsx";
 import PipelineExplainer from "./PipelineExplainer.jsx";
 import MemHierarchyExplainer from "./MemHierarchyExplainer.jsx";
 import CacheExplainer from "./CacheExplainer.jsx";
+import FlynnExplainer from "./FlynnExplainer.jsx";
+import RiscCiscExplainer from "./RiscCiscExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -134,4 +136,6 @@ export const EXPLAINERS = {
   pipeline: PipelineExplainer,
   memhierarchy: MemHierarchyExplainer,
   cache: CacheExplainer,
+  flynn: FlynnExplainer,
+  risccisc: RiscCiscExplainer,
 };
