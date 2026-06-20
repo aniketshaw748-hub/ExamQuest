@@ -13,14 +13,24 @@ export function topPYQs(ch, k = 99) {
   return pool.slice(0, k);
 }
 
-/* ---------- persistent progress (localStorage + hook) ---------- */
-const KEY = "quest.dmaths.v2";
+/* ---------- persistent progress (localStorage + hook), namespaced per subject ---------- */
 const fresh = () => ({ xp: 0, mcq: {}, seen: {}, boss: {} });
-function read() { try { return { ...fresh(), ...JSON.parse(localStorage.getItem(KEY) || "{}") }; } catch { return fresh(); } }
+const keyFor = (subject) => `quest.${subject || "dmaths"}.v2`;
+function readKey(k) { try { return { ...fresh(), ...JSON.parse(localStorage.getItem(k) || "{}") }; } catch { return fresh(); } }
 
-let mem = read();
+let activeKey = keyFor("dmaths");
+let mem = readKey(activeKey);
 const subs = new Set();
-function commit(next) { mem = next; localStorage.setItem(KEY, JSON.stringify(mem)); subs.forEach((f) => f(mem)); }
+function commit(next) { mem = next; localStorage.setItem(activeKey, JSON.stringify(mem)); subs.forEach((f) => f(mem)); }
+
+// switch which subject's progress is active (called by App when the subject changes)
+export function setProgressSubject(subject) {
+  const k = keyFor(subject);
+  if (k === activeKey) return;
+  activeKey = k;
+  mem = readKey(k);
+  subs.forEach((f) => f(mem));
+}
 
 export function useProgress() {
   const [s, set] = useState(mem);

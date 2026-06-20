@@ -21,6 +21,13 @@ export default function Skirmish({ ch }) {
   const done = idx >= order.length || hearts <= 0;
   const q = order[idx];
 
+  if (!order.length) return (
+    <div className="pt-24 text-center text-muted">
+      <p>No multiple-choice questions for this chapter.</p>
+      <button onClick={() => go("zone", { ch })} className="mt-4 rounded-full bg-amber px-5 py-2.5 text-sm font-medium text-ink active:scale-95">Back to chapter</button>
+    </div>
+  );
+
   function choose(label) {
     if (picked) return;
     setPicked(label);

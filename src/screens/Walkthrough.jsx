@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowLeft, ArrowRight, ListChecks, Check, Lightbulb, FireSimple } from "@phosphor-icons/react";
-import { useContent, useNav } from "../App.jsx";
+import { useContent, useNav, useSubject } from "../App.jsx";
 import { useProgress, freq } from "../lib/game.js";
 import { getWalks } from "../lib/walks.js";
 import { EXPLAINERS } from "../explainers/registry.js";
@@ -10,9 +10,10 @@ import { Rich } from "../lib/rich.jsx";
 export default function Walkthrough({ ch, i = 0 }) {
   const content = useContent();
   const { go } = useNav();
+  const { key: subject } = useSubject();
   const { addXP, markBoss } = useProgress();
   const c = content.chapters.find((x) => x.id === ch);
-  const walks = getWalks(content, ch);
+  const walks = getWalks(content, ch, subject);
   const w = walks[i];
   const [shown, setShown] = useState(1);
   useEffect(() => { setShown(1); }, [i]);

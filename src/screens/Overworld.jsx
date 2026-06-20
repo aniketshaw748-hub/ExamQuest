@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Intersect, StackSimple, Hash, ToggleRight, Atom, Graph, ArrowRight, FireSimple } from "@phosphor-icons/react";
-import { useContent, useNav } from "../App.jsx";
+import { useContent, useNav, useSubject } from "../App.jsx";
 import { useProgress, topPYQs, masteryOf, CHAPTER_ART, freq } from "../lib/game.js";
 
 const ICONS = { ch1: Intersect, ch2: StackSimple, ch3: Hash, ch4: ToggleRight, ch5: Atom, ch6: Graph };
@@ -9,25 +9,26 @@ const spring = { type: "spring", stiffness: 220, damping: 26 };
 export default function Overworld() {
   const content = useContent();
   const { go } = useNav();
+  const { key: subject, meta } = useSubject();
   const { mcq } = useProgress();
 
   return (
     <div className="pt-10">
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.05 }}
-        className="font-mono text-[12px] uppercase tracking-[0.3em] text-amber/80">World II</motion.p>
+        className="font-mono text-[12px] uppercase tracking-[0.3em] text-amber/80">{meta.world}</motion.p>
       <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ ...spring, delay: 0.08 }}
-        className="mt-2 font-display text-5xl font-medium leading-[0.98] tracking-tight md:text-6xl">
-        The Logic<br />Kingdom
+        className="mt-2 whitespace-pre-line font-display text-5xl font-medium leading-[0.98] tracking-tight md:text-6xl">
+        {meta.title}
       </motion.h1>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.18 }}
         className="mt-4 max-w-md text-[15px] leading-relaxed text-muted">
-        Six realms of discrete maths. Learn each idea through motion, then defeat the questions the exam asks most.
+        {meta.blurb}
       </motion.p>
 
       <div className="mt-12 space-y-3">
         {content.chapters.map((ch, i) => {
           const Icon = ICONS[ch.id] || Intersect;
-          const art = CHAPTER_ART[ch.id] || { tag: "", hue: 38 };
+          const art = (subject === "dmaths" && CHAPTER_ART[ch.id]) || { tag: "" };
           const m = masteryOf(ch, mcq);
           const pyq = topPYQs(ch, 1)[0];
           const r = 19, c = 2 * Math.PI * r;
@@ -53,8 +54,7 @@ export default function Overworld() {
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
                   <span className="font-mono text-[11px] text-dim">CH {ch.num}</span>
-                  <span className="text-[11px] text-dim">·</span>
-                  <span className="text-[12px] text-muted">{art.tag}</span>
+                  {art.tag && <><span className="text-[11px] text-dim">·</span><span className="text-[12px] text-muted">{art.tag}</span></>}
                 </div>
                 <h3 className="mt-0.5 truncate font-display text-[19px] font-medium tracking-tight">{ch.title}</h3>
                 <div className="mt-1 flex items-center gap-3 text-[12px] text-dim">

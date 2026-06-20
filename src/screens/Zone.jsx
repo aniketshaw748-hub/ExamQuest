@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowLeft, BookOpen, Sword, Skull, ListChecks, ArrowRight } from "@phosphor-icons/react";
-import { useContent, useNav } from "../App.jsx";
+import { useContent, useNav, useSubject } from "../App.jsx";
 import { useProgress, masteryOf, topPYQs, CHAPTER_ART } from "../lib/game.js";
 import { getLessons } from "../lib/lessons.js";
 import { getWalks } from "../lib/walks.js";
@@ -11,14 +11,15 @@ const spring = { type: "spring", stiffness: 220, damping: 24 };
 export default function Zone({ ch }) {
   const content = useContent();
   const { go } = useNav();
+  const { key: subject, meta } = useSubject();
   const { mcq } = useProgress();
   const c = content.chapters.find((x) => x.id === ch);
   const m = masteryOf(c, mcq);
-  const art = CHAPTER_ART[ch] || { tag: "" };
+  const art = (subject === "dmaths" && CHAPTER_ART[ch]) || { tag: "" };
 
-  const walkN = getWalks(content, ch).length;
+  const walkN = getWalks(content, ch, subject).length;
   const tiles = [
-    { id: "learn", icon: BookOpen, title: "Learn", desc: `${getLessons(content, ch).length} guided lessons`, onClick: () => go("lesson", { ch, i: 0 }) },
+    { id: "learn", icon: BookOpen, title: "Learn", desc: `${getLessons(content, ch, subject).length} guided lessons`, onClick: () => go("lesson", { ch, i: 0 }) },
     { id: "walk", icon: ListChecks, title: "Walkthroughs", desc: walkN ? `${walkN} PYQs, step by step` : "coming soon", onClick: () => walkN && go("walkthrough", { ch, i: 0 }) },
     { id: "skirmish", icon: Sword, title: "Skirmish", desc: `${c.mcqs.length} questions`, onClick: () => go("skirmish", { ch }) },
     { id: "boss", icon: Skull, title: "Boss", desc: `${topPYQs(c).length} repeated PYQs`, onClick: () => go("boss", { ch, i: 0 }) },
@@ -27,10 +28,10 @@ export default function Zone({ ch }) {
   return (
     <div className="pt-8">
       <button onClick={() => go("overworld")} className="mb-6 inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-text">
-        <ArrowLeft size={16} /> The Logic Kingdom
+        <ArrowLeft size={16} /> {meta.name}
       </button>
 
-      <p className="font-mono text-[12px] uppercase tracking-[0.28em] text-amber/80">Chapter {c.num} · {art.tag}</p>
+      <p className="font-mono text-[12px] uppercase tracking-[0.28em] text-amber/80">Chapter {c.num}{art.tag ? ` · ${art.tag}` : ""}</p>
       <h1 className="mt-2 font-display text-4xl font-medium tracking-tight md:text-5xl">{c.title}</h1>
 
       <div className="mt-4 flex items-center gap-3">

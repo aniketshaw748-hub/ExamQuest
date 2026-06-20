@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
-import { useContent, useNav } from "../App.jsx";
+import { useContent, useNav, useSubject } from "../App.jsx";
 import { useProgress } from "../lib/game.js";
 import { getLessons } from "../lib/lessons.js";
 import { Rich } from "../lib/rich.jsx";
@@ -10,9 +10,10 @@ import { EXPLAINERS } from "../explainers/registry.js";
 export default function Lesson({ ch, i = 0 }) {
   const content = useContent();
   const { go } = useNav();
+  const { key: subject } = useSubject();
   const { addXP } = useProgress();
   const c = content.chapters.find((x) => x.id === ch);
-  const lessons = getLessons(content, ch);
+  const lessons = getLessons(content, ch, subject);
   const lesson = lessons[i];
   if (!lesson) { go("zone", { ch }); return null; }
   const Explainer = lesson.explainer ? EXPLAINERS[lesson.explainer] : null;

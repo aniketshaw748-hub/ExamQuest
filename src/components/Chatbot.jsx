@@ -1,28 +1,28 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChatCircleDots, X, PaperPlaneTilt, Sparkle } from "@phosphor-icons/react";
-import { useContent, useNav } from "../App.jsx";
+import { useContent, useNav, useSubject } from "../App.jsx";
 import { getLessons } from "../lib/lessons.js";
 import { Rich } from "../lib/rich.jsx";
 
-function buildContext(content, route) {
+function buildContext(content, route, subject, name) {
   const ch = route.params?.ch;
   const c = ch && content.chapters.find((x) => x.id === ch);
   if (route.name === "lesson" && c) {
-    const L = getLessons(content, ch)[route.params.i || 0];
-    return `Subject: Discrete Mathematics. Chapter: "${c.title}". The learner is reading the lesson "${L?.title}".` +
+    const L = getLessons(content, ch, subject)[route.params.i || 0];
+    return `Subject: ${name}. Chapter: "${c.title}". The learner is reading the lesson "${L?.title}".` +
       (L?.teach ? ` Its key idea: ${L.teach.what} Rule of thumb: ${L.teach.rule}` : "");
   }
-  if (c) return `Subject: Discrete Mathematics. Chapter: "${c.title}" (${route.name === "skirmish" || route.name === "boss" ? "practising exam questions" : "browsing the chapter"}).`;
-  return "Subject: Discrete Mathematics (chapter overview).";
+  if (c) return `Subject: ${name}. Chapter: "${c.title}" (${route.name === "skirmish" || route.name === "boss" ? "practising exam questions" : "browsing the chapter"}).`;
+  return `Subject: ${name} (chapter overview).`;
 }
 
-function topicLabel(content, route) {
+function topicLabel(content, route, subject, name) {
   const ch = route.params?.ch;
   const c = ch && content.chapters.find((x) => x.id === ch);
-  if (route.name === "lesson" && c) return getLessons(content, ch)[route.params.i || 0]?.title || c.title;
+  if (route.name === "lesson" && c) return getLessons(content, ch, subject)[route.params.i || 0]?.title || c.title;
   if (c) return c.title;
-  return "Discrete Mathematics";
+  return name;
 }
 
 const STARTERS = ["Explain this more simply", "Give me a different analogy", "Where do students get this wrong?"];
@@ -30,13 +30,14 @@ const STARTERS = ["Explain this more simply", "Give me a different analogy", "Wh
 export default function Chatbot() {
   const content = useContent();
   const { route } = useNav();
+  const { key: subject, meta } = useSubject();
   const [open, setOpen] = useState(false);
   const [msgs, setMsgs] = useState([]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const scrollRef = useRef(null);
 
-  const topic = topicLabel(content, route);
+  const topic = topicLabel(content, route, subject, meta.name);
   useEffect(() => { scrollRef.current?.scrollTo({ top: 9e9, behavior: "smooth" }); }, [msgs, busy]);
 
   async function send(text) {
@@ -49,7 +50,7 @@ export default function Chatbot() {
     try {
       const r = await fetch("/api/chat", {
         method: "POST", headers: { "content-type": "application/json" },
-        body: JSON.stringify({ messages: next, context: buildContext(content, route) }),
+        body: JSON.stringify({ messages: next, context: buildContext(content, route, subject, meta.name) }),
       });
       const data = await r.json();
       setMsgs((m) => [...m, { role: "assistant", text: data.text || `_${data.error || "No response."}_` }]);
