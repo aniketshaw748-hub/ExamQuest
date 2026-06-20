@@ -5,6 +5,7 @@ import { useProgress, masteryOf, topPYQs, CHAPTER_ART } from "../lib/game.js";
 import { getLessons } from "../lib/lessons.js";
 import { getWalks } from "../lib/walks.js";
 import ChapterMotif from "../components/ChapterMotif.jsx";
+import { EXPLAINERS } from "../explainers/registry.js";
 
 const spring = { type: "spring", stiffness: 220, damping: 24 };
 
@@ -17,9 +18,14 @@ export default function Zone({ ch }) {
   const m = masteryOf(c, mcq);
   const art = (subject === "dmaths" && CHAPTER_ART[ch]) || { tag: "" };
 
+  const lessons = getLessons(content, ch, subject);
+  // preview the chapter with one of its own lesson explainers (no bespoke per-chapter art)
+  const previewKey = lessons.find((l) => l.explainer)?.explainer;
+  const Preview = previewKey ? EXPLAINERS[previewKey] : null;
+
   const walkN = getWalks(content, ch, subject).length;
   const tiles = [
-    { id: "learn", icon: BookOpen, title: "Learn", desc: `${getLessons(content, ch, subject).length} guided lessons`, onClick: () => go("lesson", { ch, i: 0 }) },
+    { id: "learn", icon: BookOpen, title: "Learn", desc: `${lessons.length} guided lessons`, onClick: () => go("lesson", { ch, i: 0 }) },
     { id: "walk", icon: ListChecks, title: "Walkthroughs", desc: walkN ? `${walkN} PYQs, step by step` : "coming soon", onClick: () => walkN && go("walkthrough", { ch, i: 0 }) },
     { id: "skirmish", icon: Sword, title: "Skirmish", desc: `${c.mcqs.length} questions`, onClick: () => go("skirmish", { ch }) },
     { id: "boss", icon: Skull, title: "Boss", desc: `${topPYQs(c).length} repeated PYQs`, onClick: () => go("boss", { ch, i: 0 }) },
@@ -41,7 +47,14 @@ export default function Zone({ ch }) {
         <span className="text-[13px] text-muted">{m}% mastered</span>
       </div>
 
-      <ChapterMotif ch={ch} />
+      {Preview ? (
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} className="mt-6">
+          <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.25em] text-dim">A glance at this chapter</p>
+          <Preview />
+        </motion.div>
+      ) : (
+        <ChapterMotif ch={ch} />
+      )}
 
       <div className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
         {tiles.map((t, i) => (
