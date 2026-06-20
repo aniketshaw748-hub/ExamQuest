@@ -30,9 +30,10 @@ function extractYears(text) {
   return { years: [...years].sort(), model };
 }
 
-// remove the *[WBUT ...]* / [WBUT ...] tag and the "—" separator the source puts before it
+// remove the *[WBUT ...]* / [WBUT ...] tag, stray bold markers, and the "—" separator
 const dropTag = (s) =>
   s.replace(/\*?\[(?:WBUT|MODEL)[^\]]*\]\*?/gi, "")
+    .replace(/\*\*/g, "") // stray bold close from "**N. a)**" headers
     .replace(/\s+/g, " ")
     .replace(/[\s—–-]+$/u, "") // trailing dash/space left where the tag was
     .trim();
@@ -115,8 +116,13 @@ function parseQA(body) {
     } else {
       // no marker (layout A): question is the first bold span, answer is the remainder
       const close = rest.indexOf("**");
-      if (close >= 0) { question = rest.slice(0, close); answer = rest.slice(close + 2); }
-      else { question = rest; answer = ""; }
+      if (close >= 0) {
+        const head = rest.slice(0, close), tail = rest.slice(close + 2);
+        // "**N. a)**" style: the bold is just a part label, real question follows it,
+        // and this chunk has no answer of its own (parts a/b share a later Answer block)
+        if (/^\s*([a-z]\))?\s*$/i.test(head)) { question = head + " " + tail; answer = ""; }
+        else { question = head; answer = tail; }
+      } else { question = rest; answer = ""; }
     }
 
     // year tag sits at the question/answer boundary, so scan both ends for it
