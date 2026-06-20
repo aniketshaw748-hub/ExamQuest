@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Tex } from "../lib/rich.jsx";
+import { Tex, Rich } from "../lib/rich.jsx";
 import { chromComplete, chromTree, chromCycle, chromNull, chromCompleteTex } from "../lib/graph.js";
 
 const FAMS = {
@@ -41,7 +41,7 @@ export default function ChromaticPolyExplainer() {
           <span className="text-[13px] text-dim">proper colourings</span>
         </div>
       </div>
-      <p className="mt-2 text-[12px] text-muted">$P(G,k)=0$ until $k$ reaches the chromatic number. For $K_n$ that is $k=n$; for a tree or bipartite graph, $k=2$.</p>
+      <p className="mt-2 text-[12px] text-muted"><Rich inline>{`$P(G,k)=0$ until $k$ reaches the chromatic number. For $K_n$ that is $k=n$; for a tree or bipartite graph, $k=2$.`}</Rich></p>
     </div>
   );
 }

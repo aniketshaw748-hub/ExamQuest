@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Tex } from "../lib/rich.jsx";
+import { Tex, Rich } from "../lib/rich.jsx";
 import { vpos } from "../lib/graph.js";
 
 // chromatic number for the families the exam asks about
@@ -59,7 +59,7 @@ export default function ColoringExplainer() {
             <motion.span key={f.chi} initial={{ scale: 0.8 }} animate={{ scale: 1 }} className="font-display text-3xl font-medium text-amber">{f.chi}</motion.span>
           </div>
           <p className="mt-2 text-[13px] text-muted">{f.note}.</p>
-          <p className="mt-2 text-[12px] text-dim">Adjacent vertices must differ. $\chi$ is the fewest colours that works: bipartite and trees are 2, $K_n$ is $n$, a cycle is 2 (even) or 3 (odd).</p>
+          <p className="mt-2 text-[12px] text-dim"><Rich inline>{`Adjacent vertices must differ. $\\chi$ is the fewest colours that works: bipartite and trees are 2, $K_n$ is $n$, a cycle is 2 (even) or 3 (odd).`}</Rich></p>
         </div>
       </div>
     </div>

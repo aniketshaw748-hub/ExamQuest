@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Tex } from "../lib/rich.jsx";
+import { Tex, Rich } from "../lib/rich.jsx";
 import { znTable, zeroDivisors, isPrime } from "../lib/algebra.js";
 
 // Zn multiplication table. Zero-divisor products (a·b ≡ 0 with a,b ≠ 0) glow rose.
@@ -43,7 +43,7 @@ export default function ZeroDivExplainer() {
           ? <span className="text-emerald"><Tex>{`\\mathbb{Z}_{${n}}`}</Tex> has no zero divisors and every non-zero element is a unit, so it is a <b>field</b> (and a finite integral domain).</span>
           : <span className="text-rose"><Tex>{`\\mathbb{Z}_{${n}}`}</Tex> has zero divisors (e.g. a non-zero product hitting 0), so it is <b>not</b> an integral domain, hence not a field.</span>}
       </p>
-      <p className="mt-2 text-[12px] text-muted">Key theorem: every finite integral domain is a field. $\\mathbb{Z}_n$ is a field exactly when $n$ is prime.</p>
+      <p className="mt-2 text-[12px] text-muted"><Rich inline>{`Key theorem: every finite integral domain is a field. $\\mathbb{Z}_n$ is a field exactly when $n$ is prime.`}</Rich></p>
     </div>
   );
 }

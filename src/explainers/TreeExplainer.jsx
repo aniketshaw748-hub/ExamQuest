@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Tex } from "../lib/rich.jsx";
+import { Tex, Rich } from "../lib/rich.jsx";
 
 // A tree on n vertices always has exactly n-1 edges: every new vertex adds one edge
 // to attach it, and adding any further edge would create a cycle.
@@ -36,7 +36,7 @@ export default function TreeExplainer() {
         <Tex>{`n = ${n} \\Rightarrow \\text{edges} = n-1 =`}</Tex>
         <span className="font-display text-xl font-medium text-amber">{Math.max(n - 1, 0)}</span>
       </div>
-      <p className="mt-2 text-[12px] text-muted">A tree is connected and acyclic. Any one extra edge makes a cycle; removing any edge disconnects it. A spanning tree of a connected graph keeps all $n$ vertices with exactly $n-1$ edges.</p>
+      <p className="mt-2 text-[12px] text-muted"><Rich inline>{`A tree is connected and acyclic. Any one extra edge makes a cycle; removing any edge disconnects it. A spanning tree of a connected graph keeps all $n$ vertices with exactly $n-1$ edges.`}</Rich></p>
     </div>
   );
 }

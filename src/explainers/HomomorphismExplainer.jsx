@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Tex } from "../lib/rich.jsx";
+import { Tex, Rich } from "../lib/rich.jsx";
 
 // Homomorphism f: (Z, +) -> (Zn, +), f(x) = x mod n. It preserves the operation:
 // f(a+b) = f(a) + f(b) (mod n). The kernel is everything mapping to 0.
@@ -37,7 +37,7 @@ export default function HomomorphismExplainer() {
           ? <span className="text-emerald"><Tex>{`f(a+b) = f(a)+f(b) = ${fab}`}</Tex>, structure preserved.</span>
           : <span className="text-rose">mismatch</span>}
       </motion.p>
-      <p className="mt-2 text-[12px] text-muted">Kernel = elements mapping to 0 = multiples of {n}. By the theorem, $f(e)=e'$ and $f(x^{-1})=f(x)^{-1}$.</p>
+      <p className="mt-2 text-[12px] text-muted"><Rich inline>{`Kernel = elements mapping to 0 = multiples of ${n}. By the theorem, $f(e)=e'$ and $f(x^{-1})=f(x)^{-1}$.`}</Rich></p>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Tex } from "../lib/rich.jsx";
+import { Tex, Rich } from "../lib/rich.jsx";
 import { znTable } from "../lib/algebra.js";
 
 // A ring has TWO operations: an abelian group under +, a monoid/semigroup under ×,
@@ -20,7 +20,7 @@ export default function RingExplainer() {
       </div>
 
       <p className="mt-3 text-[12px] text-muted">
-        $(\mathbb{Z}_{n}, +, \times)$ is a commutative ring with unity: an abelian group under $+$, a monoid under $\times$, linked by distributivity $a(b+c)=ab+ac$.
+        <Rich inline>{`$(\\mathbb{Z}_{n}, +, \\times)$ is a commutative ring with unity: an abelian group under $+$, a monoid under $\\times$, linked by distributivity $a(b+c)=ab+ac$.`}</Rich>
       </p>
     </div>
   );

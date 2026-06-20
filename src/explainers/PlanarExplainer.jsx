@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Tex } from "../lib/rich.jsx";
+import { Tex, Rich } from "../lib/rich.jsx";
 
 // Euler's formula for a connected planar graph: V - E + F = 2. Pick a planar example
 // and count vertices, edges and faces (regions, including the outer one).
@@ -43,7 +43,7 @@ export default function PlanarExplainer() {
             <Tex>{`V - E + F = ${g.V} - ${g.E} + ${g.F} =`}</Tex>
             <span className="font-display text-2xl font-medium text-emerald">{euler}</span>
           </div>
-          <p className="mt-2 text-[12px] text-muted">Always 2 for a connected planar graph. $K_5$ and $K_{3,3}$ break it, they are the smallest non-planar graphs.</p>
+          <p className="mt-2 text-[12px] text-muted"><Rich inline>{`Always 2 for a connected planar graph. $K_5$ and $K_{3,3}$ break it, they are the smallest non-planar graphs.`}</Rich></p>
         </div>
       </div>
     </div>

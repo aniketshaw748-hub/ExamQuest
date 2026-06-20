@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { motion } from "motion/react";
-import { Tex } from "../lib/rich.jsx";
+import { Tex, Rich } from "../lib/rich.jsx";
 import { idealOf } from "../lib/algebra.js";
 
 const divisors = (n) => { const d = []; for (let k = 1; k <= n; k++) if (n % k === 0) d.push(k); return d; };
@@ -46,7 +46,7 @@ export default function IdealExplainer() {
       </div>
 
       <div className="mt-3"><Slider label="multiplier r" value={r} set={setR} min={0} max={n - 1} /></div>
-      <p className="mt-2 text-[12px] text-muted">Closed under $+$ and absorbs $\times$ by any ring element, that absorption is exactly what makes a subring an ideal.</p>
+      <p className="mt-2 text-[12px] text-muted"><Rich inline>{`Closed under $+$ and absorbs $\\times$ by any ring element, that absorption is exactly what makes a subring an ideal.`}</Rich></p>
     </div>
   );
 }

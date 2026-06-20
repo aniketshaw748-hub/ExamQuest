@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Tex } from "../lib/rich.jsx";
+import { Tex, Rich } from "../lib/rich.jsx";
 import { vpos, ekey } from "../lib/graph.js";
 
 const N = 4;
@@ -45,7 +45,7 @@ export default function AdjMatrixExplainer() {
           <button key={e} onClick={() => toggle(e)} className={"rounded-full border px-2 py-0.5 font-mono text-[11px] " + (edges.has(e) ? "border-[#6aa6f0] bg-[#6aa6f0]/15 text-[#6aa6f0]" : "border-line text-dim")}>{e}</button>
         ))}
       </div>
-      <p className="mt-3 text-[12px] text-muted">The matrix is symmetric for an undirected graph ($A_{ij}=A_{ji}$); the diagonal is 0 with no self-loops. Row sums are the vertex degrees.</p>
+      <p className="mt-3 text-[12px] text-muted"><Rich inline>{`The matrix is symmetric for an undirected graph ($A_{ij}=A_{ji}$); the diagonal is 0 with no self-loops. Row sums are the vertex degrees.`}</Rich></p>
     </div>
   );
 }
