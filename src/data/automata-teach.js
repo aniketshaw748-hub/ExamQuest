@@ -6,7 +6,7 @@ export const TEACH_AUTOMATA = {
     {
       id: "alphabets-strings-languages",
       title: "Alphabets, Strings and Languages",
-      explainer: null,
+      explainer: "langset",
       what: "An alphabet $\\Sigma$ is a finite set of symbols; a string is a finite sequence over $\\Sigma$; a language is any set of strings, a subset of $\\Sigma^*$.",
       why: "Every machine in this course accepts or rejects strings, so you first need precise words for symbols, strings and the collections of strings they form.",
       intuition: "Symbols are letters, strings are words, a language is a (possibly infinite) dictionary of allowed words. $\\Sigma^*$ is every word you can spell, including the empty one.",
@@ -30,7 +30,7 @@ export const TEACH_AUTOMATA = {
     {
       id: "grammars",
       title: "Grammars and Derivations",
-      explainer: null,
+      explainer: "derivation",
       what: "A grammar $(V,\\Sigma,P,S)$ generates a language: starting from $S$, apply production rules $P$ until only terminals remain.",
       why: "Grammars are the generative side of languages (machines recognise, grammars produce). The type of rules allowed fixes how powerful the language is.",
       intuition: "Begin with the start symbol and keep rewriting non-terminals using the rules until the string is all terminals. The set of all such strings is the generated language.",
@@ -54,7 +54,7 @@ export const TEACH_AUTOMATA = {
     {
       id: "chomsky-hierarchy",
       title: "The Chomsky Hierarchy",
-      explainer: null,
+      explainer: "chomsky",
       what: "Four nested language classes by grammar restriction: regular $\\subset$ context-free $\\subset$ context-sensitive $\\subset$ recursively enumerable.",
       why: "The hierarchy tells you which machine you need: a finite automaton for regular, a pushdown automaton for context-free, a Turing machine for recursively enumerable.",
       intuition: "Loosen the grammar rules and you climb to more powerful languages, but you also need a more powerful machine and lose decidability guarantees.",

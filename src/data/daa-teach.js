@@ -6,7 +6,7 @@ export const TEACH_DAA = {
     {
       id: "complexity-basics",
       title: "Time and Space Complexity",
-      explainer: null,
+      explainer: "complexity",
       what: "Algorithm analysis measures the time and space an algorithm needs as a function of input size $n$, independent of machine or language.",
       why: "You compare algorithms before coding them. A priori (theoretical) analysis predicts cost from the algorithm itself; a posteriori measures an actual run.",
       intuition: "Count the elementary operations (comparisons, assignments) as $n$ grows. The growth rate, not the exact count, is what scales.",
@@ -54,7 +54,7 @@ export const TEACH_DAA = {
     {
       id: "masters-theorem",
       title: "The Master Theorem",
-      explainer: null,
+      explainer: "master",
       what: "The Master Theorem solves divide-and-conquer recurrences $T(n)=aT(n/b)+f(n)$ by comparing $f(n)$ with $n^{\\log_b a}$.",
       why: "Most divide-and-conquer algorithms (merge sort, binary search, Strassen) give this recurrence. The theorem reads off the answer in one step instead of unrolling.",
       intuition: "Compare the split/combine work $f(n)$ against the leaf work $n^{\\log_b a}$. Whichever dominates sets the cost; if they tie, multiply by a log.",
@@ -78,7 +78,7 @@ export const TEACH_DAA = {
     {
       id: "recurrence-methods",
       title: "Recursion-Tree and Substitution",
-      explainer: null,
+      explainer: "rectree",
       what: "When the Master Theorem does not apply, solve recurrences by the recursion-tree method or the substitution (guess-and-induct) method.",
       why: "Many recurrences fall outside the Master form. These two methods handle the rest and build the intuition behind the Master Theorem.",
       intuition: "Recursion tree: draw the cost at each level and sum the series. Substitution: guess the bound, then prove it by induction.",

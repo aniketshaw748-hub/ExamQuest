@@ -34,6 +34,12 @@ import PumpingExplainer from "./PumpingExplainer.jsx";
 import SubsetExplainer from "./SubsetExplainer.jsx";
 import RegexExplainer from "./RegexExplainer.jsx";
 import MinimizeExplainer from "./MinimizeExplainer.jsx";
+import LangSetExplainer from "./LangSetExplainer.jsx";
+import DerivationExplainer from "./DerivationExplainer.jsx";
+import ChomskyExplainer from "./ChomskyExplainer.jsx";
+import ComplexityExplainer from "./ComplexityExplainer.jsx";
+import MasterExplainer from "./MasterExplainer.jsx";
+import RecTreeExplainer from "./RecTreeExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -92,4 +98,11 @@ export const EXPLAINERS = {
   subset: SubsetExplainer,
   regex: RegexExplainer,
   minimize: MinimizeExplainer,
+  langset: LangSetExplainer,
+  derivation: DerivationExplainer,
+  chomsky: ChomskyExplainer,
+  // daa (more)
+  complexity: ComplexityExplainer,
+  master: MasterExplainer,
+  rectree: RecTreeExplainer,
 };
