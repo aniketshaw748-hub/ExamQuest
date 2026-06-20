@@ -40,6 +40,9 @@ import ChomskyExplainer from "./ChomskyExplainer.jsx";
 import ComplexityExplainer from "./ComplexityExplainer.jsx";
 import MasterExplainer from "./MasterExplainer.jsx";
 import RecTreeExplainer from "./RecTreeExplainer.jsx";
+import PdaExplainer from "./PdaExplainer.jsx";
+import CflPumpExplainer from "./CflPumpExplainer.jsx";
+import ParseTreeExplainer from "./ParseTreeExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -101,6 +104,9 @@ export const EXPLAINERS = {
   langset: LangSetExplainer,
   derivation: DerivationExplainer,
   chomsky: ChomskyExplainer,
+  parsetree: ParseTreeExplainer,
+  cflpump: CflPumpExplainer,
+  pda: PdaExplainer,
   // daa (more)
   complexity: ComplexityExplainer,
   master: MasterExplainer,
