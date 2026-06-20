@@ -57,12 +57,12 @@ function splitSections(md) {
 function parseMCQs(body) {
   if (!body) return [];
   const out = [];
-  // split on bold question numbers like **12.**
-  const parts = body.split(/\n(?=\*\*\d+\.\*\*)/);
+  // split on bold question numbers like **12.** or **1.1.** (Chemistry uses section.sub)
+  const parts = body.split(/\n(?=\*\*\d+(?:\.\d+)*\.\*\*)/);
   for (const part of parts) {
-    const nm = part.match(/^\*\*(\d+)\.\*\*\s*([\s\S]*)$/);
+    const nm = part.match(/^\*\*(\d+(?:\.\d+)*)\.\*\*\s*([\s\S]*)$/);
     if (!nm) continue;
-    const n = +nm[1];
+    const n = nm[1]; // keep as string so "1.1" and "1.10" stay distinct
     let rest = nm[2];
     const ans = rest.match(/\*\*Answer:\s*\(([a-dA-D])\)\*\*/);
     const answer = ans ? ans[1].toLowerCase() : null;
@@ -99,11 +99,11 @@ function parseMCQs(body) {
 function parseQA(body) {
   if (!body) return [];
   const out = [];
-  const parts = body.split(/\n(?=\*\*\d+\.)/);
+  const parts = body.split(/\n(?=\*\*\d+(?:\.\d+)*\.)/);
   for (const part of parts) {
-    const nm = part.match(/^\*\*(\d+)\.\s*([\s\S]*)$/);
+    const nm = part.match(/^\*\*(\d+(?:\.\d+)*)\.\s*([\s\S]*)$/);
     if (!nm) continue;
-    const n = +nm[1];
+    const n = nm[1]; // string so section.sub numbers ("2.1") stay distinct, no collision
     let rest = nm[2]; // everything after "**N."
     if (/^\*\*/.test(rest)) rest = rest.replace(/^\*\*\s*/, ""); // layout B: drop the number's closing bold
 
@@ -165,10 +165,25 @@ for (const f of files) {
     const key = Object.keys(sec).find((k) => re.test(k));
     return key ? sec[key] : "";
   };
+  // concatenate ALL sections matching a pattern (handles "(continued)" / split sections)
+  const allSec = (re) => Object.keys(sec).filter((k) => re.test(k)).map((k) => sec[k]).join("\n\n");
+
   const concepts = parseConcepts(findSec(/Chapter at a Glance/i));
-  const mcqs = parseMCQs(findSec(/Multiple Choice|Very Short Answer/i));
-  const short = parseQA(findSec(/Short\s+(?:Answer|Choice)[^\n]*Type/i) || findSec(/Short\s*&\s*Long/i));
-  const long = parseQA(findSec(/Long Answer Type/i));
+  // MCQ section: "Multiple Choice Type" OR (for Automata/CA/EVS) "Very Short Answer Type"
+  const mcqs = parseMCQs(allSec(/Multiple Choice|Very Short Answer/i));
+  // Some subjects (Chemistry) combine short+long under one heading. Classify each heading
+  // unambiguously so the MCQ section never leaks into `short` (note "Very Short" contains "Short").
+  const combinedKeys = Object.keys(sec).filter((k) => /Short[\s\S]*Long\s*Answer\s*Type/i.test(k) || /Short\s*&\s*Long/i.test(k));
+  let short, long;
+  if (combinedKeys.length) {
+    short = [];
+    long = parseQA(combinedKeys.map((k) => sec[k]).join("\n\n"));
+  } else {
+    // "Short Answer Type" / "Short Choice Type", but NOT "Very Short Answer" (that is the MCQ section)
+    const shortKeys = Object.keys(sec).filter((k) => /Short\s+(?:Answer|Choice)\s+Type/i.test(k) && !/Very\s+Short/i.test(k));
+    short = parseQA(shortKeys.map((k) => sec[k]).join("\n\n"));
+    long = parseQA(allSec(/Long Answer Type/i));
+  }
   chapters.push({
     id: `ch${num}`,
     num,

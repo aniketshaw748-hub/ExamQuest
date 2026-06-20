@@ -230,3 +230,16 @@ In order:
 **Runbook:** `npm run dev` → localhost:5174 (port may shift if busy). Subject picker is the home screen; click a subject → its chapters → Learn/Walkthroughs/Skirmish/Boss + floating AI doubt-solver. `npm run build` for a production bundle (single chunk, ~900KB, fine for local). Re-parse any subject with `node tools/parse.mjs "C:/quest/Clg shit/<Subject>" "<Name>" public/data/<key>.json`.
 
 **Known soft spots (for next session):** DAA/Automata/EVS chapters that lack `###` subheadings parse to a single "Overview" concept (thin fallback lesson for chapters without an authored ladder) — could split or author ladders. Chemistry has 0 MCQs (notes have none) so Skirmish shows an empty-state there (handled, not a crash). No live 375px/visual pass was possible (no Preview MCP this session) — do a quick phone/responsive eyeball. Continue authoring `<subject>-teach.js` ladders for the remaining high-PYQ chapters.
+
+### 2026-06-20 — DATA-INTEGRITY AUDIT + parser fixes (all 6 subjects re-verified)
+Full audit of parsed data accuracy. Found and fixed parser bugs (mostly Chemistry):
+- **Chemistry MCQs were ALL dropped** (0 parsed): chemistry numbers MCQs `**1.1.**`, `**1.2.**` (section.sub), not `**1.**`. parseMCQs now accepts `\d+(?:\.\d+)*`. Chemistry now has **275 MCQs** across 10 chapters (ch1 is genuinely concept-only per its source note).
+- **Chemistry Q&A**: `**2.1. text**` made the sub-number leak into the question and collapsed every `n` to the section number (boss-key collisions). parseQA now captures the full `2.1` number as a string `n`; questions are clean, `n` distinct.
+- **Combined "Short & Long" / "Short and Long" sections** (Chemistry) were parsed into BOTH `short` and `long` (every Q duplicated). Now detected and parsed once (into `long`), `short=[]`.
+- **"Very Short Answer Type" leaked into `short`** for Automata/CA/EVS (that heading contains "Short Answer Type"). Now the MCQ section ("Very Short Answer" / "Multiple Choice") and the real Short-Answer section are classified disjointly. This corrected inflated short counts (e.g. EVS short 136→99, which was just the MCQ section duplicated).
+- **EVS "Long Answer Type (continued)"** section was missed; `allSec()` now concatenates all sections matching a heading pattern.
+- `n` is now a string everywhere (so `1.1` vs `1.10` stay distinct). `Boss.jsx` bossId now includes the boss index so multi-part PYQs (1a/1b/1c share question number) get distinct progress keys.
+
+**Validated across all 6 subjects:** 0 empty questions, 0 garbled questions, MCQs parse 4 options + answer for the vast majority. Remaining `!=4 option` MCQs are legitimate edge cases (fill-in-the-blank items that share the "Very Short Answer" section, one 6-option chemistry Q, a few non-standard answer formats) — Skirmish filters to exactly-4-option questions so quizzes are unaffected.
+
+**On "top PYQ ×N":** it is the number of distinct exam years the source tagged a question with (`[WBUT 20XX]`), read straight from the verified tags — accurate to the source. Caveat: a few umbrella "write short notes on the following" questions aggregate many years; and chemistry's repeated MCQs are now included in the signal (they were missing before this fix).

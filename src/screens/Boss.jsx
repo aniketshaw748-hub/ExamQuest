@@ -22,7 +22,9 @@ export default function Boss({ ch, i = 0 }) {
   );
 
   const elite = freq(q) >= 3;
-  const bossId = `${ch}.${q.kind}.${q.n}`;
+  // include the boss index so multi-part PYQs that share a question number (e.g. 1a, 1b)
+  // get distinct progress keys instead of clearing each other
+  const bossId = `${ch}.${q.kind}.${q.n}.${i}`;
 
   function pick(label) {
     if (picked) return;
