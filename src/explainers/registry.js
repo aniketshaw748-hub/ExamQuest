@@ -22,6 +22,12 @@ import EquivalenceExplainer from "./EquivalenceExplainer.jsx";
 import ImplicationExplainer from "./ImplicationExplainer.jsx";
 import NormalFormExplainer from "./NormalFormExplainer.jsx";
 import QuantifierExplainer from "./QuantifierExplainer.jsx";
+import CayleyExplainer from "./CayleyExplainer.jsx";
+import HierarchyExplainer from "./HierarchyExplainer.jsx";
+import RingExplainer from "./RingExplainer.jsx";
+import ZeroDivExplainer from "./ZeroDivExplainer.jsx";
+import IdealExplainer from "./IdealExplainer.jsx";
+import HomomorphismExplainer from "./HomomorphismExplainer.jsx";
 
 export const EXPLAINERS = {
   // ch1 — sets, relations, functions
@@ -52,4 +58,11 @@ export const EXPLAINERS = {
   implication: ImplicationExplainer,
   normalform: NormalFormExplainer,
   quantifier: QuantifierExplainer,
+  // ch5 — algebraic structures
+  cayley: CayleyExplainer,
+  hierarchy: HierarchyExplainer,
+  ring: RingExplainer,
+  zerodiv: ZeroDivExplainer,
+  ideal: IdealExplainer,
+  homomorphism: HomomorphismExplainer,
 };

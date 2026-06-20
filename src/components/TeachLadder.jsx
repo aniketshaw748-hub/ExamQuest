@@ -5,6 +5,7 @@ import {
   Coins, Ruler, ArrowsDownUp, Clock, Ladder, SortAscending,
   Medal, Handshake, ArrowsClockwise, Package, CirclesThree,
   Circuitry, CheckSquare, Scales, UsersThree,
+  GridFour, Stack, Gear, Magnet, FlowArrow,
 } from "@phosphor-icons/react";
 import { Rich } from "../lib/rich.jsx";
 
@@ -13,6 +14,7 @@ const ANALOGY_ICONS = {
   coins: Coins, ruler: Ruler, backsub: ArrowsDownUp, clock: Clock, ladder: Ladder, sort: SortAscending,
   podium: Medal, handshake: Handshake, circular: ArrowsClockwise, boxes: Package, clubs: CirclesThree,
   circuitry: Circuitry, checklist: CheckSquare, balance: Scales, crowd: UsersThree,
+  grid: GridFour, stack: Stack, gear: Gear, magnet: Magnet, map: FlowArrow,
 };
 const reveal = {
   initial: { opacity: 0, y: 22 },
