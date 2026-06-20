@@ -176,7 +176,7 @@ export const TEACH_AUTOMATA = {
     {
       id: "pumping-lemma",
       title: "The Pumping Lemma for Regular Languages",
-      explainer: null,
+      explainer: "pumping",
       what: "Every regular language has a pumping length $p$: any string of length $\\ge p$ splits as $xyz$ with $|xy|\\le p$, $|y|\\ge 1$, and $xy^iz$ in the language for all $i\\ge 0$.",
       why: "It is the standard tool to prove a language is NOT regular: if pumping fails for every split, no finite automaton can recognise it.",
       intuition: "A DFA with $p$ states must repeat a state on a long string, creating a loop $y$ you can repeat any number of times and still be accepted.",
