@@ -99,6 +99,11 @@ import EyeCameraExplainer from "./EyeCameraExplainer.jsx";
 import KingdomsExplainer from "./KingdomsExplainer.jsx";
 import CellCompareExplainer from "./CellCompareExplainer.jsx";
 import ModelOrganismsExplainer from "./ModelOrganismsExplainer.jsx";
+import PunnettExplainer from "./PunnettExplainer.jsx";
+import CellDivisionExplainer from "./CellDivisionExplainer.jsx";
+import BiomoleculesExplainer from "./BiomoleculesExplainer.jsx";
+import ZwitterionExplainer from "./ZwitterionExplainer.jsx";
+import ProteinLevelsExplainer from "./ProteinLevelsExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -227,4 +232,9 @@ export const EXPLAINERS = {
   kingdoms: KingdomsExplainer,
   cellcompare: CellCompareExplainer,
   modelorganisms: ModelOrganismsExplainer,
+  punnett: PunnettExplainer,
+  celldivision: CellDivisionExplainer,
+  biomolecules: BiomoleculesExplainer,
+  zwitterion: ZwitterionExplainer,
+  proteinlevels: ProteinLevelsExplainer,
 };
