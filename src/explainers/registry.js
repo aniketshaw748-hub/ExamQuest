@@ -110,6 +110,11 @@ import MichaelisExplainer from "./MichaelisExplainer.jsx";
 import DnaHelixExplainer from "./DnaHelixExplainer.jsx";
 import DnaReplicationExplainer from "./DnaReplicationExplainer.jsx";
 import CentralDogmaExplainer from "./CentralDogmaExplainer.jsx";
+import NucleosomeExplainer from "./NucleosomeExplainer.jsx";
+import PackagingExplainer from "./PackagingExplainer.jsx";
+import AtpExplainer from "./AtpExplainer.jsx";
+import PhotosynthesisExplainer from "./PhotosynthesisExplainer.jsx";
+import RespirationExplainer from "./RespirationExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -249,4 +254,9 @@ export const EXPLAINERS = {
   dnahelix: DnaHelixExplainer,
   dnareplication: DnaReplicationExplainer,
   centraldogma: CentralDogmaExplainer,
+  nucleosome: NucleosomeExplainer,
+  packaging: PackagingExplainer,
+  atp: AtpExplainer,
+  photosynthesis: PhotosynthesisExplainer,
+  respiration: RespirationExplainer,
 };
