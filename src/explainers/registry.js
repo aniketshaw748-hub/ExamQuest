@@ -85,6 +85,10 @@ import SpheresExplainer from "./SpheresExplainer.jsx";
 import SustainabilityExplainer from "./SustainabilityExplainer.jsx";
 import FoodChainExplainer from "./FoodChainExplainer.jsx";
 import NutrientCycleExplainer from "./NutrientCycleExplainer.jsx";
+import GreenhouseExplainer from "./GreenhouseExplainer.jsx";
+import AirPollutionExplainer from "./AirPollutionExplainer.jsx";
+import OxygenSagExplainer from "./OxygenSagExplainer.jsx";
+import WaterTreatmentExplainer from "./WaterTreatmentExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -198,4 +202,8 @@ export const EXPLAINERS = {
   sustainability: SustainabilityExplainer,
   foodchain: FoodChainExplainer,
   nutrientcycle: NutrientCycleExplainer,
+  greenhouse: GreenhouseExplainer,
+  airpollution: AirPollutionExplainer,
+  oxygensag: OxygenSagExplainer,
+  watertreatment: WaterTreatmentExplainer,
 };
