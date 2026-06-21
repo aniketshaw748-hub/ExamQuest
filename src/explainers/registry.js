@@ -77,6 +77,10 @@ import CorrosionExplainer from "./CorrosionExplainer.jsx";
 import PbRatioExplainer from "./PbRatioExplainer.jsx";
 import PeriodicTrendsExplainer from "./PeriodicTrendsExplainer.jsx";
 import ShieldingExplainer from "./ShieldingExplainer.jsx";
+import IsomerismExplainer from "./IsomerismExplainer.jsx";
+import ChiralityExplainer from "./ChiralityExplainer.jsx";
+import IntermediatesExplainer from "./IntermediatesExplainer.jsx";
+import ReagentsExplainer from "./ReagentsExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -181,4 +185,8 @@ export const EXPLAINERS = {
   pbratio: PbRatioExplainer,
   periodictrends: PeriodicTrendsExplainer,
   shielding: ShieldingExplainer,
+  isomerism: IsomerismExplainer,
+  chirality: ChiralityExplainer,
+  intermediates: IntermediatesExplainer,
+  reagents: ReagentsExplainer,
 };
