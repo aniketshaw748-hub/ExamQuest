@@ -125,6 +125,8 @@ The repo is Vercel-ready: Vite is auto-detected (`vite build` to `dist`), and th
 
 With neither set, reports are still accepted and printed to the function logs (Vercel → your project → Logs), so nothing is lost; they just won't be pushed to you.
 
+**Product analytics** (optional, off by default) — set `VITE_PUBLIC_POSTHOG_KEY` (your PostHog project key) to turn on [PostHog](https://posthog.com) analytics; optionally `VITE_PUBLIC_POSTHOG_HOST` (defaults to US cloud, use `https://eu.i.posthog.com` for EU). It tracks SPA pageviews (per subject/screen) and a `subject_opened` event. With no key, `posthog-js` is **tree-shaken out of the build entirely** — zero data, no bundle cost. The library is loaded lazily (its own chunk) only when a key is set, and runs with `person_profiles: "identified_only"` so events are anonymous. See [`.env.example`](.env.example).
+
 ## Project structure
 
 ```

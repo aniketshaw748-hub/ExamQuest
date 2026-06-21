@@ -12,6 +12,7 @@ import Walkthrough from "./screens/Walkthrough.jsx";
 import Chatbot from "./components/Chatbot.jsx";
 import { getSubject } from "./data/subjects.js";
 import { setProgressSubject, recordVisit } from "./lib/game.js";
+import { capture, capturePageview } from "./lib/analytics.js";
 
 export const Nav = createContext(null);
 export const useNav = () => useContext(Nav);
@@ -50,9 +51,15 @@ export default function App() {
     return () => window.removeEventListener("popstate", onPop);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // SPA pageviews: this is a state router (no react-router), so capture a pageview whenever the
+  // subject or screen changes. No-op unless a PostHog key is configured.
+  useEffect(() => {
+    capturePageview({ subject: subjectKey || "home", screen: route.name, ...route.params });
+  }, [subjectKey, route]);
+
   const pushNav = (sk, r) => { try { window.history.pushState({ subjectKey: sk, route: r }, ""); } catch {} };
   const go = (name, params = {}) => { recordVisit(subjectKey, name, params); const r = { name, params }; setRoute(r); pushNav(subjectKey, r); window.scrollTo({ top: 0 }); };
-  const openSubject = (key, route) => { const r = route || { name: "overworld", params: {} }; setSubjectKey(key); setRoute(r); pushNav(key, r); window.scrollTo({ top: 0 }); };
+  const openSubject = (key, route) => { capture("subject_opened", { subject: key }); const r = route || { name: "overworld", params: {} }; setSubjectKey(key); setRoute(r); pushNav(key, r); window.scrollTo({ top: 0 }); };
   const exitSubject = () => { const r = { name: "overworld", params: {} }; setSubjectKey(null); setRoute(r); pushNav(null, r); window.scrollTo({ top: 0 }); };
 
   const Screen = subjectKey && content && content !== "err" ? SCREENS[route.name] : null;
