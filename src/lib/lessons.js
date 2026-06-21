@@ -3,10 +3,11 @@ import { TEACH_DAA } from "../data/daa-teach.js";
 import { TEACH_AUTOMATA } from "../data/automata-teach.js";
 import { TEACH_CA } from "../data/ca-teach.js";
 import { TEACH_CHEMISTRY } from "../data/chemistry-teach.js";
+import { TEACH_EVS } from "../data/evs-teach.js";
 
 // Authored Explanation-Ladder content per subject. Chapters not listed here fall back to
 // the verified Chapter-at-a-Glance concepts as lessons.
-const TEACH_BY_SUBJECT = { dmaths: TEACH, daa: TEACH_DAA, automata: TEACH_AUTOMATA, ca: TEACH_CA, chemistry: TEACH_CHEMISTRY };
+const TEACH_BY_SUBJECT = { dmaths: TEACH, daa: TEACH_DAA, automata: TEACH_AUTOMATA, ca: TEACH_CA, chemistry: TEACH_CHEMISTRY, evs: TEACH_EVS };
 
 // Unifies authored teach-lessons with raw OCR concepts as fallback.
 export function getLessons(content, chId, subject = "dmaths") {

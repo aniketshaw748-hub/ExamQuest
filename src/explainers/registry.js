@@ -81,6 +81,10 @@ import IsomerismExplainer from "./IsomerismExplainer.jsx";
 import ChiralityExplainer from "./ChiralityExplainer.jsx";
 import IntermediatesExplainer from "./IntermediatesExplainer.jsx";
 import ReagentsExplainer from "./ReagentsExplainer.jsx";
+import SpheresExplainer from "./SpheresExplainer.jsx";
+import SustainabilityExplainer from "./SustainabilityExplainer.jsx";
+import FoodChainExplainer from "./FoodChainExplainer.jsx";
+import NutrientCycleExplainer from "./NutrientCycleExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -189,4 +193,9 @@ export const EXPLAINERS = {
   chirality: ChiralityExplainer,
   intermediates: IntermediatesExplainer,
   reagents: ReagentsExplainer,
+  // evs
+  spheres: SpheresExplainer,
+  sustainability: SustainabilityExplainer,
+  foodchain: FoodChainExplainer,
+  nutrientcycle: NutrientCycleExplainer,
 };
