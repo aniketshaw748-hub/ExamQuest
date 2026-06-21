@@ -28,11 +28,12 @@ export default function Zone({ ch }) {
   const dismissHint = () => { try { localStorage.setItem("quest.hint.zone", "1"); } catch {} setHint(false); };
 
   const walkN = getWalks(content, ch, subject).length;
+  const bossN = topPYQs(c).length;
   const tiles = [
     { id: "learn", icon: BookOpen, title: "Learn", desc: `${lessons.length} guided lessons`, onClick: () => go("lesson", { ch, i: 0 }) },
-    { id: "walk", icon: ListChecks, title: "Walkthroughs", desc: walkN ? `${walkN} PYQs, step by step` : "coming soon", onClick: () => walkN && go("walkthrough", { ch, i: 0 }) },
-    { id: "skirmish", icon: Sword, title: "Skirmish", desc: `${c.mcqs.length} questions`, onClick: () => go("skirmish", { ch }) },
-    { id: "boss", icon: Skull, title: "Boss", desc: `${topPYQs(c).length} repeated PYQs`, onClick: () => go("boss", { ch, i: 0 }) },
+    { id: "walk", icon: ListChecks, title: "Walkthroughs", desc: walkN ? `${walkN} PYQs, step by step` : "none yet", disabled: !walkN, onClick: () => go("walkthrough", { ch, i: 0 }) },
+    { id: "skirmish", icon: Sword, title: "Skirmish", desc: c.mcqs.length ? `${c.mcqs.length} quick questions` : "no quiz yet", disabled: !c.mcqs.length, onClick: () => go("skirmish", { ch }) },
+    { id: "boss", icon: Skull, title: "Boss", desc: bossN ? `${bossN} repeated PYQs` : "none yet", disabled: !bossN, onClick: () => go("boss", { ch, i: 0 }) },
   ];
 
   return (
@@ -75,14 +76,14 @@ export default function Zone({ ch }) {
 
       <div className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
         {tiles.map((t, i) => (
-          <motion.button key={t.id} onClick={t.onClick}
+          <motion.button key={t.id} onClick={t.disabled ? undefined : t.onClick} disabled={t.disabled} aria-disabled={t.disabled}
             initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ ...spring, delay: 0.1 + i * 0.08 }}
-            whileHover={{ y: -4 }}
-            className="group flex flex-col items-start rounded-[var(--radius-card)] border border-line bg-surface/60 p-5 text-left backdrop-blur-sm transition-colors hover:border-amber/40">
-            <t.icon size={30} weight="duotone" className="text-amber" />
+            whileHover={t.disabled ? undefined : { y: -4 }}
+            className={"group flex flex-col items-start rounded-[var(--radius-card)] border p-5 text-left backdrop-blur-sm transition-colors " + (t.disabled ? "cursor-not-allowed border-line bg-surface/30 opacity-50" : "border-line bg-surface/60 hover:border-amber/40")}>
+            <t.icon size={30} weight="duotone" className={t.disabled ? "text-dim" : "text-amber"} />
             <h3 className="mt-4 font-display text-[20px] font-medium tracking-tight">{t.title}</h3>
             <p className="mt-1 text-[13px] text-muted">{t.desc}</p>
-            <ArrowRight size={18} className="mt-4 text-dim transition-all group-hover:translate-x-1 group-hover:text-amber" />
+            {!t.disabled && <ArrowRight size={18} className="mt-4 text-dim transition-all group-hover:translate-x-1 group-hover:text-amber" />}
           </motion.button>
         ))}
       </div>
