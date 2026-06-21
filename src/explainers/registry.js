@@ -89,6 +89,9 @@ import GreenhouseExplainer from "./GreenhouseExplainer.jsx";
 import AirPollutionExplainer from "./AirPollutionExplainer.jsx";
 import OxygenSagExplainer from "./OxygenSagExplainer.jsx";
 import WaterTreatmentExplainer from "./WaterTreatmentExplainer.jsx";
+import LandPollutionExplainer from "./LandPollutionExplainer.jsx";
+import WasteHierarchyExplainer from "./WasteHierarchyExplainer.jsx";
+import NoiseExplainer from "./NoiseExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -206,4 +209,7 @@ export const EXPLAINERS = {
   airpollution: AirPollutionExplainer,
   oxygensag: OxygenSagExplainer,
   watertreatment: WaterTreatmentExplainer,
+  landpollution: LandPollutionExplainer,
+  wastehierarchy: WasteHierarchyExplainer,
+  noise: NoiseExplainer,
 };
