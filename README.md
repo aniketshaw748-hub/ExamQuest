@@ -37,7 +37,8 @@ Each subject is parsed from verified, image-checked notes. Every chapter has **L
 
 ## Features
 
-- **AI doubt-solver** — a context-aware tutor that knows which lesson you're on. If the shared key runs out, you can **bring your own API key** (Gemini recommended, or any OpenAI-compatible provider) right in the chat settings; it is stored only in your browser and sent straight to the provider.
+- **AI tutor + site guide** — a robot-tutor button is on **every page** (home included). It knows which lesson you're on *and* how the site works, so it both explains concepts from first principles and walks you around the app ("where's Biology?", "how do I start a quiz?"). If the shared key runs out, you can **bring your own API key** (Gemini recommended, or any OpenAI-compatible provider) right in the chat settings; it is stored only in your browser and sent straight to the provider.
+- **Tell the tutor when something's wrong** — if a page is broken or you want a topic improved, just say so in the chat. The tutor confirms and **files it to the developers** (a bug report or a suggestion) so it can actually get fixed. See [Deploy](#deploy-vercel) for wiring where reports land.
 - **Resume & progress** — the app remembers where you left off ("continue where you left off") and tracks your mastery per subject.
 - **Phone-friendly** — mobile-first (works at 375px), and the device **Back button navigates within the app** instead of leaving the site.
 - **Learn by video** — each subject links a topic-complete YouTube explainer playlist for people who prefer video.
@@ -113,7 +114,14 @@ grep -rnE '>[^<>{}]*\$' src --include=*.jsx | grep -vE 'Tex>|Rich|`'   # should 
 
 ## Deploy (Vercel)
 
-The repo is Vercel-ready: Vite is auto-detected (`vite build` to `dist`), and the doubt-solver runs as a serverless function at [`api/chat.js`](api/chat.js) in production. Import the repo in Vercel, add a `GEMINI_API_KEY` environment variable in **Project Settings → Environment Variables**, and every push to `main` auto-deploys.
+The repo is Vercel-ready: Vite is auto-detected (`vite build` to `dist`), and the tutor runs as serverless functions at [`api/chat.js`](api/chat.js) (chat) and [`api/report.js`](api/report.js) (user reports) in production. Import the repo in Vercel, add a `GEMINI_API_KEY` environment variable in **Project Settings → Environment Variables**, and every push to `main` auto-deploys.
+
+**Where user reports land** (optional but recommended) — set one of these env vars so the tutor's bug/feature reports reach you:
+
+- `REPORT_WEBHOOK_URL` — a Discord / Slack / Formspree / Zapier / generic JSON webhook. Easiest: paste a Discord channel webhook URL and reports show up as messages. *(Takes priority if set.)*
+- `GITHUB_TOKEN` + `GITHUB_REPO` (`owner/name`) — opens a labelled GitHub **issue** per report instead.
+
+With neither set, reports are still accepted and printed to the function logs (Vercel → your project → Logs), so nothing is lost; they just won't be pushed to you.
 
 ## Project structure
 
@@ -129,7 +137,9 @@ src/
 public/data/*.json     # parsed content the app reads (one file per subject)
 tools/parse.mjs        # turns the verified .md notes into the per-subject JSON
 tools/build-biology.mjs# example: builds a subject's JSON from structured notes
-api/chat.js            # Vercel serverless doubt-solver (Gemini 2.5 Flash)
+api/chat.js            # Vercel serverless tutor chat (Gemini 2.5 Flash)
+api/report.js          # Vercel serverless: receives the tutor's bug/feature reports
+src/data/teachPrompt.js# tutor system prompt: teacher + site guide + report protocol
 ```
 
 ---

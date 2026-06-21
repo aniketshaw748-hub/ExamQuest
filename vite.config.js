@@ -6,7 +6,7 @@ import { geminiPlugin } from "./vite-gemini.js";
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   return {
-    plugins: [react(), tailwindcss(), geminiPlugin(env.GEMINI_API_KEY)],
+    plugins: [react(), tailwindcss(), geminiPlugin(env.GEMINI_API_KEY, env.REPORT_WEBHOOK_URL)],
     server: { port: 5174 },
   };
 });

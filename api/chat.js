@@ -1,7 +1,7 @@
 // Vercel serverless function: proxies the doubt-solver chat to Gemini 2.5 Flash.
 // The API key stays server-side (set GEMINI_API_KEY in the Vercel project env vars).
 // In local dev this route is handled by vite-gemini.js instead; this file runs in production.
-import { TEACH_SYSTEM_PROMPT } from "../src/data/teachPrompt.js";
+import { TUTOR_SYSTEM_PROMPT } from "../src/data/teachPrompt.js";
 
 const MODEL = "gemini-2.5-flash";
 
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body || {};
     const { messages = [], context = "" } = body;
 
-    const system = TEACH_SYSTEM_PROMPT +
+    const system = TUTOR_SYSTEM_PROMPT +
       (context ? `\n\nCURRENT LEARNING CONTEXT (ground every answer in this; if the question is unrelated, gently steer back): ${context}` : "");
 
     const contents = messages.slice(-12).map((m) => ({

@@ -1,13 +1,24 @@
-// Dev-server middleware: proxies chat requests to Gemini 2.5 Flash.
+// Dev-server middleware: proxies chat requests to Gemini 2.5 Flash and handles user reports.
 // The API key stays server-side (never shipped to the browser).
-import { TEACH_SYSTEM_PROMPT } from "./src/data/teachPrompt.js";
+import { TUTOR_SYSTEM_PROMPT } from "./src/data/teachPrompt.js";
+import { handleReport } from "./api/report.js";
 
 const MODEL = "gemini-2.5-flash";
 
-export function geminiPlugin(apiKey) {
+export function geminiPlugin(apiKey, reportWebhook) {
   return {
     name: "gemini-doubt-solver",
     configureServer(server) {
+      // user bug/feature reports from the tutor
+      server.middlewares.use("/api/report", async (req, res) => {
+        if (req.method !== "POST") { res.statusCode = 405; return res.end("POST only"); }
+        try {
+          const body = await readJson(req);
+          const out = await handleReport(body, { REPORT_WEBHOOK_URL: reportWebhook });
+          json(res, out);
+        } catch (e) { res.statusCode = 500; json(res, { error: String(e?.message || e) }); }
+      });
+
       server.middlewares.use("/api/chat", async (req, res) => {
         if (req.method !== "POST") { res.statusCode = 405; return res.end("POST only"); }
         try {
@@ -15,7 +26,7 @@ export function geminiPlugin(apiKey) {
           const { messages = [], context = "" } = body;
           if (!apiKey) { res.statusCode = 500; return json(res, { error: "GEMINI_API_KEY missing on server" }); }
 
-          const system = TEACH_SYSTEM_PROMPT +
+          const system = TUTOR_SYSTEM_PROMPT +
             (context ? `\n\nCURRENT LEARNING CONTEXT (ground every answer in this; if the question is unrelated, gently steer back): ${context}` : "");
 
           const contents = messages.slice(-12).map((m) => ({

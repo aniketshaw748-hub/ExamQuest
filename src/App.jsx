@@ -55,41 +55,47 @@ export default function App() {
   const openSubject = (key, route) => { const r = route || { name: "overworld", params: {} }; setSubjectKey(key); setRoute(r); pushNav(key, r); window.scrollTo({ top: 0 }); };
   const exitSubject = () => { const r = { name: "overworld", params: {} }; setSubjectKey(null); setRoute(r); pushNav(null, r); window.scrollTo({ top: 0 }); };
 
-  // subject picker (home)
-  if (!subjectKey) return <Shell><SubjectPicker openSubject={openSubject} /></Shell>;
-  if (!content) return <Shell><LoadingSkeleton /></Shell>;
-  if (content === "err") return (
-    <Shell>
-      <div className="px-5 pt-32 text-center">
-        <p className="font-display text-xl text-rose">Couldn't load this subject.</p>
-        <p className="mt-2 text-sm text-muted">Check your connection and try again.</p>
-        <div className="mt-6 flex justify-center gap-3">
-          <button onClick={() => setSubjectKey(null)} className="rounded-full border border-line px-4 py-2 text-sm text-muted transition-colors hover:text-text">All subjects</button>
-          <button onClick={() => window.location.reload()} className="rounded-full bg-amber px-5 py-2 text-sm font-medium text-ink transition-transform active:scale-95">Reload</button>
-        </div>
+  const Screen = subjectKey && content && content !== "err" ? SCREENS[route.name] : null;
+
+  let body;
+  if (!subjectKey) body = <SubjectPicker openSubject={openSubject} />;
+  else if (!content) body = <LoadingSkeleton />;
+  else if (content === "err") body = (
+    <div className="px-5 pt-32 text-center">
+      <p className="font-display text-xl text-rose">Couldn't load this subject.</p>
+      <p className="mt-2 text-sm text-muted">Check your connection and try again.</p>
+      <div className="mt-6 flex justify-center gap-3">
+        <button onClick={() => setSubjectKey(null)} className="rounded-full border border-line px-4 py-2 text-sm text-muted transition-colors hover:text-text">All subjects</button>
+        <button onClick={() => window.location.reload()} className="rounded-full bg-amber px-5 py-2 text-sm font-medium text-ink transition-transform active:scale-95">Reload</button>
       </div>
-    </Shell>
+    </div>
+  );
+  else body = (
+    <>
+      <TopBar />
+      <AnimatePresence mode="wait">
+        <motion.main
+          key={route.name + JSON.stringify(route.params)}
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="px-5 pb-28"
+        >
+          <Screen {...route.params} />
+        </motion.main>
+      </AnimatePresence>
+    </>
   );
 
-  const Screen = SCREENS[route.name];
+  // Providers + the tutor wrap EVERY state (home, loading, error, in-subject) so the tutor is
+  // reachable on every page. Subject/Content are null when no subject is open; the tutor adapts.
   return (
-    <Subject.Provider value={{ key: subjectKey, meta: getSubject(subjectKey), exitSubject }}>
-      <Content.Provider value={content}>
-        <Nav.Provider value={{ go, route, exitSubject }}>
+    <Subject.Provider value={subjectKey ? { key: subjectKey, meta: getSubject(subjectKey), exitSubject } : null}>
+      <Content.Provider value={content && content !== "err" ? content : null}>
+        <Nav.Provider value={{ go, route, openSubject, exitSubject, subjectKey }}>
           <Shell>
-            <TopBar />
-            <AnimatePresence mode="wait">
-              <motion.main
-                key={route.name + JSON.stringify(route.params)}
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="px-5 pb-28"
-              >
-                <Screen {...route.params} />
-              </motion.main>
-            </AnimatePresence>
+            {body}
             <Chatbot />
           </Shell>
         </Nav.Provider>
