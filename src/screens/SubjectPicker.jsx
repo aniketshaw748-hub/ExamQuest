@@ -1,14 +1,49 @@
 import { motion } from "motion/react";
-import { ArrowRight, GithubLogo, Star, ArrowUUpLeft } from "@phosphor-icons/react";
+import { ArrowRight, GithubLogo, Star, ArrowUUpLeft, Plus, ArrowUpRight } from "@phosphor-icons/react";
 import { SUBJECTS, getSubject } from "../data/subjects.js";
 import { getLast, getSubjectStat } from "../lib/game.js";
 
 const spring = { type: "spring", stiffness: 220, damping: 26 };
 const REPO_URL = "https://github.com/aniketshaw748-hub/ExamQuest";
 
+function SubjectCard({ s, i, openSubject }) {
+  const Icon = s.icon;
+  const stat = getSubjectStat(s.key);
+  return (
+    <motion.button
+      onClick={() => openSubject(s.key)}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ ...spring, delay: 0.22 + i * 0.06 }}
+      whileHover={{ y: -3 }}
+      className="group flex items-start gap-4 rounded-[var(--radius-card)] border border-line bg-surface/60 p-5 text-left backdrop-blur-sm transition-colors hover:border-amber/40"
+    >
+      <div className="grid h-12 w-12 shrink-0 place-items-center rounded-[var(--radius-tile)] border border-line bg-ink-2/70 text-amber">
+        <Icon size={24} weight="duotone" />
+      </div>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center gap-2">
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-dim">{s.world}</span>
+          {stat.started && (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber/15 px-2 py-0.5 text-[10px] text-amber">
+              <span className="h-1.5 w-1.5 rounded-full bg-amber" /> in progress
+            </span>
+          )}
+        </div>
+        <h3 className="mt-1 font-display text-[18px] font-medium leading-tight tracking-tight">{s.name}</h3>
+        <p className="mt-1.5 text-[13px] leading-relaxed text-dim">{s.blurb}</p>
+      </div>
+      <ArrowRight size={20} className="mt-1 shrink-0 text-dim transition-all group-hover:translate-x-1 group-hover:text-amber" />
+    </motion.button>
+  );
+}
+
 export default function SubjectPicker({ openSubject }) {
   const last = getLast();
   const lastSub = last && getSubject(last.subject);
+  const main = SUBJECTS.filter((s) => !s.back);
+  const back = SUBJECTS.filter((s) => s.back);
+
   return (
     <div className="relative px-5 pb-28 pt-16">
       <motion.a
@@ -31,7 +66,7 @@ export default function SubjectPicker({ openSubject }) {
       </motion.h1>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.18 }}
         className="mt-4 max-w-lg text-[15px] leading-relaxed text-muted">
-        Every idea is illustrated with an interactive you can play with, then you drill the most repeated previous-year questions until they stick. Six subjects, all fully illustrated.
+        Every idea is illustrated with an interactive you can play with, then you drill the most repeated previous-year questions until they stick.
       </motion.p>
 
       {lastSub && (
@@ -50,39 +85,35 @@ export default function SubjectPicker({ openSubject }) {
       )}
 
       <div className="mt-8 grid gap-3 sm:grid-cols-2">
-        {SUBJECTS.map((s, i) => {
-          const Icon = s.icon;
-          const stat = getSubjectStat(s.key);
-          return (
-            <motion.button
-              key={s.key}
-              onClick={() => openSubject(s.key)}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ ...spring, delay: 0.22 + i * 0.06 }}
-              whileHover={{ y: -3 }}
-              className="group flex items-start gap-4 rounded-[var(--radius-card)] border border-line bg-surface/60 p-5 text-left backdrop-blur-sm transition-colors hover:border-amber/40"
-            >
-              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-[var(--radius-tile)] border border-line bg-ink-2/70 text-amber">
-                <Icon size={24} weight="duotone" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-dim">{s.world}</span>
-                  {stat.started && (
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-amber/15 px-2 py-0.5 text-[10px] text-amber">
-                      <span className="h-1.5 w-1.5 rounded-full bg-amber" /> in progress
-                    </span>
-                  )}
-                </div>
-                <h3 className="mt-1 font-display text-[18px] font-medium leading-tight tracking-tight">{s.name}</h3>
-                <p className="mt-1.5 text-[13px] leading-relaxed text-dim">{s.blurb}</p>
-              </div>
-              <ArrowRight size={20} className="mt-1 shrink-0 text-dim transition-all group-hover:translate-x-1 group-hover:text-amber" />
-            </motion.button>
-          );
-        })}
+        {main.map((s, i) => <SubjectCard key={s.key} s={s} i={i} openSubject={openSubject} />)}
       </div>
+
+      {/* the odd one out: Chemistry is a Sem-2 back paper, kept in its own section */}
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="mt-14">
+        <p className="font-mono text-[12px] uppercase tracking-[0.3em] text-dim">Yeah, I had a back...</p>
+        <h2 className="mt-1.5 font-display text-2xl font-medium tracking-tight text-muted">A leftover from an earlier semester</h2>
+
+        <div className="mt-5 grid gap-3 sm:grid-cols-2">
+          {back.map((s, i) => <SubjectCard key={s.key} s={s} i={i} openSubject={openSubject} />)}
+
+          <motion.a
+            href={REPO_URL} target="_blank" rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ ...spring, delay: 0.34 }}
+            whileHover={{ y: -3 }}
+            className="group flex items-center justify-center gap-3 rounded-[var(--radius-card)] border border-dashed border-line bg-surface/30 p-5 text-center transition-colors hover:border-amber/50">
+            <div className="grid h-12 w-12 shrink-0 place-items-center rounded-[var(--radius-tile)] border border-dashed border-line text-dim transition-colors group-hover:border-amber/50 group-hover:text-amber">
+              <Plus size={24} weight="bold" />
+            </div>
+            <div className="min-w-0 text-left">
+              <div className="flex items-center gap-1.5">
+                <h3 className="font-display text-[18px] font-medium leading-tight tracking-tight text-muted transition-colors group-hover:text-text">Contribute</h3>
+                <ArrowUpRight size={14} className="text-dim transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-amber" />
+              </div>
+              <p className="mt-1.5 text-[13px] leading-relaxed text-dim">Add your own subject or notes on GitHub.</p>
+            </div>
+          </motion.a>
+        </div>
+      </motion.div>
     </div>
   );
 }
