@@ -94,6 +94,11 @@ import WasteHierarchyExplainer from "./WasteHierarchyExplainer.jsx";
 import NoiseExplainer from "./NoiseExplainer.jsx";
 import EiaExplainer from "./EiaExplainer.jsx";
 import PdcaExplainer from "./PdcaExplainer.jsx";
+import BiomimicryExplainer from "./BiomimicryExplainer.jsx";
+import EyeCameraExplainer from "./EyeCameraExplainer.jsx";
+import KingdomsExplainer from "./KingdomsExplainer.jsx";
+import CellCompareExplainer from "./CellCompareExplainer.jsx";
+import ModelOrganismsExplainer from "./ModelOrganismsExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -216,4 +221,10 @@ export const EXPLAINERS = {
   noise: NoiseExplainer,
   eia: EiaExplainer,
   pdca: PdcaExplainer,
+  // biology
+  biomimicry: BiomimicryExplainer,
+  eyecamera: EyeCameraExplainer,
+  kingdoms: KingdomsExplainer,
+  cellcompare: CellCompareExplainer,
+  modelorganisms: ModelOrganismsExplainer,
 };
