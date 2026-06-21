@@ -35,9 +35,25 @@ export default function App() {
     fetch(sub.file).then((r) => r.json()).then(setContent).catch(() => setContent("err"));
   }, [subjectKey]);
 
-  const go = (name, params = {}) => { recordVisit(subjectKey, name, params); setRoute({ name, params }); window.scrollTo({ top: 0 }); };
-  const openSubject = (key, route) => { setSubjectKey(key); setRoute(route || { name: "overworld", params: {} }); window.scrollTo({ top: 0 }); };
-  const exitSubject = () => { setSubjectKey(null); window.scrollTo({ top: 0 }); };
+  // Browser/phone Back button: the app is a single page with state-based routing, so without this
+  // the Back button has no in-app history and exits the site. Mirror each navigation into the
+  // History API; popstate (Back/Forward) restores the saved {subjectKey, route} instead of leaving.
+  useEffect(() => {
+    window.history.replaceState({ subjectKey, route }, "");
+    const onPop = (e) => {
+      const s = e.state || { subjectKey: null, route: { name: "overworld", params: {} } };
+      setSubjectKey(s.subjectKey ?? null);
+      setRoute(s.route || { name: "overworld", params: {} });
+      window.scrollTo({ top: 0 });
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const pushNav = (sk, r) => { try { window.history.pushState({ subjectKey: sk, route: r }, ""); } catch {} };
+  const go = (name, params = {}) => { recordVisit(subjectKey, name, params); const r = { name, params }; setRoute(r); pushNav(subjectKey, r); window.scrollTo({ top: 0 }); };
+  const openSubject = (key, route) => { const r = route || { name: "overworld", params: {} }; setSubjectKey(key); setRoute(r); pushNav(key, r); window.scrollTo({ top: 0 }); };
+  const exitSubject = () => { const r = { name: "overworld", params: {} }; setSubjectKey(null); setRoute(r); pushNav(null, r); window.scrollTo({ top: 0 }); };
 
   // subject picker (home)
   if (!subjectKey) return <Shell><SubjectPicker openSubject={openSubject} /></Shell>;
