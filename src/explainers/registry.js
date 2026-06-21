@@ -68,6 +68,11 @@ import FirstLawExplainer from "./FirstLawExplainer.jsx";
 import ReversibleExplainer from "./ReversibleExplainer.jsx";
 import CarnotExplainer from "./CarnotExplainer.jsx";
 import GibbsExplainer from "./GibbsExplainer.jsx";
+import GalvanicCellExplainer from "./GalvanicCellExplainer.jsx";
+import NernstExplainer from "./NernstExplainer.jsx";
+import WaterCycleExplainer from "./WaterCycleExplainer.jsx";
+import EutrophicationExplainer from "./EutrophicationExplainer.jsx";
+import HardnessExplainer from "./HardnessExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -163,4 +168,9 @@ export const EXPLAINERS = {
   reversible: ReversibleExplainer,
   carnot: CarnotExplainer,
   gibbs: GibbsExplainer,
+  galvaniccell: GalvanicCellExplainer,
+  nernst: NernstExplainer,
+  watercycle: WaterCycleExplainer,
+  eutrophication: EutrophicationExplainer,
+  hardness: HardnessExplainer,
 };
