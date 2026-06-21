@@ -92,6 +92,8 @@ import WaterTreatmentExplainer from "./WaterTreatmentExplainer.jsx";
 import LandPollutionExplainer from "./LandPollutionExplainer.jsx";
 import WasteHierarchyExplainer from "./WasteHierarchyExplainer.jsx";
 import NoiseExplainer from "./NoiseExplainer.jsx";
+import EiaExplainer from "./EiaExplainer.jsx";
+import PdcaExplainer from "./PdcaExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -212,4 +214,6 @@ export const EXPLAINERS = {
   landpollution: LandPollutionExplainer,
   wastehierarchy: WasteHierarchyExplainer,
   noise: NoiseExplainer,
+  eia: EiaExplainer,
+  pdca: PdcaExplainer,
 };
