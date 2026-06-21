@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Sparkle, CaretLeft } from "@phosphor-icons/react";
 import { useProgress, level, levelFloor } from "../lib/game.js";
 import { useNav, useSubject } from "../App.jsx";
+import ThemeToggle from "./ThemeToggle.jsx";
 
 export default function TopBar() {
   const { xp } = useProgress();
@@ -29,6 +30,7 @@ export default function TopBar() {
           <Sparkle size={14} weight="fill" className="text-amber" />
           <b className="text-text tabular-nums">{xp}</b>
         </div>
+        <ThemeToggle className="h-8 w-8" />
       </div>
     </header>
   );

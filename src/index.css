@@ -1,9 +1,13 @@
 @import "tailwindcss";
 @import "katex/dist/katex.min.css";
 
-/* locked design tokens — ink-navy canvas, single amber accent, one radius system */
+/* locked design tokens — ink-navy canvas, single amber accent, one radius system.
+   Dark is the default theme; light-mode overrides live in the [data-theme="light"] block below.
+   --color-ink stays fixed (it is the dark text that sits ON amber fills, e.g. `bg-amber text-ink`);
+   the page background uses --color-canvas, which is what actually flips between themes. */
 @theme {
   --color-ink: #0a0e17;
+  --color-canvas: #0a0e17;
   --color-ink-2: #0e1422;
   --color-surface: #131b2c;
   --color-raised: #1a2336;
@@ -27,14 +31,30 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Light theme: flip the surfaces + foreground; keep amber/amber-deep and --color-ink (on-amber text).
+   Tailwind utilities reference var(--color-*), so overriding the variables here cascades everywhere. */
+:root[data-theme="light"] {
+  --color-canvas: #e9ecf3;
+  --color-ink-2: #ffffff;
+  --color-surface: #ffffff;
+  --color-raised: #e6eaf4;
+  --color-line: #d0d8e8;
+  --color-text: #14203a;
+  --color-muted: #475571;
+  --color-dim: #76859f;
+  --color-emerald: #0a9c6e;
+  --color-rose: #e23a68;
+}
+
 html, body, #root { height: 100%; }
 body {
   margin: 0;
-  background: var(--color-ink);
+  background: var(--color-canvas);
   color: var(--color-text);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  transition: background-color 0.3s var(--ease-out);
 }
 ::selection { background: color-mix(in oklab, var(--color-amber) 35%, transparent); }
 

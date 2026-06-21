@@ -40,6 +40,7 @@ Each subject is parsed from verified, image-checked notes. Every chapter has **L
 - **AI tutor + site guide** — a robot-tutor button is on **every page** (home included). It knows which lesson you're on *and* how the site works, so it both explains concepts from first principles and walks you around the app ("where's Biology?", "how do I start a quiz?"). If the shared key runs out, you can **bring your own API key** (Gemini recommended, or any OpenAI-compatible provider) right in the chat settings; it is stored only in your browser and sent straight to the provider.
 - **Tell the tutor when something's wrong** — if a page is broken or you want a topic improved, just say so in the chat. The tutor confirms and **files it to the developers** (a bug report or a suggestion) so it can actually get fixed. See [Deploy](#deploy-vercel) for wiring where reports land.
 - **Resume & progress** — the app remembers where you left off ("continue where you left off") and tracks your mastery per subject.
+- **Light / dark mode** — a Sun/Moon toggle in the top bar (and on the home screen) flips the whole app between the dark ink-navy canvas and a light theme. It remembers your choice and defaults to your OS preference.
 - **Phone-friendly** — mobile-first (works at 375px), and the device **Back button navigates within the app** instead of leaving the site.
 - **Learn by video** — each subject links a topic-complete YouTube explainer playlist for people who prefer video.
 - **Contribute** — a tile on the home screen links straight here so anyone can add a subject, a lesson, or an explainer.
@@ -99,6 +100,7 @@ Create `src/data/<subject>-teach.js` exporting `TEACH_<SUBJECT> = { chN: [lesson
 ### House rules (please follow)
 
 - **Locked design system.** Ink-navy canvas, a single amber accent (`#f6b53d`), Space Grotesk / Manrope / JetBrains Mono. No second accent colour, no emoji, no em or en dashes, mobile-first (works at 375px). Tokens live in [`src/index.css`](src/index.css).
+- **Theming (keep light mode working).** Always style with the design tokens (`bg-surface`, `text-text`, `border-line`, etc.), never hard-coded greys, so both themes adapt. Two rules: the **page background is `bg-canvas`** (it flips per theme), and **dark text that sits on an amber fill stays `text-ink`** (a fixed dark ink, the same in both themes). Light-mode token values are the `:root[data-theme="light"]` block in [`src/index.css`](src/index.css).
 - **Code-drawn only.** Explainers are SVG/CSS/Motion, never AI-generated images. They must be *accurate*, they are teaching tools.
 - **Never put a raw `$...$` in JSX.** It breaks the build in subtle ways. For math, use `<Tex>{` ... `}</Tex>` or `<Rich inline>`; `$...$` is fine inside the *data* strings in `*-teach.js`.
 - **Keep question and answer text faithful** to the verified source notes.

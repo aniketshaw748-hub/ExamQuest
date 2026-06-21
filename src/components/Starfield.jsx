@@ -27,11 +27,15 @@ export default function Starfield() {
     }
     function frame(t) {
       ctx.clearRect(0, 0, w, h);
+      // light mode: faint dark specks instead of bright stars, so they read on a pale canvas
+      const light = document.documentElement.getAttribute("data-theme") === "light";
+      const rgb = light ? "30,45,80" : "220,232,255";
+      const aMul = light ? 0.4 : 1;
       for (const s of stars) {
         const tw = reduce ? s.a : s.a + Math.sin(t * s.tw + s.ph) * 0.18;
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, 7);
-        ctx.fillStyle = `rgba(220,232,255,${Math.max(0, tw)})`;
+        ctx.fillStyle = `rgba(${rgb},${Math.max(0, tw) * aMul})`;
         ctx.fill();
         if (!reduce) { s.y += s.vy; if (s.y > h) { s.y = 0; s.x = Math.random() * w; } }
       }
@@ -45,7 +49,7 @@ export default function Starfield() {
 
   return (
     <div className="fixed inset-0 -z-10 pointer-events-none">
-      <div className="absolute inset-0 bg-ink" />
+      <div className="absolute inset-0 bg-canvas" />
       <div
         className="absolute inset-0 opacity-70"
         style={{ background: "radial-gradient(1100px 620px at 50% -8%, rgba(246,181,61,0.10), transparent 60%), radial-gradient(900px 700px at 88% 8%, rgba(52,211,154,0.06), transparent 55%)" }}
