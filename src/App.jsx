@@ -41,8 +41,19 @@ export default function App() {
 
   // subject picker (home)
   if (!subjectKey) return <Shell><SubjectPicker openSubject={openSubject} /></Shell>;
-  if (!content) return <Shell><div className="pt-40 text-center text-muted">Loading {getSubject(subjectKey).name}…</div></Shell>;
-  if (content === "err") return <Shell><div className="pt-40 text-center text-rose">Couldn't load content. Run <code>npm run dev</code>.</div></Shell>;
+  if (!content) return <Shell><LoadingSkeleton /></Shell>;
+  if (content === "err") return (
+    <Shell>
+      <div className="px-5 pt-32 text-center">
+        <p className="font-display text-xl text-rose">Couldn't load this subject.</p>
+        <p className="mt-2 text-sm text-muted">Check your connection and try again.</p>
+        <div className="mt-6 flex justify-center gap-3">
+          <button onClick={() => setSubjectKey(null)} className="rounded-full border border-line px-4 py-2 text-sm text-muted transition-colors hover:text-text">All subjects</button>
+          <button onClick={() => window.location.reload()} className="rounded-full bg-amber px-5 py-2 text-sm font-medium text-ink transition-transform active:scale-95">Reload</button>
+        </div>
+      </div>
+    </Shell>
+  );
 
   const Screen = SCREENS[route.name];
   return (
@@ -77,5 +88,20 @@ function Shell({ children }) {
       <Starfield />
       <div className="mx-auto w-full max-w-[920px]">{children}</div>
     </>
+  );
+}
+
+function LoadingSkeleton() {
+  return (
+    <div className="px-5 pt-20" aria-busy="true" aria-label="Loading subject">
+      <div className="h-3 w-28 animate-pulse rounded bg-raised" />
+      <div className="mt-4 h-12 w-2/3 animate-pulse rounded-lg bg-raised" />
+      <div className="mt-7 h-16 w-full animate-pulse rounded-[var(--radius-card)] bg-surface/60" />
+      <div className="mt-8 space-y-3">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <div key={i} className="h-[84px] w-full animate-pulse rounded-[var(--radius-card)] bg-surface/50" style={{ animationDelay: `${i * 90}ms` }} />
+        ))}
+      </div>
+    </div>
   );
 }

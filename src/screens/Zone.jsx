@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowLeft, BookOpen, Sword, Skull, ListChecks, ArrowRight } from "@phosphor-icons/react";
+import { ArrowLeft, BookOpen, Sword, Skull, ListChecks, ArrowRight, Lightbulb, X } from "@phosphor-icons/react";
 import { useContent, useNav, useSubject } from "../App.jsx";
 import { useProgress, masteryOf, topPYQs, CHAPTER_ART } from "../lib/game.js";
 import { getLessons } from "../lib/lessons.js";
@@ -22,6 +23,9 @@ export default function Zone({ ch }) {
   // preview the chapter with one of its own lesson explainers (no bespoke per-chapter art)
   const previewKey = lessons.find((l) => l.explainer)?.explainer;
   const Preview = previewKey ? EXPLAINERS[previewKey] : null;
+
+  const [hint, setHint] = useState(() => { try { return !localStorage.getItem("quest.hint.zone"); } catch { return true; } });
+  const dismissHint = () => { try { localStorage.setItem("quest.hint.zone", "1"); } catch {} setHint(false); };
 
   const walkN = getWalks(content, ch, subject).length;
   const tiles = [
@@ -54,6 +58,19 @@ export default function Zone({ ch }) {
         </motion.div>
       ) : (
         <ChapterMotif ch={ch} />
+      )}
+
+      {hint && (
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+          className="mt-8 flex items-start gap-3 rounded-[var(--radius-card)] border border-amber/30 bg-amber/[0.06] p-4">
+          <Lightbulb size={20} weight="duotone" className="mt-0.5 shrink-0 text-amber" />
+          <p className="min-w-0 flex-1 text-[13px] leading-relaxed text-muted">
+            <span className="text-text">New here?</span> Start with <b className="font-medium text-amber">Learn</b> for the ideas, then test yourself. <b className="font-medium text-text">Skirmish</b> is a quick quiz, <b className="font-medium text-text">Boss</b> drills the questions the exam repeats most, and <b className="font-medium text-text">Walkthroughs</b> solve real past questions step by step.
+          </p>
+          <button onClick={dismissHint} aria-label="Dismiss tip" className="shrink-0 text-dim transition-colors hover:text-text">
+            <X size={16} weight="bold" />
+          </button>
+        </motion.div>
       )}
 
       <div className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4">

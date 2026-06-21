@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
 import { useContent, useNav, useSubject } from "../App.jsx";
@@ -18,6 +19,19 @@ export default function Lesson({ ch, i = 0 }) {
   if (!lesson) { go("zone", { ch }); return null; }
   const Explainer = lesson.explainer ? EXPLAINERS[lesson.explainer] : null;
   const last = i === lessons.length - 1;
+
+  // arrow-key navigation between lessons (ignore when a form control, e.g. an explainer slider, is focused)
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      const t = e.target;
+      if (t && /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)) return;
+      if (e.key === "ArrowRight" && !last) go("lesson", { ch, i: i + 1 });
+      else if (e.key === "ArrowLeft" && i > 0) go("lesson", { ch, i: i - 1 });
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [ch, i, last, go]);
 
   return (
     <div className="pt-8">
@@ -53,6 +67,7 @@ export default function Lesson({ ch, i = 0 }) {
           {last ? "Finish" : "Next"} <ArrowRight size={16} />
         </button>
       </div>
+      <p className="mt-3 hidden text-center text-[11px] text-dim sm:block">Use the ← and → arrow keys to move between lessons</p>
     </div>
   );
 }
