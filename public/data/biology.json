@@ -1,0 +1,1581 @@
+{
+ "subject": "Biology",
+ "generatedFrom": "Biology for Engineers master + practice notes (MAKAUT BSC401; PYQs BSC401-2022, BS-EE-301-2019, BS-BIO-301-2019)",
+ "chapterCount": 9,
+ "totals": {
+  "mcqs": 35,
+  "short": 26,
+  "long": 12
+ },
+ "maxPYQFrequency": 2,
+ "chapters": [
+  {
+   "id": "ch1",
+   "num": 1,
+   "title": "Biology for Engineers",
+   "fullTitle": "Biology for Engineers — Module 1: Introduction",
+   "concepts": [
+    {
+     "title": "What biology studies",
+     "body": "Biology is the natural science of life and living organisms: their structure, chemistry, physiology, development and evolution. Three unifying ideas run through it: the cell is the basic unit of life, the gene is the basic unit of heredity, and evolution is the engine that creates and removes species. Living organisms are open systems that take in energy to maintain a stable internal state (homeostasis)."
+    },
+    {
+     "title": "Why biology matters to engineers",
+     "body": "The genomic and molecular revolutions (the Human Genome Project was published in 2003, identifying about 25,000 human genes) let us treat biological functions as biomolecular machines and their regulation as biomolecular circuits. That reframing links biology to engineering: central dogma as computing, signal transduction as an amplifier or switch, the cell cycle and blood-sugar control as feedback systems, and the immune system as computer security."
+    },
+    {
+     "title": "Biomimicry",
+     "body": "Biomimicry is innovation that solves human problems by emulating nature's time-tested patterns and strategies. Biomimetic designs are human-made devices that imitate nature. There are three levels: the Organism, its Behaviour, and the Ecosystem (mnemonic O-B-E). Examples: bird wings shaped aeroplane wings, the gecko foot inspired dry gecko tape, the lotus leaf inspired self-cleaning surfaces, and the eye inspired the camera."
+    },
+    {
+     "title": "Science vs engineering",
+     "body": "Science goes from a physical system to a descriptive model (theory) using the scientific method (hypothesis then experiment) to understand what is not yet understood. Engineering goes the opposite way, from a model (design) to a physical system using the design process (define a problem then prototype) to build new things from what is already understood. Science seeks understanding; engineering erects systems."
+    },
+    {
+     "title": "The eye as a camera",
+     "body": "The eye and a camera solve the same problem and map part for part. The cornea and lens focus light like the camera lens; the iris and pupil control how much light enters like the aperture; the retina captures the image and converts light to electrical impulses like the film or sensor; and the optic nerve carries the signal to the brain like a data cable."
+    }
+   ],
+   "mcqs": [
+    {
+     "n": "1",
+     "question": "The basic unit of heredity is the",
+     "options": [
+      {
+       "label": "a",
+       "text": "cell"
+      },
+      {
+       "label": "b",
+       "text": "gene"
+      },
+      {
+       "label": "c",
+       "text": "tissue"
+      },
+      {
+       "label": "d",
+       "text": "organ"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "2",
+     "question": "The three levels of biomimicry are organism, behaviour and",
+     "options": [
+      {
+       "label": "a",
+       "text": "molecule"
+      },
+      {
+       "label": "b",
+       "text": "ecosystem"
+      },
+      {
+       "label": "c",
+       "text": "habitat"
+      },
+      {
+       "label": "d",
+       "text": "cell"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "3",
+     "question": "The Human Genome Project was published in",
+     "options": [
+      {
+       "label": "a",
+       "text": "1999"
+      },
+      {
+       "label": "b",
+       "text": "2001"
+      },
+      {
+       "label": "c",
+       "text": "2003"
+      },
+      {
+       "label": "d",
+       "text": "2008"
+      }
+     ],
+     "answer": "c",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    }
+   ],
+   "short": [
+    {
+     "n": "1",
+     "question": "What is biomimicry? State its three levels with one example.",
+     "answer": "**Biomimicry** is an approach to innovation that solves human challenges by emulating nature's time-tested patterns and strategies (mimicking nature for technology). Its three levels are: (1) the **Organism** (e.g. a bird's body shape inspiring an aeroplane), (2) its **Behaviour**, and (3) the **Ecosystem**. Example: the gecko's foot inspired dry **gecko tape**, and the lotus leaf inspired self-cleaning surfaces.",
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "2",
+     "question": "Compare the eye with a camera.",
+     "answer": "Both focus light to form an image. **Cornea + lens** act as the camera **lens** (focus light); the **iris/pupil** acts as the **aperture** (controls light entering); the **retina** acts as the **film/sensor** (captures the image and converts light to electrical impulses); and the **optic nerve** acts as the **data cable** carrying the signal to the brain.",
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "3",
+     "question": "Distinguish the scientific method from the engineering design process.",
+     "answer": "**Science** moves from a physical system to a descriptive model (theory): it uses the **scientific method** (hypothesis then experiment) to understand what is not yet understood. **Engineering** moves the other way, from a model (design) to a physical system: it uses the **design process** (define the problem then prototype) to create new things from what is already understood.",
+     "years": [],
+     "model": true
+    }
+   ],
+   "long": [
+    {
+     "n": "1",
+     "question": "How will you convey that Biology is as important a scientific discipline as Mathematics, Physics and Chemistry?",
+     "answer": "Biology is foundational because it explains life itself through three unifying ideas: the **cell** (unit of life), the **gene** (unit of heredity), and **evolution** (the engine of change). Like the other sciences it is quantitative and predictive.\n\nFor engineers it is now indispensable: the genomic and molecular revolutions (the **Human Genome Project**, published 2003, ~25,000 genes) let us treat biological functions as **biomolecular machines** and their regulation as **biomolecular circuits**. This created deep links with engineering:\n- **Information processing:** DNA stores and transmits information like a computer.\n- **Biological circuits:** the central dogma behaves like computation.\n- **Signal transduction:** protein-kinase cascades act as amplifiers and switches.\n- **Control systems:** the cell cycle and blood-sugar regulation are feedback loops.\n- **Sensors:** the immune system parallels computer security.\n- **Biomimicry:** nature inspires engineering (gecko tape, self-cleaning surfaces, efficient turbine blades).\n\nThus biology supplies both fundamental understanding of life and a rich design language for modern engineering, making it as important as mathematics, physics and chemistry.",
+     "years": [
+      2022
+     ],
+     "model": false
+    }
+   ],
+   "file": "1 Biology for Engineers.md"
+  },
+  {
+   "id": "ch2",
+   "num": 2,
+   "title": "Biological Classification",
+   "fullTitle": "Biology for Engineers — Module 2: Biological Classification",
+   "concepts": [
+    {
+     "title": "Classification and its history",
+     "body": "Classification is the scientific arrangement of organisms into groups by similarities and differences. Aristotle made the first attempt; Linnaeus gave a two-kingdom system (Plantae, Animalia) and binomial nomenclature (a two-word Latin name, Genus + species, e.g. Homo sapiens). R.H. Whittaker (1969) gave the modern five-kingdom system."
+    },
+    {
+     "title": "The five kingdoms",
+     "body": "Whittaker's five kingdoms, classified by cell structure, body organisation, nutrition, reproduction and phylogeny: Monera (prokaryotic bacteria and archaea), Protista (unicellular eukaryotes like diatoms and protozoa), Fungi (eukaryotic, mostly saprophytic; four classes including the imperfect fungi or Deuteromycetes), Plantae (multicellular, chlorophyll, autotrophic) and Animalia (multicellular, no cell wall, holozoic). Viruses, viroids and lichens are not placed in this system."
+    },
+    {
+     "title": "Taxonomic hierarchy",
+     "body": "Organisms are ranked from broad to narrow: Kingdom, Phylum, Class, Order, Family, Genus, Species (mnemonic: King Philip Came Over For Good Soup). A species is a group that interbreeds and produces fertile offspring; a genus is a group of related species; a family groups related genera; an order groups related families; a phylum groups related classes (a major body-plan division)."
+    },
+    {
+     "title": "Prokaryotic vs eukaryotic cells",
+     "body": "Prokaryotes (bacteria, archaea) are small (0.2-2 micrometre), always unicellular, have no membrane-bound nucleus, carry circular naked DNA, have 70S ribosomes, lack mitochondria/ER/Golgi, and divide by binary fission. Eukaryotes (plant and animal cells) are larger (10-100 micrometre), can be multicellular, have a true nucleus, linear DNA with histones, 80S ribosomes, membrane-bound organelles, and divide by mitosis or meiosis."
+    },
+    {
+     "title": "Model organisms",
+     "body": "Model organisms are easy-to-study species that stand in for biology in general. E. coli (a bacterium, doubles every ~20 min, cheap, harmless lab strains) for molecular genetics; S. cerevisiae (baker's yeast, a single-celled eukaryote that divides by meiosis and does homologous recombination); D. melanogaster (fruit fly, short cycle, few chromosomes) for inheritance; C. elegans (a worm, transparent, a fixed 959 somatic cells) for development and apoptosis; A. thaliana (a plant, small genome); and M. musculus (mouse, close to humans) for disease models."
+    },
+    {
+     "title": "Excretion of nitrogenous waste",
+     "body": "Animals excrete nitrogen waste in three ways. Ammonotelic animals (aquatic: bony fish, tadpoles) excrete ammonia, the most toxic, needing the most water. Ureotelic animals (mammals including humans, adult amphibians) excrete urea, intermediate in toxicity. Uricotelic animals (insects, reptiles and birds) excrete uric acid, the least toxic, needing the least water (the white paste in bird droppings)."
+    }
+   ],
+   "mcqs": [
+    {
+     "n": "1",
+     "question": "The five-kingdom classification was proposed by",
+     "options": [
+      {
+       "label": "a",
+       "text": "Linnaeus"
+      },
+      {
+       "label": "b",
+       "text": "Aristotle"
+      },
+      {
+       "label": "c",
+       "text": "Whittaker (1969)"
+      },
+      {
+       "label": "d",
+       "text": "Huxley"
+      }
+     ],
+     "answer": "c",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "2",
+     "question": "The ribosome in a prokaryotic cell is",
+     "options": [
+      {
+       "label": "a",
+       "text": "80S"
+      },
+      {
+       "label": "b",
+       "text": "70S"
+      },
+      {
+       "label": "c",
+       "text": "50S"
+      },
+      {
+       "label": "d",
+       "text": "60S"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [
+      2022
+     ],
+     "model": false
+    },
+    {
+     "n": "3",
+     "question": "Imperfect fungi (Deuteromycetes) are fungi whose",
+     "options": [
+      {
+       "label": "a",
+       "text": "asexual stage is absent"
+      },
+      {
+       "label": "b",
+       "text": "sexual (perfect) stage is unknown"
+      },
+      {
+       "label": "c",
+       "text": "cell wall is absent"
+      },
+      {
+       "label": "d",
+       "text": "nucleus is absent"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [
+      2022
+     ],
+     "model": false
+    },
+    {
+     "n": "4",
+     "question": "Trinomial nomenclature was proposed by",
+     "options": [
+      {
+       "label": "a",
+       "text": "Linnaeus"
+      },
+      {
+       "label": "b",
+       "text": "Whittaker"
+      },
+      {
+       "label": "c",
+       "text": "Huxley & Stricklandt"
+      },
+      {
+       "label": "d",
+       "text": "Aristotle"
+      }
+     ],
+     "answer": "c",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    }
+   ],
+   "short": [
+    {
+     "n": "1",
+     "question": "Differentiate between prokaryotic and eukaryotic cells.",
+     "answer": "| Feature | Prokaryote | Eukaryote |\n|---|---|---|\n| Nucleus | Absent (no membrane) | Present (membrane-bound) |\n| Size | 0.2-2 micrometre | 10-100 micrometre |\n| DNA | Circular, naked | Linear, with histones |\n| Ribosome | **70S** | **80S** |\n| Organelles | Mitochondria/ER/Golgi absent | Present |\n| Division | Binary fission | Mitosis / Meiosis |\n| Examples | Bacteria, Archaea | Plant and animal cells |",
+     "years": [
+      2022,
+      2019
+     ],
+     "model": false
+    },
+    {
+     "n": "2",
+     "question": "Explain Species, Genus, Phylum, Order and Family.",
+     "answer": "These are taxonomic ranks (broad to narrow: Kingdom > Phylum > Class > Order > Family > Genus > Species).\n- **Species:** a group of organisms that interbreed and produce fertile offspring (the basic unit).\n- **Genus:** a group of closely related species.\n- **Family:** a group of related genera.\n- **Order:** a group of related families.\n- **Phylum:** a group of related classes (a major body-plan division).",
+     "years": [
+      2019
+     ],
+     "model": false
+    },
+    {
+     "n": "3",
+     "question": "Differentiate ammonotelic, ureotelic and uricotelic organisms.",
+     "answer": "These describe how animals excrete nitrogenous waste.\n- **Ammonotelic:** excrete **ammonia** (most toxic, needs most water); aquatic animals such as bony fish and tadpoles.\n- **Ureotelic:** excrete **urea** (intermediate); mammals (including humans) and adult amphibians.\n- **Uricotelic:** excrete **uric acid** (least toxic, needs least water); insects, reptiles and birds.",
+     "years": [
+      2022
+     ],
+     "model": false
+    }
+   ],
+   "long": [
+    {
+     "n": "1",
+     "question": "Give the characteristics of E. coli, S. cerevisiae and D. melanogaster as model organisms.",
+     "answer": "**E. coli** is a Gram-negative, rod-shaped bacterium. It is single-celled (no ethical issues), doubles every ~20 minutes, grows on cheap simple media, has well-mapped genetics and harmless lab strains. It is the workhorse for molecular biology, cloning and gene expression.\n\n**S. cerevisiae (baker's yeast)** is a single-celled **eukaryote**. It has a short generation time (1.25-2 h), divides by **meiosis** (so it is usable for sexual genetics), is easily transformed, and undergoes **homologous recombination** for gene knock-in/knock-out. It bridges to higher eukaryotes.\n\n**D. melanogaster (fruit fly)** has a short life cycle, large offspring numbers and only four chromosome pairs, and is easy to culture. It is the classical model for inheritance, linkage and developmental genetics.",
+     "years": [
+      2022
+     ],
+     "model": false
+    },
+    {
+     "n": "2",
+     "question": "Give the characteristics of C. elegans, A. thaliana and M. musculus as model organisms.",
+     "answer": "**C. elegans** is a small transparent nematode worm with a fixed, fully mapped number of **959 somatic cells** and a known cell lineage, making it ideal for studying development and programmed cell death (apoptosis).\n\n**A. thaliana (thale cress)** is a small flowering plant with a small genome and a fast life cycle, the standard model for plant genetics.\n\n**M. musculus (mouse)** is a mammal genetically and physiologically close to humans, used to model human diseases and test treatments.",
+     "years": [
+      2022
+     ],
+     "model": false
+    }
+   ],
+   "file": "2 Biological Classification.md"
+  },
+  {
+   "id": "ch3",
+   "num": 3,
+   "title": "Genetics",
+   "fullTitle": "Biology for Engineers — Module 3: Genetics",
+   "concepts": [
+    {
+     "title": "Genetic vocabulary",
+     "body": "Genetics is the study of genes, variation and heredity. A gene is a unit of heredity (a DNA segment coding a trait); an allele is an alternative form of a gene (T = tall, t = short). Genotype is the genetic makeup (Tt); phenotype is the observable trait (tall). Homozygous means two identical alleles (TT or tt); heterozygous means two different (Tt). A dominant allele is expressed in the heterozygote; a recessive one only when homozygous. A mutation is a sudden, heritable change in a gene."
+    },
+    {
+     "title": "Mendel's three laws",
+     "body": "Mendel's laws of inheritance: (1) Law of Dominance, in a heterozygote the dominant allele masks the recessive. (2) Law of Segregation (purity of gametes), the two alleles of a gene separate during gamete formation so each gamete carries only one. (3) Law of Independent Assortment, alleles of different genes assort independently. Segregation acts on alleles of the same gene; independent assortment acts across different genes."
+    },
+    {
+     "title": "Crosses and ratios",
+     "body": "A monohybrid cross Tt x Tt gives a genotypic ratio 1 TT : 2 Tt : 1 tt and a phenotypic ratio 3 tall : 1 short. A dihybrid cross RrYy x RrYy gives a 9 : 3 : 3 : 1 phenotypic ratio, demonstrating independent assortment. A test cross (with the homozygous recessive) reveals an unknown genotype."
+    },
+    {
+     "title": "Deviations from Mendel",
+     "body": "Several patterns modify simple Mendelian ratios. Incomplete dominance gives an intermediate (blended) phenotype (red x white snapdragon gives pink; 1:2:1). Co-dominance expresses both alleles fully (AB blood group). Epistasis is when one gene masks or modifies a non-allelic gene at a different locus, giving modified 9:3:3:1 ratios (e.g. coat colour in Labradors). Linkage (genes on the same chromosome inherited together) is an exception to independent assortment."
+    },
+    {
+     "title": "Mitosis vs meiosis",
+     "body": "Mitosis is one division producing two diploid daughter cells identical to the parent, used for growth and repair in somatic cells, with no crossing over (stages PMAT: Prophase, Metaphase, Anaphase, Telophase, then Cytokinesis). Meiosis is two divisions producing four haploid, genetically variable cells, used to form gametes in germ cells, with synapsis and crossing over in prophase I that generate variation."
+    }
+   ],
+   "mcqs": [
+    {
+     "n": "1",
+     "question": "The phenotypic ratio of a monohybrid cross (Tt x Tt) is",
+     "options": [
+      {
+       "label": "a",
+       "text": "1:2:1"
+      },
+      {
+       "label": "b",
+       "text": "3:1"
+      },
+      {
+       "label": "c",
+       "text": "9:3:3:1"
+      },
+      {
+       "label": "d",
+       "text": "1:1"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "2",
+     "question": "Four daughter cells are produced by",
+     "options": [
+      {
+       "label": "a",
+       "text": "mitosis"
+      },
+      {
+       "label": "b",
+       "text": "meiosis"
+      },
+      {
+       "label": "c",
+       "text": "binary fission"
+      },
+      {
+       "label": "d",
+       "text": "budding"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "3",
+     "question": "Which is an exception to Mendel's laws?",
+     "options": [
+      {
+       "label": "a",
+       "text": "Dominance"
+      },
+      {
+       "label": "b",
+       "text": "Segregation"
+      },
+      {
+       "label": "c",
+       "text": "Linkage"
+      },
+      {
+       "label": "d",
+       "text": "Purity of gametes"
+      }
+     ],
+     "answer": "c",
+     "asPrinted": false,
+     "years": [
+      2022
+     ],
+     "model": false
+    },
+    {
+     "n": "4",
+     "question": "Incomplete dominance in snapdragon (red x white) gives",
+     "options": [
+      {
+       "label": "a",
+       "text": "all red"
+      },
+      {
+       "label": "b",
+       "text": "all white"
+      },
+      {
+       "label": "c",
+       "text": "pink (intermediate)"
+      },
+      {
+       "label": "d",
+       "text": "9:3:3:1"
+      }
+     ],
+     "answer": "c",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    }
+   ],
+   "short": [
+    {
+     "n": "1",
+     "question": "State Mendel's three laws of heredity.",
+     "answer": "**1. Law of Dominance:** in a heterozygote, the dominant allele masks the recessive one.\n**2. Law of Segregation (purity of gametes):** the two alleles of a gene separate during gamete formation, so each gamete carries only one allele.\n**3. Law of Independent Assortment:** alleles of different genes assort independently of one another during gamete formation.",
+     "years": [
+      2019
+     ],
+     "model": false
+    },
+    {
+     "n": "2",
+     "question": "Differentiate between mitosis and meiosis.",
+     "answer": "| Feature | Mitosis | Meiosis |\n|---|---|---|\n| Purpose | Growth, repair | Gamete formation |\n| Divisions | One | **Two** |\n| Daughter cells | 2, diploid (2n) | 4, haploid (n) |\n| Genetic identity | Identical to parent | Variable |\n| Crossing over | Absent | **Present** (prophase I) |\n| Where | Somatic cells | Germ cells |",
+     "years": [
+      2022,
+      2019
+     ],
+     "model": false
+    },
+    {
+     "n": "3",
+     "question": "Explain epistasis with an example.",
+     "answer": "**Epistasis** is the interaction between two **non-allelic** genes in which one gene masks or suppresses the expression of another at a different locus, giving a modified 9:3:3:1 ratio (such as 9:3:4 or 12:3:1). Example: in Labrador retrievers, gene B controls black/brown coat, but gene E is epistatic, the genotype **ee** produces a yellow coat regardless of the B gene.",
+     "years": [
+      2022
+     ],
+     "model": false
+    },
+    {
+     "n": "4",
+     "question": "Define dominant and recessive alleles.",
+     "answer": "A **dominant** allele is one that is expressed (masks the other) in the heterozygous condition. A **recessive** allele is one that is expressed only in the homozygous condition (when both alleles are recessive).",
+     "years": [
+      2019
+     ],
+     "model": false
+    }
+   ],
+   "long": [
+    {
+     "n": "1",
+     "question": "A heterozygous round-yellow pea (RrYy) is self-crossed. Show the F2 phenotypic ratio with a checkerboard, and state which Mendelian law it demonstrates.",
+     "answer": "Each parent produces four gamete types: **RY, Ry, rY, ry**. Filling the 4x4 Punnett square gives 16 combinations with the classic dihybrid result:\n\n**Phenotypic ratio = 9 round-yellow : 3 round-green : 3 wrinkled-yellow : 1 wrinkled-green (9 : 3 : 3 : 1).**\n\nBecause the round/wrinkled gene and the yellow/green gene segregate into gametes independently of each other, the cross demonstrates Mendel's **Law of Independent Assortment**.",
+     "years": [
+      2019
+     ],
+     "model": false
+    }
+   ],
+   "file": "3 Genetics.md"
+  },
+  {
+   "id": "ch4",
+   "num": 4,
+   "title": "Biomolecules",
+   "fullTitle": "Biology for Engineers — Module 4: Biomolecules",
+   "concepts": [
+    {
+     "title": "Carbohydrates",
+     "body": "Carbohydrates are polyhydroxy aldehydes or ketones (or compounds that yield them on hydrolysis) with C, H and O in the ratio (CH2O)n; their chief source is photosynthesis. They are monosaccharides (glucose, fructose), oligosaccharides (sucrose, lactose, maltose) or polysaccharides (starch, glycogen, cellulose). Storage forms are starch (plants) and glycogen (animal starch); structural forms are cellulose and chitin. Carbohydrates are optically active because they contain asymmetric (chiral) carbon atoms."
+    },
+    {
+     "title": "Lipids",
+     "body": "Lipids are esters of fatty acids and an alcohol; they are hydrophobic, insoluble in water but soluble in ether, benzene and chloroform. They are simple (fats, oils, waxes), compound (phospholipids, glycolipids) or derived (steroids, fatty acids). Saturated fatty acids have no double bonds, are solid, and raise cholesterol; unsaturated ones have double bonds, are liquid, and lower it. Phospholipids are amphipathic and build the cell membrane bilayer. Lipids give about 39.1 kJ per gram, more than carbohydrate or protein."
+    },
+    {
+     "title": "Amino acids",
+     "body": "An amino acid is an organic acid carrying a carboxyl (-COOH) and an amino (-NH2) group on the alpha-carbon, general formula R-CH(NH2)-COOH. There are 20 standard amino acids, about 9 of them essential (must come from diet). At low pH an amino acid is a cation, at high pH an anion, and at its isoelectric point (pI) a zwitterion (net charge zero, most stable, least soluble). Amino acids therefore act as buffers."
+    },
+    {
+     "title": "Protein structure",
+     "body": "Proteins have four structural levels. Primary is the linear amino-acid sequence joined by peptide bonds. Secondary is local folding into the alpha-helix (right-handed coil, ~3.6 residues per turn, diameter about 10 angstrom) or the beta-pleated sheet, stabilised by hydrogen bonds. Tertiary is the overall 3-D fold (H-bonds, disulphide, ionic and hydrophobic interactions). Quaternary is the assembly of more than one polypeptide. Denaturation by heat, pH or chemicals destroys the 2nd/3rd/4th levels but leaves the primary sequence intact (e.g. boiling an egg)."
+    },
+    {
+     "title": "Vitamins",
+     "body": "Vitamins are micronutrients whose deficiency causes specific diseases: vitamin D deficiency causes rickets, vitamin C causes scurvy, vitamin A causes night blindness, and vitamin B1 causes beri-beri. Fat-soluble vitamins A, D, E and K are carried by lipids."
+    }
+   ],
+   "mcqs": [
+    {
+     "n": "1",
+     "question": "Carbohydrates are optically active because they contain",
+     "options": [
+      {
+       "label": "a",
+       "text": "double bonds"
+      },
+      {
+       "label": "b",
+       "text": "asymmetric (chiral) carbon atoms"
+      },
+      {
+       "label": "c",
+       "text": "amino groups"
+      },
+      {
+       "label": "d",
+       "text": "phosphate groups"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [
+      2022
+     ],
+     "model": false
+    },
+    {
+     "n": "2",
+     "question": "The diameter of each coil of an alpha-helix is about",
+     "options": [
+      {
+       "label": "a",
+       "text": "5 angstrom"
+      },
+      {
+       "label": "b",
+       "text": "10 angstrom"
+      },
+      {
+       "label": "c",
+       "text": "15 angstrom"
+      },
+      {
+       "label": "d",
+       "text": "20 angstrom"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "3",
+     "question": "Deficiency of vitamin C causes",
+     "options": [
+      {
+       "label": "a",
+       "text": "rickets"
+      },
+      {
+       "label": "b",
+       "text": "scurvy"
+      },
+      {
+       "label": "c",
+       "text": "night blindness"
+      },
+      {
+       "label": "d",
+       "text": "beri-beri"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "4",
+     "question": "The number of essential amino acids in nature is about",
+     "options": [
+      {
+       "label": "a",
+       "text": "5"
+      },
+      {
+       "label": "b",
+       "text": "9"
+      },
+      {
+       "label": "c",
+       "text": "12"
+      },
+      {
+       "label": "d",
+       "text": "20"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [
+      2022
+     ],
+     "model": false
+    }
+   ],
+   "short": [
+    {
+     "n": "1",
+     "question": "Draw the ionic and neutral structures of an amino acid and state which is stable at what pH.",
+     "answer": "General formula **R-CH(NH2)-COOH**.\n- **Low pH (acidic):** both groups protonated, a **cation** (-NH3+, -COOH), net positive.\n- **High pH (basic):** both deprotonated, an **anion** (-NH2, -COO-), net negative.\n- **Isoelectric point (pI):** exists as a **zwitterion** (-NH3+ and -COO- together), net charge zero. This is the **most stable** form (least soluble, no migration in an electric field).",
+     "years": [
+      2019
+     ],
+     "model": false
+    },
+    {
+     "n": "2",
+     "question": "Write a short note on denaturation of protein.",
+     "answer": "**Denaturation** is the loss of a protein's three-dimensional structure (and therefore its function) caused by heat, extreme pH or chemicals. It destroys the **secondary, tertiary and quaternary** structures by breaking the hydrogen, ionic and disulphide interactions, but the **primary sequence (peptide bonds) stays intact**. It is often irreversible, e.g. the white of a boiled egg.",
+     "years": [
+      2019
+     ],
+     "model": false
+    },
+    {
+     "n": "3",
+     "question": "Define essential, non-essential and partially essential amino acids.",
+     "answer": "**Essential** amino acids cannot be made by the body and must come from the diet (e.g. valine, leucine, lysine). **Non-essential** amino acids are synthesised by the body (e.g. glycine, alanine). **Partially (semi) essential** amino acids are normally made but are needed in extra amounts during growth (e.g. arginine, histidine).",
+     "years": [
+      2019
+     ],
+     "model": false
+    }
+   ],
+   "long": [
+    {
+     "n": "1",
+     "question": "Define polysaccharides, classify them, and describe the structure and functions of mucopolysaccharides.",
+     "answer": "**Polysaccharides** are carbohydrates made of more than 10 monosaccharide units joined by glycosidic bonds.\n\n**Classification:**\n- **Homopolysaccharides** (one type of monomer): **starch** (plant storage), **glycogen** (animal storage), **cellulose** (plant cell wall, beta-1,4 linked), **chitin**.\n- **Heteropolysaccharides** (more than one monomer): **mucopolysaccharides (glycosaminoglycans)** and glycoproteins.\n\n**Mucopolysaccharides (GAGs)** are long unbranched chains of repeating disaccharide units, each containing an **amino sugar** (e.g. N-acetylglucosamine) and a uronic acid; they are often sulphated and highly negatively charged.\n- **Examples:** hyaluronic acid, chondroitin sulphate, heparin, keratan sulphate.\n- **Functions:** lubricant in synovial fluid (hyaluronic acid), structural matrix of cartilage and connective tissue (chondroitin sulphate), anticoagulant (heparin), and water retention and resilience in tissues.",
+     "years": [
+      2019
+     ],
+     "model": false
+    },
+    {
+     "n": "2",
+     "question": "Describe the four levels of protein structure with the bonds involved.",
+     "answer": "**Primary structure:** the linear sequence of amino acids, joined by **peptide bonds**.\n**Secondary structure:** local folding into the **alpha-helix** (right-handed coil, ~3.6 residues/turn, diameter ~10 angstrom) or the **beta-pleated sheet** (extended strands side by side), stabilised by **hydrogen bonds**.\n**Tertiary structure:** the overall 3-D fold of the whole chain, held by hydrogen, **disulphide**, ionic and hydrophobic interactions.\n**Quaternary structure:** the assembly of two or more polypeptide chains into one functional protein (e.g. haemoglobin), held by the same kinds of bonds as tertiary.\n\nLoss of the 2nd/3rd/4th levels (the primary stays intact) is **denaturation**.",
+     "years": [],
+     "model": true
+    }
+   ],
+   "file": "4 Biomolecules.md"
+  },
+  {
+   "id": "ch5",
+   "num": 5,
+   "title": "Enzymes",
+   "fullTitle": "Biology for Engineers — Module 5: Enzymes",
+   "concepts": [
+    {
+     "title": "What enzymes are",
+     "body": "Enzymes are biocatalysts, usually proteins, that speed up biochemical reactions without being consumed and without changing the final product or the equilibrium; they work by lowering the activation energy. The reactant is the substrate, which binds at the active site. A protein apoenzyme plus a cofactor (a metal-ion activator or an organic coenzyme) gives the active holoenzyme; a tightly bound organic cofactor is a prosthetic group."
+    },
+    {
+     "title": "Six classes of enzymes",
+     "body": "Enzymes fall into six classes (mnemonic O-T-H-I-L-L): Oxidoreductases (transfer H/O or electrons, e.g. dehydrogenases), Transferases (transfer a group such as phosphate, e.g. kinases), Hydrolases (add water to break bonds, e.g. digestive enzymes), Isomerases (rearrange a molecule), Lyases (add or remove a group non-hydrolytically, e.g. decarboxylases) and Ligases or synthetases (join molecules using ATP, e.g. DNA ligase)."
+    },
+    {
+     "title": "Lock-and-key vs induced fit",
+     "body": "Two models explain enzyme action. The lock-and-key model (Emil Fischer, 1894) says the active site and substrate have rigid complementary shapes that fit like a key in a lock. The induced-fit model (Daniel Koshland) says the active site is flexible: substrate binding induces a conformational change that moulds the site around the substrate and strains the bonds, driving the reaction. The pathway is E + S to ES to E + P."
+    },
+    {
+     "title": "Michaelis-Menten kinetics",
+     "body": "The Michaelis-Menten equation, v = Vmax[S] / (Km + [S]), describes how reaction rate depends on substrate concentration. Vmax is the maximum velocity when the enzyme is saturated. Km (the Michaelis constant) is the substrate concentration at half of Vmax: a low Km means high affinity, a high Km means low affinity. A plot of v against [S] is a rectangular hyperbola; the Lineweaver-Burk plot (1/v vs 1/[S]) linearises it."
+    },
+    {
+     "title": "Enzyme inhibition",
+     "body": "Inhibitors reduce enzyme activity. A competitive inhibitor resembles the substrate and binds the active site: it raises Km, leaves Vmax unchanged, and can be overcome by adding more substrate. A non-competitive inhibitor binds an allosteric site: it lowers Vmax, leaves Km unchanged, and cannot be overcome by more substrate. An uncompetitive inhibitor binds only the enzyme-substrate complex: it lowers both Km and Vmax."
+    },
+    {
+     "title": "Factors affecting activity",
+     "body": "Enzyme activity depends on temperature (rises to an optimum near 37 C in humans, then falls sharply as the enzyme denatures, a bell curve), pH (each enzyme has an optimum, e.g. pepsin ~2, trypsin ~8), substrate concentration (rises then plateaus at Vmax), enzyme concentration (proportional to rate when substrate is in excess), and the presence of inhibitors or activators."
+    }
+   ],
+   "mcqs": [
+    {
+     "n": "1",
+     "question": "Km in the Michaelis-Menten model is the substrate concentration at",
+     "options": [
+      {
+       "label": "a",
+       "text": "Vmax"
+      },
+      {
+       "label": "b",
+       "text": "half of Vmax"
+      },
+      {
+       "label": "c",
+       "text": "zero velocity"
+      },
+      {
+       "label": "d",
+       "text": "twice Vmax"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "2",
+     "question": "A competitive inhibitor changes Km and Vmax as follows",
+     "options": [
+      {
+       "label": "a",
+       "text": "Km increases, Vmax unchanged"
+      },
+      {
+       "label": "b",
+       "text": "Km unchanged, Vmax decreases"
+      },
+      {
+       "label": "c",
+       "text": "both decrease"
+      },
+      {
+       "label": "d",
+       "text": "both increase"
+      }
+     ],
+     "answer": "a",
+     "asPrinted": false,
+     "years": [
+      2022
+     ],
+     "model": false
+    },
+    {
+     "n": "3",
+     "question": "The lock-and-key model of enzyme action was proposed by",
+     "options": [
+      {
+       "label": "a",
+       "text": "Koshland"
+      },
+      {
+       "label": "b",
+       "text": "Emil Fischer"
+      },
+      {
+       "label": "c",
+       "text": "Michaelis"
+      },
+      {
+       "label": "d",
+       "text": "Menten"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "4",
+     "question": "Enzymes speed up reactions by",
+     "options": [
+      {
+       "label": "a",
+       "text": "raising activation energy"
+      },
+      {
+       "label": "b",
+       "text": "lowering activation energy"
+      },
+      {
+       "label": "c",
+       "text": "changing the equilibrium"
+      },
+      {
+       "label": "d",
+       "text": "being consumed"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    }
+   ],
+   "short": [
+    {
+     "n": "1",
+     "question": "Explain the variation of enzyme activity with pH and temperature (with a graph).",
+     "answer": "Both give a **bell-shaped curve** with an optimum.\n- **Temperature:** activity rises with temperature up to an **optimum** (~37 C in humans) as molecular collisions increase, then falls sharply because the enzyme **denatures** at high temperature.\n- **pH:** each enzyme has an **optimum pH** (pepsin ~2, trypsin ~8); above or below it the active site's charges change and activity drops.\n\n```\n rate |     .-''-.   <- optimum\n      |   .'     '.\n      | .'         '.\n      |/____________\\__ pH / temperature\n```",
+     "years": [
+      2019
+     ],
+     "model": false
+    },
+    {
+     "n": "2",
+     "question": "What are the steps from enzyme-substrate complex formation to product release?",
+     "answer": "The substrate binds the active site to form the **enzyme-substrate (ES) complex** (in the induced-fit model the site moulds around it). The bound substrate's bonds are **strained**, lowering the activation energy; the substrate is converted to **product** while still bound (EP complex). The product then **leaves** the active site, and the unchanged enzyme is **free to bind another substrate**. Overall: E + S to ES to EP to E + P.",
+     "years": [
+      2022
+     ],
+     "model": false
+    }
+   ],
+   "long": [
+    {
+     "n": "1",
+     "question": "Explain how competitive, uncompetitive and non-competitive inhibitors act on Km and Vmax. List the factors affecting enzyme activity.",
+     "answer": "**Enzyme inhibition** is a decrease in enzyme activity caused by an inhibitor binding the enzyme.\n\n**1. Competitive inhibition:** the inhibitor resembles the substrate and binds the **active site**, competing with the substrate. It can be **overcome by increasing [S]**. Effect: **Km increases**, **Vmax unchanged** (e.g. malonate on succinate dehydrogenase).\n\n**2. Non-competitive inhibition:** the inhibitor binds an **allosteric site**, changing the enzyme's shape; it is **not** overcome by more substrate. Effect: **Vmax decreases**, **Km unchanged** (e.g. heavy-metal ions Pb2+, Hg2+).\n\n**3. Uncompetitive inhibition:** the inhibitor binds **only the ES complex**. Effect: **both Km and Vmax decrease**.\n\n| Type | Binds | Km | Vmax | Reversed by more [S]? |\n|---|---|:--:|:--:|:--:|\n| Competitive | active site | up | same | Yes |\n| Non-competitive | allosteric | same | down | No |\n| Uncompetitive | ES complex | down | down | No |\n\n**Factors affecting enzyme activity:** temperature (optimum ~37 C, denatures above), pH (each has an optimum), substrate concentration (saturates at Vmax), enzyme concentration (proportional when substrate is in excess), and inhibitors/activators.",
+     "years": [
+      2022,
+      2019
+     ],
+     "model": false
+    },
+    {
+     "n": "2",
+     "question": "Deduce the rate of enzyme action using the Michaelis-Menten model and define Km and Vmax.",
+     "answer": "For the scheme E + S to (k1, k-1) ES to (k2) E + P, assuming the steady state d[ES]/dt = 0, the rate is:\n\n$$v = \\frac{V_{max}[S]}{K_m + [S]}, \\quad K_m = \\frac{k_{-1}+k_2}{k_1}$$\n\n- **Vmax** is the maximum velocity, reached when the enzyme is fully saturated with substrate.\n- **Km (Michaelis constant)** is the substrate concentration at which v = Vmax/2, so it measures the enzyme's **affinity** (low Km = high affinity).\n\nA plot of v vs [S] is a **rectangular hyperbola**; the **Lineweaver-Burk** double-reciprocal plot (1/v vs 1/[S]) gives a straight line for finding Km and Vmax.",
+     "years": [
+      2019
+     ],
+     "model": false
+    }
+   ],
+   "file": "5 Enzymes.md"
+  },
+  {
+   "id": "ch6",
+   "num": 6,
+   "title": "Information Transfer",
+   "fullTitle": "Biology for Engineers — Module 6: Information Transfer (DNA, Central Dogma)",
+   "concepts": [
+    {
+     "title": "DNA and the central dogma",
+     "body": "DNA (deoxyribonucleic acid) was first extracted by Friedrich Miescher in 1869 (he called it nuclein); Watson and Crick proposed its double helix in 1953. The central dogma describes information flow: DNA is copied by replication, transcribed into RNA, and translated into protein. Some retroviruses run reverse transcription (RNA to DNA)."
+    },
+    {
+     "title": "DNA structure",
+     "body": "A nucleotide is a base plus a pentose sugar (deoxyribose) plus a phosphate; a base plus sugar alone is a nucleoside. The bases are purines adenine (A) and guanine (G, double ring) and pyrimidines cytosine (C) and thymine (T, single ring); RNA uses uracil (U) for thymine. By Chargaff's rule A pairs with T (two H-bonds) and G pairs with C (three H-bonds), so if A is 30% then T is 30% and G = C = 20%. The double helix is two antiparallel right-handed strands (~10 bp per turn) with the sugar-phosphate backbone outside and bases inside."
+    },
+    {
+     "title": "DNA replication",
+     "body": "Replication is semi-conservative (proved by Meselson and Stahl, 1958): each new molecule keeps one old and one new strand. Initiation: helicase unwinds DNA at the origin to make a replication fork; single-strand binding proteins stabilise it and primase lays an RNA primer. Elongation: DNA polymerase adds nucleotides only 5' to 3', so the leading strand is continuous while the lagging strand is made in Okazaki fragments later joined by DNA ligase. Termination: the forks meet, primers are removed and gaps are sealed."
+    },
+    {
+     "title": "Transcription",
+     "body": "Transcription copies DNA into RNA, catalysed by RNA polymerase (in eukaryotes RNA Pol II makes the mRNA precursor). It proceeds by initiation at the promoter (TATA box), elongation, and termination. In eukaryotes the mRNA is then processed: a 5' cap and poly-A tail are added and introns are removed by splicing, joining the exons."
+    },
+    {
+     "title": "Translation and the genetic code",
+     "body": "Translation builds protein on ribosomes. A codon is three mRNA nucleotides coding one amino acid; with 64 codons for 20 amino acids the code is degenerate. The start codon is AUG (methionine) and the stop codons are UAA, UAG and UGA. tRNA carries amino acids and its anticodon pairs with the codon. Translation runs through initiation, elongation and termination. The three RNA types are mRNA (the message), tRNA (carries amino acids) and rRNA (structural part of the ribosome)."
+    }
+   ],
+   "mcqs": [
+    {
+     "n": "1",
+     "question": "The initiation (start) codon is",
+     "options": [
+      {
+       "label": "a",
+       "text": "UAA"
+      },
+      {
+       "label": "b",
+       "text": "UGA"
+      },
+      {
+       "label": "c",
+       "text": "AUG"
+      },
+      {
+       "label": "d",
+       "text": "UAG"
+      }
+     ],
+     "answer": "c",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "2",
+     "question": "A codon consists of how many nucleotides?",
+     "options": [
+      {
+       "label": "a",
+       "text": "1"
+      },
+      {
+       "label": "b",
+       "text": "2"
+      },
+      {
+       "label": "c",
+       "text": "3"
+      },
+      {
+       "label": "d",
+       "text": "4"
+      }
+     ],
+     "answer": "c",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "3",
+     "question": "In a double-stranded DNA with 30% adenine, the percentage of guanine is",
+     "options": [
+      {
+       "label": "a",
+       "text": "30"
+      },
+      {
+       "label": "b",
+       "text": "40"
+      },
+      {
+       "label": "c",
+       "text": "20"
+      },
+      {
+       "label": "d",
+       "text": "70"
+      }
+     ],
+     "answer": "c",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "4",
+     "question": "DNA replication is",
+     "options": [
+      {
+       "label": "a",
+       "text": "conservative"
+      },
+      {
+       "label": "b",
+       "text": "semi-conservative"
+      },
+      {
+       "label": "c",
+       "text": "dispersive"
+      },
+      {
+       "label": "d",
+       "text": "random"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "5",
+     "question": "The enzyme that transcribes the mRNA precursor in eukaryotes is",
+     "options": [
+      {
+       "label": "a",
+       "text": "RNA polymerase I"
+      },
+      {
+       "label": "b",
+       "text": "RNA polymerase II"
+      },
+      {
+       "label": "c",
+       "text": "DNA polymerase"
+      },
+      {
+       "label": "d",
+       "text": "helicase"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    }
+   ],
+   "short": [
+    {
+     "n": "1",
+     "question": "State Chargaff's base-pairing rule and give the start and stop codons.",
+     "answer": "**Chargaff's rule:** in double-stranded DNA, adenine pairs with thymine (**A = T**, two hydrogen bonds) and guanine pairs with cytosine (**G = C**, three hydrogen bonds), so A% = T% and G% = C%. **Start codon:** AUG (methionine). **Stop codons:** UAA, UAG, UGA.",
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "2",
+     "question": "Differentiate transcription and translation.",
+     "answer": "**Transcription** copies a DNA template into RNA, in the nucleus (eukaryotes), catalysed by **RNA polymerase**; product is mRNA. **Translation** decodes the mRNA into a protein, on the **ribosome**, using tRNA whose anticodons read the codons; product is a polypeptide. Both proceed by initiation, elongation and termination.",
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "3",
+     "question": "Write a short note on the structure of tRNA.",
+     "answer": "Transfer RNA (tRNA) is a small RNA that carries a specific amino acid to the ribosome. It folds into a **clover-leaf** secondary structure (an L-shape in 3-D) with an **amino-acid acceptor end** (the 3' CCA end) and an **anticodon loop** whose three bases pair with the complementary mRNA codon, ensuring the correct amino acid is added.",
+     "years": [
+      2019
+     ],
+     "model": false
+    }
+   ],
+   "long": [
+    {
+     "n": "1",
+     "question": "Elaborately explain DNA replication (initiation, elongation, termination) with a diagram.",
+     "answer": "DNA replication is **semi-conservative** (proved by **Meselson and Stahl, 1958**): each daughter molecule has one parental and one new strand.\n\n**1. Initiation:** at the **origin of replication**, **helicase** unwinds the double helix by breaking hydrogen bonds; **single-strand binding proteins** keep the strands apart; **topoisomerase** relieves supercoiling; a **replication fork** forms. **Primase** lays down a short RNA primer.\n\n**2. Elongation:** **DNA polymerase** adds nucleotides only in the **5' to 3'** direction, reading the template 3' to 5'.\n- **Leading strand:** synthesised **continuously** toward the fork.\n- **Lagging strand:** synthesised **discontinuously** as **Okazaki fragments**, each needing its own primer; primers are later removed and the fragments joined by **DNA ligase**.\n\n**3. Termination:** the replication forks meet, the last primers are removed and the gaps are sealed, giving two identical daughter DNA molecules.\n\n```\n            ----------------->  leading (continuous)\n   5'----- origin\n        | helicase unwinds\n   3'-----\n            ---  ---  ---   lagging (Okazaki fragments, joined by ligase)\n```",
+     "years": [
+      2019
+     ],
+     "model": false
+    }
+   ],
+   "file": "6 Information Transfer.md"
+  },
+  {
+   "id": "ch7",
+   "num": 7,
+   "title": "Macromolecular Analysis",
+   "fullTitle": "Biology for Engineers — Module 7: Macromolecular Analysis (DNA Packaging)",
+   "concepts": [
+    {
+     "title": "Why DNA must be packaged",
+     "body": "About 2 metres of DNA must fit inside a nucleus only ~10 micrometre across. Eukaryotes achieve this through several levels of folding around histone proteins, condensing the DNA roughly ten-thousand-fold while keeping genes accessible."
+    },
+    {
+     "title": "The nucleosome",
+     "body": "The nucleosome is the basic packaging unit: about 147 base pairs of DNA wrapped roughly 1.65 turns around a histone octamer. The octamer is eight histone proteins, two copies each of H2A, H2B, H3 and H4. A separate linker histone, H1, binds the DNA between nucleosomes (it is not part of the core octamer). Under the electron microscope this looks like beads on a string."
+    },
+    {
+     "title": "Levels of packaging",
+     "body": "Packaging proceeds in stages: the 2-nm double helix wraps into nucleosomes (the 11-nm beads-on-a-string), which coil into a 30-nm chromatin fibre (solenoid), which loops onto a protein scaffold to form looped domains, which condense further into the visible chromosome (about 1400 nm at metaphase)."
+    },
+    {
+     "title": "Histones and chromatin states",
+     "body": "Histones are small, basic proteins rich in arginine and lysine, so they are positively charged and bind the negatively charged DNA backbone. The DNA-plus-histone complex is chromatin. Loosely packed, transcriptionally active chromatin is euchromatin; tightly packed, inactive chromatin is heterochromatin."
+    }
+   ],
+   "mcqs": [
+    {
+     "n": "1",
+     "question": "The number of histone proteins in a nucleosome core is",
+     "options": [
+      {
+       "label": "a",
+       "text": "4"
+      },
+      {
+       "label": "b",
+       "text": "6"
+      },
+      {
+       "label": "c",
+       "text": "8"
+      },
+      {
+       "label": "d",
+       "text": "10"
+      }
+     ],
+     "answer": "c",
+     "asPrinted": false,
+     "years": [
+      2019
+     ],
+     "model": false
+    },
+    {
+     "n": "2",
+     "question": "The histone that binds linker DNA between nucleosomes is",
+     "options": [
+      {
+       "label": "a",
+       "text": "H1"
+      },
+      {
+       "label": "b",
+       "text": "H2A"
+      },
+      {
+       "label": "c",
+       "text": "H3"
+      },
+      {
+       "label": "d",
+       "text": "H4"
+      }
+     ],
+     "answer": "a",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "3",
+     "question": "Transcriptionally active, loosely packed chromatin is called",
+     "options": [
+      {
+       "label": "a",
+       "text": "heterochromatin"
+      },
+      {
+       "label": "b",
+       "text": "euchromatin"
+      },
+      {
+       "label": "c",
+       "text": "nucleosome"
+      },
+      {
+       "label": "d",
+       "text": "solenoid"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    }
+   ],
+   "short": [
+    {
+     "n": "1",
+     "question": "Write a short note on the structure of a nucleosome.",
+     "answer": "The **nucleosome** is the basic unit of DNA packaging: about **147 base pairs** of DNA wrapped ~1.65 turns around a **histone octamer** (two copies each of **H2A, H2B, H3, H4**, i.e. eight histones). The linker histone **H1** binds the DNA between adjacent nucleosomes but is not part of the core. In the electron microscope a chain of nucleosomes looks like **beads on a string**.",
+     "years": [
+      2019
+     ],
+     "model": false
+    },
+    {
+     "n": "2",
+     "question": "Distinguish euchromatin and heterochromatin.",
+     "answer": "**Euchromatin** is loosely packed, lightly staining and **transcriptionally active** (its genes can be expressed). **Heterochromatin** is tightly packed, darkly staining and **transcriptionally inactive**. Both are made of the same DNA-plus-histone material; they differ in how condensed they are.",
+     "years": [],
+     "model": true
+    }
+   ],
+   "long": [
+    {
+     "n": "1",
+     "question": "Explain how DNA is packaged in a eukaryotic chromosome, with diagrams.",
+     "answer": "About 2 m of DNA is condensed into a ~10 micrometre nucleus through successive levels of folding around **histones**:\n\n```\n DNA double helix (2 nm)\n     | wraps around a histone octamer\n NUCLEOSOME (beads on a string, 11 nm)\n     | coiling\n 30-nm chromatin fibre (solenoid)\n     | looping onto a scaffold\n looped domains\n     | further condensation\n CHROMOSOME (~1400 nm at metaphase)\n```\n\n- **Nucleosome:** ~147 bp of DNA wrapped ~1.65 turns around a **histone octamer** (2x H2A, H2B, H3, H4); **H1** binds the linker DNA.\n- The nucleosome string coils into the **30-nm fibre**, which forms **looped domains** on a protein scaffold.\n- These loops condense into the metaphase **chromosome**.\n\nHistones are positively charged (arginine/lysine-rich) and so bind the negatively charged DNA. Active regions stay loosely packed (**euchromatin**), inactive ones tightly packed (**heterochromatin**).",
+     "years": [
+      2019
+     ],
+     "model": false
+    }
+   ],
+   "file": "7 Macromolecular Analysis.md"
+  },
+  {
+   "id": "ch8",
+   "num": 8,
+   "title": "Metabolism & Bioenergetics",
+   "fullTitle": "Biology for Engineers — Module 8: Metabolism and Bioenergetics",
+   "concepts": [
+    {
+     "title": "Metabolism",
+     "body": "Metabolism is the sum of all chemical reactions in a cell. Anabolism builds molecules up (synthesis) and is endergonic (e.g. photosynthesis, protein synthesis). Catabolism breaks molecules down and is exergonic (e.g. respiration). A pathway that does both is amphibolic (e.g. the Krebs cycle). Living systems are open systems that take in energy and release heat and waste to keep their internal entropy low."
+    },
+    {
+     "title": "ATP, the energy currency",
+     "body": "ATP (adenosine triphosphate) is the energy currency of the cell. It is adenine plus a ribose sugar plus three phosphate groups (alpha, beta, gamma); the terminal phosphate bonds are high-energy. Hydrolysis of ATP to ADP + Pi releases about 7.3 kcal/mol, which powers muscle contraction, active transport, biosynthesis, cell division and signalling."
+    },
+    {
+     "title": "Photosynthesis",
+     "body": "Photosynthesis fixes carbon: 6 CO2 + 6 H2O, driven by light and chlorophyll, give C6H12O6 + 6 O2. The light reaction occurs in the thylakoid membrane and uses water and light to make ATP, NADPH and oxygen. The dark (Calvin) reaction occurs in the stroma and uses CO2 plus the ATP and NADPH from the light reaction to build glucose. The central metal of chlorophyll is magnesium."
+    },
+    {
+     "title": "Cellular respiration",
+     "body": "Cellular respiration releases energy from glucose: glucose to CO2 + H2O + ATP, in the mitochondria of eukaryotes. It runs in three stages: glycolysis in the cytoplasm, the Krebs cycle in the matrix, and the electron transport chain on the inner membrane. Aerobic respiration of one glucose yields about 36 to 38 ATP."
+    },
+    {
+     "title": "Glucose interconversions",
+     "body": "The body interconverts glucose and glycogen as needed: glycogenesis makes glycogen from glucose, glycogenolysis breaks glycogen back to glucose, and gluconeogenesis makes glucose from non-carbohydrate sources. Exergonic processes release energy (negative delta G, spontaneous); endergonic processes absorb energy (positive delta G)."
+    }
+   ],
+   "mcqs": [
+    {
+     "n": "1",
+     "question": "Respiration in eukaryotic cells occurs mainly in the",
+     "options": [
+      {
+       "label": "a",
+       "text": "nucleus"
+      },
+      {
+       "label": "b",
+       "text": "ribosome"
+      },
+      {
+       "label": "c",
+       "text": "chloroplast"
+      },
+      {
+       "label": "d",
+       "text": "mitochondria"
+      }
+     ],
+     "answer": "d",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "2",
+     "question": "The central metal atom of chlorophyll is",
+     "options": [
+      {
+       "label": "a",
+       "text": "iron"
+      },
+      {
+       "label": "b",
+       "text": "magnesium"
+      },
+      {
+       "label": "c",
+       "text": "calcium"
+      },
+      {
+       "label": "d",
+       "text": "zinc"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "3",
+     "question": "The Calvin cycle uses which products of the light reaction?",
+     "options": [
+      {
+       "label": "a",
+       "text": "oxygen and water"
+      },
+      {
+       "label": "b",
+       "text": "ATP and NADPH"
+      },
+      {
+       "label": "c",
+       "text": "glucose and CO2"
+      },
+      {
+       "label": "d",
+       "text": "ADP and NADP+"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [
+      2019
+     ],
+     "model": false
+    },
+    {
+     "n": "4",
+     "question": "A pathway that synthesises compounds is",
+     "options": [
+      {
+       "label": "a",
+       "text": "catabolic"
+      },
+      {
+       "label": "b",
+       "text": "anabolic"
+      },
+      {
+       "label": "c",
+       "text": "amphibolic"
+      },
+      {
+       "label": "d",
+       "text": "exergonic"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    }
+   ],
+   "short": [
+    {
+     "n": "1",
+     "question": "Distinguish exergonic and endergonic processes.",
+     "answer": "An **exergonic** process **releases** energy to the surroundings (negative delta G) and is spontaneous, e.g. cellular respiration. An **endergonic** process **absorbs** energy (positive delta G) and is non-spontaneous, requiring an input, e.g. photosynthesis or biosynthesis. Cells couple endergonic reactions to ATP hydrolysis to drive them.",
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "2",
+     "question": "Define glycogenesis, glycogenolysis and gluconeogenesis.",
+     "answer": "**Glycogenesis** is the synthesis of **glycogen from glucose** (storing glucose). **Glycogenolysis** is the breakdown of **glycogen back into glucose** (releasing stored glucose). **Gluconeogenesis** is the synthesis of **glucose from non-carbohydrate** precursors (such as amino acids, lactate or glycerol).",
+     "years": [
+      2019
+     ],
+     "model": false
+    },
+    {
+     "n": "3",
+     "question": "Give the location and products of the light and dark reactions of photosynthesis, and the central element of chlorophyll.",
+     "answer": "**Light reaction:** in the **thylakoid membrane**; uses water and light to produce **ATP, NADPH and oxygen**. **Dark (Calvin) reaction:** in the **stroma**; uses CO2 with the ATP and NADPH from the light reaction to make **glucose**. The central element of chlorophyll is **magnesium (Mg)**.",
+     "years": [
+      2019
+     ],
+     "model": false
+    }
+   ],
+   "long": [
+    {
+     "n": "1",
+     "question": "Explain ATP as the energy currency of the cell, with its structure and functions.",
+     "answer": "**ATP (adenosine triphosphate)** is the universal energy currency of the cell, the molecule that stores and delivers energy for nearly all cellular work.\n\n**Structure:** ATP is made of **adenine** (a nitrogenous base) + **ribose** (a five-carbon sugar) + **three phosphate groups** (alpha, beta, gamma). The two terminal phosphate bonds are **high-energy bonds**.\n\n```\n Adenine - Ribose - P ~ P ~ P    ( ~ = high-energy bond )\n```\n\n**Energy release:** hydrolysing the terminal bond gives **ATP to ADP + Pi + energy** (about 7.3 kcal/mol). The reaction is reversible, so ATP is continually regenerated by respiration and photosynthesis.\n\n**Functions:** it powers muscle contraction, **active transport** across membranes, **biosynthesis** of macromolecules, cell division, and nerve signalling and other energy-requiring processes. Because it is constantly made and spent, ATP acts like cash, an immediate, spendable form of energy.",
+     "years": [],
+     "model": true
+    }
+   ],
+   "file": "8 Metabolism & Bioenergetics.md"
+  },
+  {
+   "id": "ch9",
+   "num": 9,
+   "title": "Microbiology",
+   "fullTitle": "Biology for Engineers — Module 9: Microbiology",
+   "concepts": [
+    {
+     "title": "What microbiology studies",
+     "body": "Microbiology is the study of microorganisms: bacteria, viruses, fungi, protozoa and algae. Antonie van Leeuwenhoek (1676) is the father of microbiology (he first observed microbes). Louis Pasteur (1857) showed that fermentation is caused by microbial activity and disproved spontaneous generation."
+    },
+    {
+     "title": "Bacteria vs viruses",
+     "body": "Bacteria are living, cellular prokaryotes with a peptidoglycan cell wall and DNA (plus plasmids); they reproduce independently by binary fission and are treated with antibiotics. Viruses are non-cellular (acellular), on the border of living and non-living, carry either DNA or RNA inside a protein capsid, and can reproduce only inside a host cell; they are countered with antivirals and vaccines. A useful virus is the bacteriophage, which kills bacteria."
+    },
+    {
+     "title": "Immunity",
+     "body": "Immunity defends the body against pathogens. Innate (natural) immunity is present from birth, non-specific and immediate, using barriers like skin and mucus, phagocytes and inflammation. Adaptive (acquired) immunity develops after exposure, is specific, and has memory, using antibodies and B-cells and T-cells; it is the basis of vaccination."
+    },
+    {
+     "title": "Antibiotics, cancer and stem cells",
+     "body": "Antibiotics are substances produced by microbes that kill or inhibit other microbes; penicillin was discovered by Alexander Fleming in 1928 from the mould Penicillium. They treat bacterial, not viral, infections. Cancer is uncontrolled, abnormal cell division (loss of cell-cycle control) that forms malignant tumours and can spread (metastasise). Stem cells are unspecialised cells that can self-renew and differentiate into specialised cell types."
+    }
+   ],
+   "mcqs": [
+    {
+     "n": "1",
+     "question": "The cell wall of a bacterium is made of",
+     "options": [
+      {
+       "label": "a",
+       "text": "cellulose"
+      },
+      {
+       "label": "b",
+       "text": "chitin"
+      },
+      {
+       "label": "c",
+       "text": "peptidoglycan"
+      },
+      {
+       "label": "d",
+       "text": "lipid"
+      }
+     ],
+     "answer": "c",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "2",
+     "question": "Penicillin was discovered by",
+     "options": [
+      {
+       "label": "a",
+       "text": "Louis Pasteur"
+      },
+      {
+       "label": "b",
+       "text": "Alexander Fleming"
+      },
+      {
+       "label": "c",
+       "text": "van Leeuwenhoek"
+      },
+      {
+       "label": "d",
+       "text": "Robert Koch"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "3",
+     "question": "The most common growth medium for culturing microbes is",
+     "options": [
+      {
+       "label": "a",
+       "text": "agar plates"
+      },
+      {
+       "label": "b",
+       "text": "distilled water"
+      },
+      {
+       "label": "c",
+       "text": "ethanol"
+      },
+      {
+       "label": "d",
+       "text": "saline only"
+      }
+     ],
+     "answer": "a",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    },
+    {
+     "n": "4",
+     "question": "Antibiotics are effective against",
+     "options": [
+      {
+       "label": "a",
+       "text": "viruses"
+      },
+      {
+       "label": "b",
+       "text": "bacteria"
+      },
+      {
+       "label": "c",
+       "text": "all microbes equally"
+      },
+      {
+       "label": "d",
+       "text": "prions"
+      }
+     ],
+     "answer": "b",
+     "asPrinted": false,
+     "years": [],
+     "model": true
+    }
+   ],
+   "short": [
+    {
+     "n": "1",
+     "question": "Distinguish bacteria from viruses and name one beneficial virus.",
+     "answer": "**Bacteria** are living, **cellular** prokaryotes with a **peptidoglycan** wall and DNA, reproduce **independently** by binary fission, and are treated with **antibiotics**. **Viruses** are **acellular**, on the border of living and non-living, carry **DNA or RNA** in a protein capsid, reproduce **only inside a host cell**, and are countered with antivirals/vaccines. A **beneficial virus** is the **bacteriophage**, which infects and kills harmful bacteria.",
+     "years": [
+      2019
+     ],
+     "model": false
+    },
+    {
+     "n": "2",
+     "question": "Differentiate innate and adaptive immunity.",
+     "answer": "**Innate (natural) immunity** is present from birth, **non-specific**, acts immediately, and has **no memory** (skin, mucus, phagocytes, inflammation). **Adaptive (acquired) immunity** develops **after exposure**, is **specific** to a pathogen, and has **memory** (antibodies, B-cells and T-cells), which is why vaccination works.",
+     "years": [
+      2019
+     ],
+     "model": false
+    },
+    {
+     "n": "3",
+     "question": "Write a short note on stem cells.",
+     "answer": "**Stem cells** are unspecialised cells with two defining abilities: they can **self-renew** (divide to make more stem cells) and **differentiate** into specialised cell types. They are **embryonic** (can form any cell type) or **adult/tissue** stem cells (more limited). They are central to growth, tissue repair and regenerative medicine.",
+     "years": [
+      2019
+     ],
+     "model": false
+    }
+   ],
+   "long": [
+    {
+     "n": "1",
+     "question": "Describe cancer biology, define stem cells and their functions, and explain what antibiotics are and who discovered them.",
+     "answer": "**Cancer:** cancer is **uncontrolled, abnormal cell division** caused by a loss of normal cell-cycle control (often through mutations in genes that regulate growth). The dividing cells form a **malignant tumour** that invades nearby tissue and can **metastasise** (spread to distant sites through blood or lymph). Normal checkpoints and programmed cell death (apoptosis) fail.\n\n**Stem cells:** unspecialised cells that can **self-renew** and **differentiate** into specialised cell types. **Embryonic** stem cells can become any cell type; **adult** stem cells repair specific tissues. Their function is growth, tissue maintenance and repair, and they are the basis of regenerative medicine.\n\n**Antibiotics:** substances produced by microbes that **kill or inhibit other microbes**; they treat **bacterial** (not viral) infections. **Penicillin**, the first antibiotic, was discovered by **Alexander Fleming in 1928** from the mould **Penicillium**.",
+     "years": [
+      2019
+     ],
+     "model": false
+    }
+   ],
+   "file": "9 Microbiology.md"
+  }
+ ]
+}

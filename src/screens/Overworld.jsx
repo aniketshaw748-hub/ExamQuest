@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Intersect, StackSimple, Hash, ToggleRight, Atom, Graph, ArrowRight, FireSimple, Flask, Lightning, Drop, Function, Thermometer, ArrowUUpLeft } from "@phosphor-icons/react";
+import { Intersect, StackSimple, Hash, ToggleRight, Atom, Graph, ArrowRight, FireSimple, Flask, Lightning, Drop, Function, Thermometer, ArrowUUpLeft, YoutubeLogo, ArrowUpRight } from "@phosphor-icons/react";
 import { useContent, useNav, useSubject } from "../App.jsx";
 import { useProgress, topPYQs, masteryOf, CHAPTER_ART, freq, overallMastery, startedChapters } from "../lib/game.js";
 import { getLessons } from "../lib/lessons.js";
@@ -29,6 +29,17 @@ export default function Overworld() {
         className="mt-4 max-w-md text-[15px] leading-relaxed text-muted">
         {meta.blurb}
       </motion.p>
+
+      {/* prefer to learn by video? one topic-complete explainer playlist for this subject */}
+      {meta.video && (
+        <motion.a initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
+          href={meta.video.url} target="_blank" rel="noopener noreferrer"
+          className="group mt-4 inline-flex items-center gap-2 rounded-full border border-line bg-surface/50 px-3.5 py-1.5 text-[13px] text-muted transition-colors hover:border-rose/40 hover:text-text">
+          <YoutubeLogo size={17} weight="fill" className="text-rose" />
+          Prefer video? Watch the {meta.video.channel} playlist
+          <ArrowUpRight size={13} className="text-dim transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </motion.a>
+      )}
 
       {/* subject progress + resume */}
       <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ ...spring, delay: 0.22 }}
