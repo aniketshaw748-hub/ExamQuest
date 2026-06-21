@@ -27,10 +27,10 @@ export default function Starfield() {
     }
     function frame(t) {
       ctx.clearRect(0, 0, w, h);
-      // light mode: faint dark specks instead of bright stars, so they read on a pale canvas
+      // light mode: faint WARM specks instead of bright stars, so they read as soft sparkle on the warm canvas
       const light = document.documentElement.getAttribute("data-theme") === "light";
-      const rgb = light ? "30,45,80" : "220,232,255";
-      const aMul = light ? 0.4 : 1;
+      const rgb = light ? "150,118,72" : "220,232,255";
+      const aMul = light ? 0.3 : 1;
       for (const s of stars) {
         const tw = reduce ? s.a : s.a + Math.sin(t * s.tw + s.ph) * 0.18;
         ctx.beginPath();
@@ -50,10 +50,7 @@ export default function Starfield() {
   return (
     <div className="fixed inset-0 -z-10 pointer-events-none">
       <div className="absolute inset-0 bg-canvas" />
-      <div
-        className="absolute inset-0 opacity-70"
-        style={{ background: "radial-gradient(1100px 620px at 50% -8%, rgba(246,181,61,0.10), transparent 60%), radial-gradient(900px 700px at 88% 8%, rgba(52,211,154,0.06), transparent 55%)" }}
-      />
+      <div className="app-glows absolute inset-0 opacity-80" />
       <canvas ref={ref} className="absolute inset-0" />
     </div>
   );

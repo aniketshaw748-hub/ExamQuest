@@ -16,25 +16,27 @@ function SubjectCard({ s, i, openSubject }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ ...spring, delay: 0.22 + i * 0.06 }}
-      whileHover={{ y: -3 }}
-      className="group flex items-start gap-4 rounded-[var(--radius-card)] border border-line bg-surface/60 p-5 text-left backdrop-blur-sm transition-colors hover:border-amber/40"
+      whileHover={{ y: -4 }}
+      className="group flex items-start gap-5 rounded-[var(--radius-card)] border border-line bg-surface/60 p-6 text-left backdrop-blur-sm transition-all hover:border-amber/40"
     >
-      <div className="grid h-12 w-12 shrink-0 place-items-center rounded-[var(--radius-tile)] border border-line bg-ink-2/70 text-amber">
+      <div className="grid h-12 w-12 shrink-0 place-items-center rounded-[var(--radius-tile)] border border-amber/25 bg-gradient-to-br from-amber/20 to-amber/[0.05] text-amber shadow-[0_5px_14px_-6px_rgba(20,15,5,0.22)]">
         <Icon size={24} weight="duotone" />
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-dim">{s.world}</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-amber/80">{s.world}</span>
           {stat.started && (
             <span className="inline-flex items-center gap-1.5 rounded-full bg-amber/15 px-2 py-0.5 text-[10px] text-amber">
               <span className="h-1.5 w-1.5 rounded-full bg-amber" /> in progress
             </span>
           )}
         </div>
-        <h3 className="mt-1 font-display text-[18px] font-medium leading-tight tracking-tight">{s.name}</h3>
-        <p className="mt-1.5 text-[13px] leading-relaxed text-dim">{s.blurb}</p>
+        <h3 className="mt-1.5 font-display text-[18px] font-medium leading-tight tracking-tight">{s.name}</h3>
+        <p className="mt-2 text-[13px] leading-relaxed text-dim">{s.blurb}</p>
       </div>
-      <ArrowRight size={20} className="mt-1 shrink-0 text-dim transition-all group-hover:translate-x-1 group-hover:text-amber" />
+      <div className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line bg-surface text-amber shadow-[0_2px_8px_-2px_rgba(30,25,15,0.12)] transition-all group-hover:border-amber group-hover:bg-amber group-hover:text-ink">
+        <ArrowRight size={17} weight="bold" className="transition-transform group-hover:translate-x-0.5" />
+      </div>
     </motion.button>
   );
 }
@@ -46,7 +48,7 @@ export default function SubjectPicker({ openSubject }) {
   const back = SUBJECTS.filter((s) => s.back);
 
   return (
-    <div className="relative px-5 pb-28 pt-16">
+    <div className="relative px-5 pb-28 pt-20 md:pt-24">
       <div className="absolute right-5 top-5 flex items-center gap-2">
         <ThemeToggle className="h-9 w-9" />
         <motion.a
@@ -78,17 +80,21 @@ export default function SubjectPicker({ openSubject }) {
           onClick={() => openSubject(last.subject, { name: last.route, params: { ch: last.ch, i: last.i } })}
           initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ ...spring, delay: 0.2 }}
           whileHover={{ y: -2 }}
-          className="group mt-7 flex w-full items-center gap-3 rounded-[var(--radius-card)] border border-amber/40 bg-amber/[0.07] p-4 text-left transition-colors hover:border-amber/70">
-          <ArrowUUpLeft size={20} weight="bold" className="shrink-0 text-amber" />
+          className="group mt-8 flex w-full items-center gap-4 rounded-[var(--radius-card)] border border-amber/30 bg-gradient-to-r from-amber/[0.13] to-amber/[0.03] p-5 text-left transition-all hover:border-amber/50">
+          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-amber/25 bg-surface text-amber shadow-[0_2px_8px_-2px_rgba(30,25,15,0.12)]">
+            <ArrowUUpLeft size={18} weight="bold" />
+          </div>
           <div className="min-w-0 flex-1">
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-amber/80">Continue where you left off</p>
             <p className="mt-0.5 truncate font-display text-[16px] font-medium tracking-tight">{lastSub.name}</p>
           </div>
-          <ArrowRight size={18} className="shrink-0 text-amber transition-transform group-hover:translate-x-1" />
+          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-amber text-ink shadow-[0_3px_10px_-3px_rgba(20,15,5,0.28)] transition-transform group-hover:translate-x-0.5">
+            <ArrowRight size={18} weight="bold" />
+          </div>
         </motion.button>
       )}
 
-      <div className="mt-8 grid gap-3 sm:grid-cols-2">
+      <div className="mt-10 grid gap-4 sm:grid-cols-2">
         {main.map((s, i) => <SubjectCard key={s.key} s={s} i={i} openSubject={openSubject} />)}
       </div>
 
@@ -97,7 +103,7 @@ export default function SubjectPicker({ openSubject }) {
         <p className="font-mono text-[12px] uppercase tracking-[0.3em] text-dim">Yeah, I had a back...</p>
         <h2 className="mt-1.5 font-display text-2xl font-medium tracking-tight text-muted">A leftover from an earlier semester</h2>
 
-        <div className="mt-5 grid gap-3 sm:grid-cols-2">
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {back.map((s, i) => <SubjectCard key={s.key} s={s} i={i} openSubject={openSubject} />)}
 
           <motion.a

@@ -2,7 +2,7 @@
 // (before React mounts, so there's no flash of the wrong theme); this module reads and flips it
 // at runtime and persists the choice. Default precedence: saved choice -> OS preference -> dark.
 const KEY = "quest.theme";
-const LIGHT_BG = "#e9ecf3";
+const LIGHT_BG = "#f4f1ea";
 const DARK_BG = "#0a0e17";
 
 export function currentTheme() {

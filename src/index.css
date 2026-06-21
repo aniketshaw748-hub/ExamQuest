@@ -34,24 +34,28 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Light theme: flip the surfaces + foreground; keep amber/amber-deep and --color-ink (on-amber text).
+/* Light theme: a WARM, premium, crafted surface (Stripe / Linear / Notion warmth), not a cool corporate grey.
    Tailwind utilities reference var(--color-*), so overriding the variables here cascades everywhere.
-   Tuned for DEPTH: the page base (canvas) is a deeper cool grey so the white cards lift off it,
-   hairlines are stronger, and secondary text is darker, so light mode no longer reads as washed out. */
+   The page base is a warm off-white; soft peach/gold glows are layered on by Starfield (.app-glows);
+   crisp white cards float on warm shadows; gold is reserved for accent + moments of delight. */
 :root[data-theme="light"] {
-  --color-canvas: #e3e8f1;   /* page base: deeper than the cards so surfaces have separation */
-  --color-ink-2: #f4f7fc;    /* near-white secondary panel (icon tiles, insets) */
-  --color-surface: #ffffff;  /* crisp white cards */
-  --color-raised: #e7edf7;   /* slightly recessed: progress tracks, chips, code */
-  --color-line: #c3cee2;     /* stronger hairline so borders actually register */
-  --color-text: #0e1830;     /* deep navy ink, high contrast */
-  --color-muted: #3f4d68;    /* darker secondary text */
-  --color-dim: #66738f;      /* darker tertiary text */
+  --color-canvas: #f4f1ea;   /* warm off-white page base (warm glows layer on top via Starfield) */
+  --color-ink-2: #fbf9f5;    /* warm near-white panel (insets, inner explainer canvas) */
+  --color-surface: #ffffff;  /* crisp white cards that pop on the warm base */
+  --color-raised: #f0ebe1;   /* warm recessed: progress tracks, chips, code */
+  --color-line: #e8e1d4;     /* soft warm hairline */
+  --color-text: #1c2233;     /* deep navy-charcoal ink */
+  --color-muted: #574f43;    /* warm secondary text (~8:1) */
+  --color-dim: #7a6f59;      /* warm tertiary text (~4.9:1) */
   --color-emerald: #0a8f66;
   --color-rose: #d93363;
-  /* amber-as-text deepens to a legible golden ochre (still in-brand-hue, ~5.4:1 on white).
-     amber FILLS stay bright via --color-amber, so buttons/the XP bar keep their pop. */
-  --color-amber-text: #8f5d00;
+  /* amber-as-text deepens to a legible warm gold (~4.9:1 on white). FILLS stay bright via
+     --color-amber, so buttons / the circular arrows / the XP bar keep their pop and delight. */
+  --color-amber-text: #9c6512;
+  /* softer, larger radii in light mode for a more tactile, premium feel */
+  --radius-card: 24px;
+  --radius-tile: 18px;
+  --radius-field: 14px;
 }
 
 /* Route every amber TEXT utility (incl. opacity variants like text-amber/80 and the in-progress
@@ -70,11 +74,26 @@
    None of these are hover/state variants, so forcing them always-on is safe. */
 :root[data-theme="light"] [class*="bg-surface/"] {
   background-color: var(--color-surface);
-  /* soft navy-tinted lift so the main cards read as elevated, not flat washes */
-  box-shadow: 0 1px 2px rgb(20 30 60 / 0.04), 0 8px 24px -14px rgb(20 30 60 / 0.20);
+  /* warm, soft, layered lift so the main cards feel tangible and float on the warm base */
+  box-shadow: 0 1px 2px rgb(90 70 40 / 0.05), 0 14px 36px -16px rgb(120 92 52 / 0.22);
 }
 :root[data-theme="light"] [class*="bg-ink-2/"]   { background-color: var(--color-ink-2); }
 :root[data-theme="light"] [class*="bg-raised/"]  { background-color: var(--color-raised); }
+
+/* Background glow orbs (the warm gradient). Painted by Starfield's .app-glows layer so they update
+   live on theme toggle. Dark keeps the original amber + emerald wash; light gets warm peach/gold orbs. */
+.app-glows {
+  background:
+    radial-gradient(1100px 620px at 50% -8%, rgba(246, 181, 61, 0.10), transparent 60%),
+    radial-gradient(900px 700px at 88% 8%, rgba(52, 211, 154, 0.06), transparent 55%);
+}
+:root[data-theme="light"] .app-glows {
+  background:
+    radial-gradient(820px 680px at -6% 108%, rgba(245, 168, 86, 0.36), transparent 60%),
+    radial-gradient(680px 600px at 2% -6%, rgba(248, 206, 150, 0.32), transparent 58%),
+    radial-gradient(1000px 620px at 72% -12%, rgba(246, 181, 61, 0.12), transparent 60%),
+    radial-gradient(760px 720px at 106% 98%, rgba(255, 222, 178, 0.22), transparent 60%);
+}
 
 html, body, #root { height: 100%; }
 body {
