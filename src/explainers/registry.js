@@ -56,6 +56,10 @@ import MemHierarchyExplainer from "./MemHierarchyExplainer.jsx";
 import CacheExplainer from "./CacheExplainer.jsx";
 import FlynnExplainer from "./FlynnExplainer.jsx";
 import RiscCiscExplainer from "./RiscCiscExplainer.jsx";
+import IpcExplainer from "./IpcExplainer.jsx";
+import AtomExplainer from "./AtomExplainer.jsx";
+import DeBroglieExplainer from "./DeBroglieExplainer.jsx";
+import MotExplainer from "./MotExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -138,4 +142,9 @@ export const EXPLAINERS = {
   cache: CacheExplainer,
   flynn: FlynnExplainer,
   risccisc: RiscCiscExplainer,
+  ipc: IpcExplainer,
+  // chemistry
+  atom: AtomExplainer,
+  debroglie: DeBroglieExplainer,
+  mot: MotExplainer,
 };
