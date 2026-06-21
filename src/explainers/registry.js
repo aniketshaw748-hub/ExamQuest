@@ -73,6 +73,10 @@ import NernstExplainer from "./NernstExplainer.jsx";
 import WaterCycleExplainer from "./WaterCycleExplainer.jsx";
 import EutrophicationExplainer from "./EutrophicationExplainer.jsx";
 import HardnessExplainer from "./HardnessExplainer.jsx";
+import CorrosionExplainer from "./CorrosionExplainer.jsx";
+import PbRatioExplainer from "./PbRatioExplainer.jsx";
+import PeriodicTrendsExplainer from "./PeriodicTrendsExplainer.jsx";
+import ShieldingExplainer from "./ShieldingExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -173,4 +177,8 @@ export const EXPLAINERS = {
   watercycle: WaterCycleExplainer,
   eutrophication: EutrophicationExplainer,
   hardness: HardnessExplainer,
+  corrosion: CorrosionExplainer,
+  pbratio: PbRatioExplainer,
+  periodictrends: PeriodicTrendsExplainer,
+  shielding: ShieldingExplainer,
 };
