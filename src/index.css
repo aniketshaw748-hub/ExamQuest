@@ -38,6 +38,14 @@ body {
 }
 ::selection { background: color-mix(in oklab, var(--color-amber) 35%, transparent); }
 
+/* keyboard accessibility: a clear amber focus ring, only for keyboard users */
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-amber); outline-offset: 2px; border-radius: 6px; }
+
+/* typography polish: avoid orphans/awkward wraps */
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
 *::-webkit-scrollbar { width: 10px; height: 10px; }
 *::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 8px; }
 *::-webkit-scrollbar-track { background: transparent; }

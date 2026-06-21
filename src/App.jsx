@@ -11,7 +11,7 @@ import Boss from "./screens/Boss.jsx";
 import Walkthrough from "./screens/Walkthrough.jsx";
 import Chatbot from "./components/Chatbot.jsx";
 import { getSubject } from "./data/subjects.js";
-import { setProgressSubject } from "./lib/game.js";
+import { setProgressSubject, recordVisit } from "./lib/game.js";
 
 export const Nav = createContext(null);
 export const useNav = () => useContext(Nav);
@@ -35,8 +35,8 @@ export default function App() {
     fetch(sub.file).then((r) => r.json()).then(setContent).catch(() => setContent("err"));
   }, [subjectKey]);
 
-  const go = (name, params = {}) => { setRoute({ name, params }); window.scrollTo({ top: 0 }); };
-  const openSubject = (key) => { setSubjectKey(key); setRoute({ name: "overworld", params: {} }); window.scrollTo({ top: 0 }); };
+  const go = (name, params = {}) => { recordVisit(subjectKey, name, params); setRoute({ name, params }); window.scrollTo({ top: 0 }); };
+  const openSubject = (key, route) => { setSubjectKey(key); setRoute(route || { name: "overworld", params: {} }); window.scrollTo({ top: 0 }); };
   const exitSubject = () => { setSubjectKey(null); window.scrollTo({ top: 0 }); };
 
   // subject picker (home)

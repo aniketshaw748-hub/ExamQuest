@@ -1,16 +1,21 @@
 import { motion } from "motion/react";
-import { Intersect, StackSimple, Hash, ToggleRight, Atom, Graph, ArrowRight, FireSimple } from "@phosphor-icons/react";
+import { Intersect, StackSimple, Hash, ToggleRight, Atom, Graph, ArrowRight, FireSimple, Flask, Lightning, Drop, Function, Thermometer, ArrowUUpLeft } from "@phosphor-icons/react";
 import { useContent, useNav, useSubject } from "../App.jsx";
-import { useProgress, topPYQs, masteryOf, CHAPTER_ART, freq } from "../lib/game.js";
+import { useProgress, topPYQs, masteryOf, CHAPTER_ART, freq, overallMastery, startedChapters } from "../lib/game.js";
+import { getLessons } from "../lib/lessons.js";
 
-const ICONS = { ch1: Intersect, ch2: StackSimple, ch3: Hash, ch4: ToggleRight, ch5: Atom, ch6: Graph };
+const ICONS = { ch1: Intersect, ch2: StackSimple, ch3: Hash, ch4: ToggleRight, ch5: Atom, ch6: Graph, ch7: Flask, ch8: Lightning, ch9: Function, ch10: Drop, ch11: Thermometer };
 const spring = { type: "spring", stiffness: 220, damping: 26 };
 
 export default function Overworld() {
   const content = useContent();
   const { go } = useNav();
   const { key: subject, meta } = useSubject();
-  const { mcq } = useProgress();
+  const { mcq, seen } = useProgress();
+
+  const overall = overallMastery(content, mcq);
+  const started = startedChapters(content, mcq);
+  const resume = seen?.ch && content.chapters.some((c) => c.id === seen.ch) ? seen : null;
 
   return (
     <div className="pt-10">
@@ -25,7 +30,25 @@ export default function Overworld() {
         {meta.blurb}
       </motion.p>
 
-      <div className="mt-12 space-y-3">
+      {/* subject progress + resume */}
+      <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ ...spring, delay: 0.22 }}
+        className="mt-7 flex flex-col gap-3 rounded-[var(--radius-card)] border border-line bg-surface/50 p-4 backdrop-blur-sm sm:flex-row sm:items-center">
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center justify-between text-[13px]">
+            <span className="text-muted">{started > 0 ? `${overall}% mastered` : "Not started yet"}</span>
+            <span className="text-dim">{started} / {content.chapters.length} chapters</span>
+          </div>
+          <div className="mt-2 h-2 overflow-hidden rounded-full bg-raised">
+            <motion.div className="h-full rounded-full bg-amber" initial={{ width: 0 }} animate={{ width: overall + "%" }} transition={spring} />
+          </div>
+        </div>
+        <button onClick={() => go(resume ? resume.route : "zone", { ch: resume ? resume.ch : content.chapters[0].id, i: resume?.i || 0 })}
+          className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full bg-amber px-5 py-2.5 text-sm font-medium text-ink transition-transform active:scale-95">
+          {resume ? <><ArrowUUpLeft size={16} weight="bold" /> Continue</> : <>Start chapter 1 <ArrowRight size={16} weight="bold" /></>}
+        </button>
+      </motion.div>
+
+      <div className="mt-8 space-y-3">
         {content.chapters.map((ch, i) => {
           const Icon = ICONS[ch.id] || Intersect;
           const art = (subject === "dmaths" && CHAPTER_ART[ch.id]) || { tag: "" };
@@ -58,7 +81,7 @@ export default function Overworld() {
                 </div>
                 <h3 className="mt-0.5 truncate font-display text-[19px] font-medium tracking-tight">{ch.title}</h3>
                 <div className="mt-1 flex items-center gap-3 text-[12px] text-dim">
-                  <span>{ch.concepts.length} lessons</span>
+                  <span>{getLessons(content, ch.id, subject).length} lessons</span>
                   <span>{ch.mcqs.length} questions</span>
                   {pyq && (
                     <span className={"inline-flex items-center gap-1 rounded-full px-2 py-0.5 " + (freq(pyq) >= 3 ? "bg-rose/15 text-rose" : "bg-raised text-muted")}>
