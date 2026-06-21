@@ -17,6 +17,9 @@
   --color-dim: #5e6b85;
   --color-amber: #f6b53d;
   --color-amber-deep: #b9801f;
+  /* amber used as foreground/TEXT. Bright on dark (default); deepened in light mode
+     so it stays legible on near-white surfaces. Fills keep --color-amber (bright). */
+  --color-amber-text: #f6b53d;
   --color-emerald: #34d39a;
   --color-rose: #fb7185;
 
@@ -32,19 +35,46 @@
 }
 
 /* Light theme: flip the surfaces + foreground; keep amber/amber-deep and --color-ink (on-amber text).
-   Tailwind utilities reference var(--color-*), so overriding the variables here cascades everywhere. */
+   Tailwind utilities reference var(--color-*), so overriding the variables here cascades everywhere.
+   Tuned for DEPTH: the page base (canvas) is a deeper cool grey so the white cards lift off it,
+   hairlines are stronger, and secondary text is darker, so light mode no longer reads as washed out. */
 :root[data-theme="light"] {
-  --color-canvas: #e9ecf3;
-  --color-ink-2: #ffffff;
-  --color-surface: #ffffff;
-  --color-raised: #e6eaf4;
-  --color-line: #d0d8e8;
-  --color-text: #14203a;
-  --color-muted: #475571;
-  --color-dim: #76859f;
-  --color-emerald: #0a9c6e;
-  --color-rose: #e23a68;
+  --color-canvas: #e3e8f1;   /* page base: deeper than the cards so surfaces have separation */
+  --color-ink-2: #f4f7fc;    /* near-white secondary panel (icon tiles, insets) */
+  --color-surface: #ffffff;  /* crisp white cards */
+  --color-raised: #e7edf7;   /* slightly recessed: progress tracks, chips, code */
+  --color-line: #c3cee2;     /* stronger hairline so borders actually register */
+  --color-text: #0e1830;     /* deep navy ink, high contrast */
+  --color-muted: #3f4d68;    /* darker secondary text */
+  --color-dim: #66738f;      /* darker tertiary text */
+  --color-emerald: #0a8f66;
+  --color-rose: #d93363;
+  /* amber-as-text deepens to a legible golden ochre (still in-brand-hue, ~5.4:1 on white).
+     amber FILLS stay bright via --color-amber, so buttons/the XP bar keep their pop. */
+  --color-amber-text: #8f5d00;
 }
+
+/* Route every amber TEXT utility (incl. opacity variants like text-amber/80 and the in-progress
+   chip's text-amber/15) to the deepened foreground value in light mode. Nothing renders amber text
+   on a dark surface in light mode (no bg-ink usages), so this is safe. Fills are untouched. */
+:root[data-theme="light"] [class~="text-amber"],
+:root[data-theme="light"] [class*="text-amber/"] {
+  color: var(--color-amber-text);
+}
+:root[data-theme="light"] .chat-prose strong { color: var(--color-amber-text); }
+
+/* Depth fix for "pale" light mode: the cards use translucent surfaces (bg-surface/60, bg-ink-2/60 ...)
+   for the dark glass aesthetic. Over a light canvas, "white at 60%" reads as a washed, low-contrast
+   card, which is the main reason light mode looked flat. Make panel backgrounds OPAQUE in light mode
+   so cards sit crisply on the page; the token already encodes the nesting (surface > ink-2 > raised).
+   None of these are hover/state variants, so forcing them always-on is safe. */
+:root[data-theme="light"] [class*="bg-surface/"] {
+  background-color: var(--color-surface);
+  /* soft navy-tinted lift so the main cards read as elevated, not flat washes */
+  box-shadow: 0 1px 2px rgb(20 30 60 / 0.04), 0 8px 24px -14px rgb(20 30 60 / 0.20);
+}
+:root[data-theme="light"] [class*="bg-ink-2/"]   { background-color: var(--color-ink-2); }
+:root[data-theme="light"] [class*="bg-raised/"]  { background-color: var(--color-raised); }
 
 html, body, #root { height: 100%; }
 body {
