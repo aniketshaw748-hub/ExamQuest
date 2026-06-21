@@ -19,7 +19,7 @@ Each subject is parsed from verified, image-checked notes. Every chapter has **L
 | Formal Language & Automata Theory | Fully illustrated |
 | Computer Architecture | Fully illustrated |
 | Environmental Science | Fully illustrated |
-| Biology for Engineers | Playable; bespoke explainers in progress |
+| Biology for Engineers | Fully illustrated |
 
 **Other**
 
@@ -27,13 +27,21 @@ Each subject is parsed from verified, image-checked notes. Every chapter has **L
 |---|---|
 | Chemistry (Sem-2 back paper) | Fully illustrated |
 
-"Fully illustrated" means every lesson has a bespoke, code-drawn, interactive explainer. There are 100+ of them in total.
+**Every subject is fully illustrated:** every lesson has a bespoke, code-drawn, interactive explainer. Across the 7 subjects that is **51 chapters, 184 lessons and 125 interactive explainers** — and zero lessons without a graphic.
 
 ## How it works
 
 - **Explanation Ladder** — each concept is taught as: what it is, why it exists, intuition, an analogy (and where the analogy breaks), step-by-step, a worked example, the common misconception, and a rule of thumb.
 - **Interactive explainers** — bespoke, code-drawn graphics (Venn grids, a Bezout tableau, a domino-induction cascade, a truth-table builder, graph colouring, a Big-O growth chart, a Lennard-Jones potential well, a Carnot cycle, a galvanic cell, a food-chain energy pyramid, a Punnett square, the DNA double helix, and many more). Code-drawn beats AI art because it has to be *accurate*: it teaches.
 - **PYQ-driven** — content is weighted by how often each question is actually asked, so the highest-yield material gets the most practice.
+
+## Features
+
+- **AI doubt-solver** — a context-aware tutor that knows which lesson you're on. If the shared key runs out, you can **bring your own API key** (Gemini recommended, or any OpenAI-compatible provider) right in the chat settings; it is stored only in your browser and sent straight to the provider.
+- **Resume & progress** — the app remembers where you left off ("continue where you left off") and tracks your mastery per subject.
+- **Phone-friendly** — mobile-first (works at 375px), and the device **Back button navigates within the app** instead of leaving the site.
+- **Learn by video** — each subject links a topic-complete YouTube explainer playlist for people who prefer video.
+- **Contribute** — a tile on the home screen links straight here so anyone can add a subject, a lesson, or an explainer.
 
 ## Run locally
 
@@ -48,7 +56,7 @@ For the in-app AI doubt-solver, create a `.env` file with a free [Google AI Stud
 GEMINI_API_KEY=your_key_here
 ```
 
-The key stays server-side. The rest of the app works fine without it.
+The key stays server-side. The rest of the app works fine without it, and users can also paste **their own key** in the in-app chat settings (stored only in their browser) if the shared one is unavailable.
 
 ```bash
 npm run build      # production build to dist/
@@ -111,7 +119,7 @@ The repo is Vercel-ready: Vite is auto-detected (`vite build` to `dist`), and th
 
 ```
 src/
-  App.jsx              # subject picker + router (state-based) + contexts
+  App.jsx              # subject picker + state router wired to the History API (back button) + contexts
   screens/             # SubjectPicker, Overworld, Zone, Lesson, Skirmish, Boss, Walkthrough
   explainers/          # interactive, code-drawn explainers + registry.js
   components/          # TeachLadder, ChapterMotif, TopBar, Chatbot, Starfield
