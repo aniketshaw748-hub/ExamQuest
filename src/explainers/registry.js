@@ -60,6 +60,10 @@ import IpcExplainer from "./IpcExplainer.jsx";
 import AtomExplainer from "./AtomExplainer.jsx";
 import DeBroglieExplainer from "./DeBroglieExplainer.jsx";
 import MotExplainer from "./MotExplainer.jsx";
+import SpectrumExplainer from "./SpectrumExplainer.jsx";
+import MassSpecExplainer from "./MassSpecExplainer.jsx";
+import LjPotentialExplainer from "./LjPotentialExplainer.jsx";
+import RealGasExplainer from "./RealGasExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -147,4 +151,8 @@ export const EXPLAINERS = {
   atom: AtomExplainer,
   debroglie: DeBroglieExplainer,
   mot: MotExplainer,
+  spectrum: SpectrumExplainer,
+  massspec: MassSpecExplainer,
+  ljpotential: LjPotentialExplainer,
+  realgas: RealGasExplainer,
 };
