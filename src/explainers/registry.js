@@ -64,6 +64,10 @@ import SpectrumExplainer from "./SpectrumExplainer.jsx";
 import MassSpecExplainer from "./MassSpecExplainer.jsx";
 import LjPotentialExplainer from "./LjPotentialExplainer.jsx";
 import RealGasExplainer from "./RealGasExplainer.jsx";
+import FirstLawExplainer from "./FirstLawExplainer.jsx";
+import ReversibleExplainer from "./ReversibleExplainer.jsx";
+import CarnotExplainer from "./CarnotExplainer.jsx";
+import GibbsExplainer from "./GibbsExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -155,4 +159,8 @@ export const EXPLAINERS = {
   massspec: MassSpecExplainer,
   ljpotential: LjPotentialExplainer,
   realgas: RealGasExplainer,
+  firstlaw: FirstLawExplainer,
+  reversible: ReversibleExplainer,
+  carnot: CarnotExplainer,
+  gibbs: GibbsExplainer,
 };
