@@ -115,6 +115,8 @@ import PackagingExplainer from "./PackagingExplainer.jsx";
 import AtpExplainer from "./AtpExplainer.jsx";
 import PhotosynthesisExplainer from "./PhotosynthesisExplainer.jsx";
 import RespirationExplainer from "./RespirationExplainer.jsx";
+import BacteriaVirusExplainer from "./BacteriaVirusExplainer.jsx";
+import ImmunityExplainer from "./ImmunityExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -259,4 +261,6 @@ export const EXPLAINERS = {
   atp: AtpExplainer,
   photosynthesis: PhotosynthesisExplainer,
   respiration: RespirationExplainer,
+  bacteriavirus: BacteriaVirusExplainer,
+  immunity: ImmunityExplainer,
 };
