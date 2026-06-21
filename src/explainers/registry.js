@@ -104,6 +104,11 @@ import CellDivisionExplainer from "./CellDivisionExplainer.jsx";
 import BiomoleculesExplainer from "./BiomoleculesExplainer.jsx";
 import ZwitterionExplainer from "./ZwitterionExplainer.jsx";
 import ProteinLevelsExplainer from "./ProteinLevelsExplainer.jsx";
+import EnzymeActionExplainer from "./EnzymeActionExplainer.jsx";
+import MichaelisExplainer from "./MichaelisExplainer.jsx";
+import DnaHelixExplainer from "./DnaHelixExplainer.jsx";
+import DnaReplicationExplainer from "./DnaReplicationExplainer.jsx";
+import CentralDogmaExplainer from "./CentralDogmaExplainer.jsx";
 import GraphDegreeExplainer from "./GraphDegreeExplainer.jsx";
 import TreeExplainer from "./TreeExplainer.jsx";
 import ColoringExplainer from "./ColoringExplainer.jsx";
@@ -237,4 +242,9 @@ export const EXPLAINERS = {
   biomolecules: BiomoleculesExplainer,
   zwitterion: ZwitterionExplainer,
   proteinlevels: ProteinLevelsExplainer,
+  enzymeaction: EnzymeActionExplainer,
+  michaelis: MichaelisExplainer,
+  dnahelix: DnaHelixExplainer,
+  dnareplication: DnaReplicationExplainer,
+  centraldogma: CentralDogmaExplainer,
 };
