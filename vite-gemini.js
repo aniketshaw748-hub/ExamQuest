@@ -5,16 +5,18 @@ import { handleReport } from "./api/report.js";
 
 const MODEL = "gemini-2.5-flash";
 
-export function geminiPlugin(apiKey, reportWebhook) {
+export function geminiPlugin(apiKey, reportEnv = {}) {
   return {
     name: "gemini-doubt-solver",
     configureServer(server) {
-      // user bug/feature reports from the tutor
+      // user bug/feature reports from the tutor.
+      // reportEnv carries the delivery config (REPORT_WEBHOOK_URL or GITHUB_TOKEN+GITHUB_REPO)
+      // so the dev server matches prod (api/report.js) instead of webhook-only.
       server.middlewares.use("/api/report", async (req, res) => {
         if (req.method !== "POST") { res.statusCode = 405; return res.end("POST only"); }
         try {
           const body = await readJson(req);
-          const out = await handleReport(body, { REPORT_WEBHOOK_URL: reportWebhook });
+          const out = await handleReport(body, reportEnv);
           json(res, out);
         } catch (e) { res.statusCode = 500; json(res, { error: String(e?.message || e) }); }
       });

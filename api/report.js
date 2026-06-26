@@ -34,7 +34,13 @@ export async function handleReport(body, env = process.env) {
         },
         body: JSON.stringify({ title, body: text, labels: [kind === "bug" ? "bug" : "enhancement", "from-tutor"] }),
       });
-      if (r.ok) delivered = "github";
+      if (r.ok) {
+        delivered = "github";
+      } else {
+        // surface why (bad token / wrong repo / missing scope) instead of silently falling back to "logged"
+        delivered = "error";
+        console.error("[report] github issue failed:", r.status, (await r.text().catch(() => "")).slice(0, 300));
+      }
     }
   } catch (e) {
     console.error("[report] delivery failed:", e?.message || e);
