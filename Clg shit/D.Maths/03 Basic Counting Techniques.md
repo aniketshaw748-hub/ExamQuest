@@ -315,9 +315,11 @@ $$n(S) - n(S \cap F) - n(S \cap R) + n(S \cap R \cap F) = 100 - 60 - 35 + 10 = 1
 
 **Pigeonhole Principle:** If $n$ pigeonholes are occupied by $kn + 1$ or more pigeons, where $k \in \mathbb{N}$, then at least one pigeonhole is occupied by $k + 1$ or more pigeons.
 
-Here $n = 5$, $k + 1 = 12$. So, $k = 11$. Hence $nk + 1 = 56$.
+Here the pigeonholes are the $n = 5$ colours and we want $k + 1 = 12$ of one colour, so $k = 11$. The plain formula gives $nk + 1 = 56$, but it assumes every colour has at least 11 balls. Blue has only 10 and green only 8, so the worst case can hold at most all of those.
 
-So 56 balls are to be drawn.
+Worst case with no colour reaching 12: $11$ red $+ 11$ yellow $+ 11$ white $+ 10$ blue $+ 8$ green $= 51$ balls. The next ball (the 52nd) must be red, yellow or white and forces 12 of that colour.
+
+So 52 balls are to be drawn.
 
 **7.** State pigeonhole principle. Suppose that a patient is given a prescription of 45 capsules with the instructions to take at least one capsule per day for 30 days. Then prove that there must be a period of consecutive days during which the patient takes exactly 14 capsules. *[WBUT 2017(EVEN)]*
 
