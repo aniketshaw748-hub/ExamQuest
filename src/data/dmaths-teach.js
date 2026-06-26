@@ -430,8 +430,8 @@ export const TEACH = {
         "For 'two with the same remainder', the boxes are the $m$ remainder classes mod $m$.",
         "State the conclusion: some box must reach the guaranteed count.",
       ],
-      example: "To be sure of 12 balls of one colour from 5 colours, the worst case is 11 of each ($55$), so the next ball forces 12: take $5\\times 11 + 1 = 56$. Among 12 integers, two share a remainder mod 11, so their difference is divisible by 11.",
-      misconception: "The guarantee is $\\lceil N/k \\rceil$, not $N/k$ rounded down or the average itself. And it never tells you which box, only that one exists.",
+      example: "To be sure of 12 balls of one colour from 5 colours that each hold at least 11, the worst case is 11 of each ($55$), so the next ball forces 12: $5\\times 11 + 1 = 56$. (If a colour holds fewer than 11, cap it at its actual count first, the walkthrough does exactly this and lands on 52.) Among 12 integers, two share a remainder mod 11, so their difference is divisible by 11.",
+      misconception: "The guarantee is $\\lceil N/k \\rceil$, not $N/k$ rounded down or the average itself. And it never tells you which box, only that one exists. Also $nk+1$ assumes every kind has at least $k+1$ items; a kind that is short caps its own worst case.",
       rule: "$N$ objects, $k$ boxes force $\\lceil N/k \\rceil$ in some box; need $nk+1$ to guarantee $k+1$ of a kind.",
     },
     {

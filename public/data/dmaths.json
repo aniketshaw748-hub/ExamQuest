@@ -157,7 +157,7 @@
               "text": "4 and 6 are comparable"
             }
           ],
-          "answer": "c",
+          "answer": "b",
           "asPrinted": true,
           "years": [
             2016
@@ -497,7 +497,7 @@
               "text": "both"
             }
           ],
-          "answer": "d",
+          "answer": "a",
           "asPrinted": true,
           "years": [],
           "model": true
@@ -567,14 +567,14 @@
         {
           "n": "1",
           "question": "Find the number of integers between 1 and 720 (both inclusive) that are not divisible by any of the integers 2, 3 and 5.",
-          "answer": "Let $A, B, C$ denote the integers from 1 to 720 divisible by 2, 3, 5 respectively.\n$$n(A) = \\tfrac{720}{2} = 360,\\quad n(B) = \\tfrac{720}{3} = 240,\\quad n(C) = \\tfrac{720}{5} = 145$$\n$$n(A \\cap B) = \\tfrac{720}{6} = 120,\\quad n(A \\cap C) = \\tfrac{720}{10} = 72,\\quad n(B \\cap C) = \\tfrac{720}{15} = 48$$\n$$n(A \\cap B \\cap C) = \\tfrac{720}{30} = 24$$\nSo the required number of integers is\n$$360 + 240 + 145 - (120 + 72 + 48 + 24) = 481.$$",
+          "answer": "Let $A, B, C$ denote the integers from 1 to 720 divisible by 2, 3, 5 respectively.\n$$n(A) = \\tfrac{720}{2} = 360,\\quad n(B) = \\tfrac{720}{3} = 240,\\quad n(C) = \\tfrac{720}{5} = 144$$\n$$n(A \\cap B) = \\tfrac{720}{6} = 120,\\quad n(A \\cap C) = \\tfrac{720}{10} = 72,\\quad n(B \\cap C) = \\tfrac{720}{15} = 48$$\n$$n(A \\cap B \\cap C) = \\tfrac{720}{30} = 24$$\nBy inclusion-exclusion, the count divisible by at least one of 2, 3, 5 is\n$$n(A \\cup B \\cup C) = 360 + 240 + 144 - (120 + 72 + 48) + 24 = 528.$$\nSo the number of integers divisible by none of 2, 3, 5 is\n$$720 - 528 = 192.$$",
           "years": [],
           "model": true
         },
         {
           "n": "2",
           "question": "Find the number of natural numbers not greater than 1000 which are not divisible by 3, 5 or 7.",
-          "answer": "Let $A, B, C$ denote the natural numbers divisible by 3, 5, 7 respectively.\n$$n(A) = 333,\\ n(B) = 200,\\ n(C) = 142$$\n$$n(A \\cap B) = 66,\\ n(B \\cap C) = 25,\\ n(C \\cap A) = 47,\\ n(A \\cap B \\cap C) = 9$$\n$$n(A \\cup B \\cup C) = 333 + 200 + 142 - 66 - 25 - 47 + 9 = 546.$$\nTherefore the number of natural numbers not divisible by 3, 5 or 7 is $1000 - 546 = 454$.",
+          "answer": "Let $A, B, C$ denote the natural numbers from 1 to 1000 divisible by 3, 5, 7 respectively.\n$$n(A) = 333,\\ n(B) = 200,\\ n(C) = 142$$\n$$n(A \\cap B) = 66,\\ n(B \\cap C) = 28,\\ n(C \\cap A) = 47,\\ n(A \\cap B \\cap C) = 9$$\n$$n(A \\cup B \\cup C) = 333 + 200 + 142 - 66 - 28 - 47 + 9 = 543.$$\nTherefore the number of natural numbers not divisible by 3, 5 or 7 is $1000 - 543 = 457$.",
           "years": [],
           "model": true
         },
@@ -1468,7 +1468,7 @@
         {
           "n": "8",
           "question": "Find the remainder when the sum $1! + 2! + 3! + \\cdots + 100!$ is divided by 18.",
-          "answer": "We know $6! = 720 \\equiv 0 \\pmod{18}$.\nWhen $n \\ge 6$, $n! = 18k$; $k$ is a non-zero integer.\n$$\\therefore\\ n! \\equiv 0 \\pmod{18}; \\quad n \\ge 6$$\n$$\n\\begin{aligned}\n(1! + 2! + 3! + 4! + 5! + \\cdots + 100!) \\pmod{18} &\\equiv (1 + 2 + 6 + 24 + 120) \\pmod{18} \\\\\n&\\equiv 153 \\pmod{18} \\\\\n&\\equiv 17.\n\\end{aligned}\n$$\n`[as printed: source gives $\\equiv 17$; by standard arithmetic $153 \\equiv 9 \\pmod{18}$]`",
+          "answer": "We know $6! = 720 \\equiv 0 \\pmod{18}$.\nWhen $n \\ge 6$, $18 \\mid n!$, so $n! \\equiv 0 \\pmod{18}$.\n$$\n\\begin{aligned}\n(1! + 2! + 3! + \\cdots + 100!) \\pmod{18} &\\equiv (1! + 2! + 3! + 4! + 5!) \\pmod{18} \\\\\n&\\equiv (1 + 2 + 6 + 24 + 120) \\pmod{18} \\\\\n&\\equiv 153 \\pmod{18} \\\\\n&\\equiv 9.\n\\end{aligned}\n$$\nSince $153 = 8 \\times 18 + 9$, the remainder is $9$.",
           "years": [
             2016
           ],
@@ -1542,14 +1542,14 @@
         {
           "n": "2",
           "question": "a) Define GCD of two integers $a$ and $b$. Use Euclidean algorithm to find integers $u$ and $v$ such that $\\gcd(72, 120) = 72u + 120v$.",
-          "answer": "**b) (i) State and prove Fundamental Theorem of Arithmetic.**\n**(ii) If $a \\mid b$ and $a \\mid c$ then prove that $a \\mid (bx + cy)$ for arbitrary integers $x$ and $y$.**\n**(iii) If $a \\mid bc$ and $\\gcd(a, b) = 1$ then prove that $a \\mid c$.** *[WBUT 2015(EVEN)]*\n\n**a)** When $a$ and $b$ are (non-zero) integers, then an integer $d\\,(\\ne 0)$ is said to be the greatest common divisor of $a$ and $b$ if $d \\mid a$ and $d \\mid b$.\nWe know,\n$$\n\\begin{aligned}\n120 &= 1 \\times 72 + 48 \\\\\n72 &= 1 \\times 48 + 24 \\\\\n48 &= 2 \\times 24 + 0\n\\end{aligned}\n$$\nNow,\n$$\n\\begin{aligned}\n24 &= 72 - 1 \\times 48 \\\\\n&= 72 - 1 \\times (120 - 1 \\times 72) \\\\\n&= 3 \\times 72 - 1 \\times 120.\n\\end{aligned}\n$$\n$\\therefore\\ u = 3,\\ v = -1$.\n\n**b) (i) Fundamental Theorem of Arithmetic:** Every integer $n > 1$ can be written uniquely as a product of prime numbers.\n\n*Proof:* We shall prove the theorem by the principle of induction.\nLet $n = 2$. Since 2 is prime, $n\\,(= 2)$ is a product of primes ($\\because$ a product may consist of a single factor).\nLet $n > 2$.\nIf $n$ is prime, it is a product of primes, i.e., a single-factor product.\nIf $n$ is not a prime, i.e., composite, let us assume that the theorem holds good for positive integers less than $n$ and $n = ab$. Since $a, b < n$, each of $a$ and $b$ can be expressed as the product of primes (by the assumption).\n$\\therefore\\ n = ab$ is also a product of primes.\n\n**(ii)** Since $a \\mid b$, we have $a \\mid xb$, where $x$ is an integer.\nAgain, $a \\mid c$ then $a \\mid yc$, where $y$ is an integer.\n$\\therefore\\ a \\mid (xb + yc)$ for two integers $x$ and $y$.\n\n**(iii)** Let $\\gcd(a, b) = 1$. Therefore $\\exists$ two integers $m$ and $n$ such that\n$$ma + nb = 1 = \\gcd(a, b) \\qquad \\ldots(i)$$\nMultiplying equation (i) by $c$ we get\n$$mac + nbc = c \\qquad \\ldots(ii)$$\nNow $a \\mid bc \\Rightarrow a \\mid nbc$\n$\\therefore\\ a \\mid mac \\Rightarrow a \\mid c$ (Proved).",
+          "answer": "**b) (i) State and prove Fundamental Theorem of Arithmetic.**\n**(ii) If $a \\mid b$ and $a \\mid c$ then prove that $a \\mid (bx + cy)$ for arbitrary integers $x$ and $y$.**\n**(iii) If $a \\mid bc$ and $\\gcd(a, b) = 1$ then prove that $a \\mid c$.** *[WBUT 2015(EVEN)]*\n\n**a)** When $a$ and $b$ are (non-zero) integers, then an integer $d\\,(\\ne 0)$ is said to be the greatest common divisor of $a$ and $b$ if $d \\mid a$ and $d \\mid b$.\nWe know,\n$$\n\\begin{aligned}\n120 &= 1 \\times 72 + 48 \\\\\n72 &= 1 \\times 48 + 24 \\\\\n48 &= 2 \\times 24 + 0\n\\end{aligned}\n$$\nNow,\n$$\n\\begin{aligned}\n24 &= 72 - 1 \\times 48 \\\\\n&= 72 - 1 \\times (120 - 1 \\times 72) \\\\\n&= 2 \\times 72 - 1 \\times 120.\n\\end{aligned}\n$$\n$\\therefore\\ u = 2,\\ v = -1$.\n\n**b) (i) Fundamental Theorem of Arithmetic:** Every integer $n > 1$ can be written uniquely as a product of prime numbers.\n\n*Proof:* We shall prove the theorem by the principle of induction.\nLet $n = 2$. Since 2 is prime, $n\\,(= 2)$ is a product of primes ($\\because$ a product may consist of a single factor).\nLet $n > 2$.\nIf $n$ is prime, it is a product of primes, i.e., a single-factor product.\nIf $n$ is not a prime, i.e., composite, let us assume that the theorem holds good for positive integers less than $n$ and $n = ab$. Since $a, b < n$, each of $a$ and $b$ can be expressed as the product of primes (by the assumption).\n$\\therefore\\ n = ab$ is also a product of primes.\n\n**(ii)** Since $a \\mid b$, we have $a \\mid xb$, where $x$ is an integer.\nAgain, $a \\mid c$ then $a \\mid yc$, where $y$ is an integer.\n$\\therefore\\ a \\mid (xb + yc)$ for two integers $x$ and $y$.\n\n**(iii)** Let $\\gcd(a, b) = 1$. Therefore $\\exists$ two integers $m$ and $n$ such that\n$$ma + nb = 1 = \\gcd(a, b) \\qquad \\ldots(i)$$\nMultiplying equation (i) by $c$ we get\n$$mac + nbc = c \\qquad \\ldots(ii)$$\nNow $a \\mid bc \\Rightarrow a \\mid nbc$\n$\\therefore\\ a \\mid mac \\Rightarrow a \\mid c$ (Proved).",
           "years": [],
           "model": false
         },
         {
           "n": "3",
           "question": "a) Find the number of integers between 1 and 1000 both inclusive that are not divisible by any of the integers 2, 3 and 7.",
-          "answer": "**b) Find all possible value of $x$, for $345x \\equiv 18 \\pmod{912}$.** *[WBUT 2015(ODD)]*\n\n**a)** We first see which are the numbers divisible by 2, 3 and 7, i.e., by 42.\nEvidently, 42, 84, 126, 168, 210, 252, 294, 336, 378, 420, 462, 504, 546, 588, 630, 672, 714, 756, 798, 840, 882, 924, 966 are the numbers between 1 and 1000 divisible by 2, 3 and 7.\nHence the number of integers between 1 and 1000 both inclusive which are not divisible by any of the integers 2, 3 and 7 are $1000 - 23$ or **977**.\n\n**b)** Since $\\gcd(345, 912) = 3$, the given congruence equation has 3 solutions. We denote\n$$345x \\equiv 18 \\pmod{912} \\qquad \\ldots(i)$$\n$$115x \\equiv 6 \\pmod{104} \\qquad \\ldots(ii)$$\nWe first solve (ii) and for this note that $\\gcd(115, 104) = 1$.\n\nNow (by the division algorithm: $104)\\,115\\,(1$, $11)\\,104\\,(9$, $5)\\,11\\,(2$, remainder 1), hence\n$$\n\\begin{aligned}\n1 &= 11 - 5 \\times 2 \\\\\n&= 11 - (104 - 9 \\times 11) \\\\\n&= 10 \\times 11 - 104 \\\\\n&= 10\\,(115 - 1 \\times 104) - 104 \\\\\n&= 10 \\times 115 - 11 \\times 104.\n\\end{aligned}\n$$\nThis implies $115 \\times 10 \\equiv 1 \\pmod{104}$, i.e., $x_0 = 10$ is a solution of (ii).\nHence $x_0 = 10$ is also a solution of (i).\nThe three solutions of (i) can now be given as\n$$x = 10 + \\frac{912}{3}\\,i \\pmod{912},\\ i = 0, 1, 2$$\nor, $x = 10 + 304i \\pmod{912},\\ i = 0, 1, 2$.",
+          "answer": "**b) Find all possible value of $x$, for $345x \\equiv 18 \\pmod{912}$.** *[WBUT 2015(ODD)]*\n\n**a)** We first see which are the numbers divisible by 2, 3 and 7, i.e., by 42.\nEvidently, 42, 84, 126, 168, 210, 252, 294, 336, 378, 420, 462, 504, 546, 588, 630, 672, 714, 756, 798, 840, 882, 924, 966 are the numbers between 1 and 1000 divisible by 2, 3 and 7.\nHence the number of integers between 1 and 1000 both inclusive which are not divisible by any of the integers 2, 3 and 7 are $1000 - 23$ or **977**.\n\n**b)** Since $\\gcd(345, 912) = 3$ and $3 \\mid 18$, the congruence has exactly 3 solutions modulo 912. Dividing the congruence and the modulus by 3:\n$$345x \\equiv 18 \\pmod{912} \\qquad \\ldots(i)$$\n$$115x \\equiv 6 \\pmod{304} \\qquad \\ldots(ii)$$\nHere $\\gcd(115, 304) = 1$. By the Euclidean algorithm,\n$$\n\\begin{aligned}\n304 &= 2 \\times 115 + 74 \\\\\n115 &= 1 \\times 74 + 41 \\\\\n74 &= 1 \\times 41 + 33 \\\\\n41 &= 1 \\times 33 + 8 \\\\\n33 &= 4 \\times 8 + 1,\n\\end{aligned}\n$$\nand back-substituting gives $14 \\times 304 - 37 \\times 115 = 1$, so $115^{-1} \\equiv -37 \\equiv 267 \\pmod{304}$.\nHence from (ii), $x \\equiv 267 \\times 6 = 1602 \\equiv 82 \\pmod{304}$.\nThe three solutions modulo 912 are\n$$x = 82 + 304i \\pmod{912},\\ i = 0, 1, 2,$$\ni.e. $x \\equiv 82,\\ 386,\\ 690 \\pmod{912}$.\n(Check: $345 \\times 82 = 28290 = 31 \\times 912 + 18$, so $345 \\times 82 \\equiv 18 \\pmod{912}$.)",
           "years": [
             2015
           ],
@@ -1716,7 +1716,7 @@
               "text": "$3^{12}$"
             }
           ],
-          "answer": "a",
+          "answer": "c",
           "asPrinted": true,
           "years": [
             2012,
@@ -1745,7 +1745,7 @@
               "text": "$7! \\times 8!$"
             }
           ],
-          "answer": "a",
+          "answer": "c",
           "asPrinted": true,
           "years": [
             2013,
@@ -1859,7 +1859,7 @@
               "text": "14"
             }
           ],
-          "answer": "a",
+          "answer": "b",
           "asPrinted": true,
           "years": [
             2015
@@ -2001,7 +2001,7 @@
         {
           "n": "3",
           "question": "Assume that in a group of six people, each pair of individuals are either friends or enemies. Show that there are either three mutual friends or three mutual enemies.",
-          "answer": "Let us take six people as $P_1, P_2, P_3, P_4, P_5, P_6$ represented by six points. *[diagram]*\n\nLet us start with $P_1$ and $P_2$ and assume that they are friends & label friends by 0 and enemies by 1.\n\nThen $P_2$ and $P_3$ are also friends and proceeding this way we get all of them friends. Exactly the same arguments will lead to a situation when all are enemies and there cannot be a situation where one is a friend and the other is an enemy for a particular pair. So the problem is wrong.",
+          "answer": "Represent the six people as six points $P_1, \\dots, P_6$, and colour each pair (edge) by their relationship: colour 0 if the two are friends, colour 1 if enemies. We must show some triangle is monochromatic (three mutual friends or three mutual enemies). *[diagram]*\n\nFix $P_1$. It is joined to the other five people by five edges, each coloured 0 or 1. By the pigeonhole principle, at least $\\lceil 5/2 \\rceil = 3$ of these edges share a colour; say $P_1$ is friends with $P_a, P_b, P_c$ (the all-enemies case is identical).\n\nNow look at the three edges among $P_a, P_b, P_c$.\n- If any one of them, say $P_aP_b$, is \"friends\", then $P_1, P_a, P_b$ are three mutual friends.\n- If none of them is \"friends\", then $P_a, P_b, P_c$ are pairwise enemies, giving three mutual enemies.\n\nEither way a monochromatic triangle exists, so among any six people there are always three mutual friends or three mutual enemies. (This is the Ramsey number $R(3, 3) = 6$.)",
           "years": [
             2013
           ],
@@ -2019,7 +2019,7 @@
         {
           "n": "5",
           "question": "If there are 200 faculty members that speak French, 50 that speak Russian, 100 that speak Spanish, 20 that speak French and Russian, 60 that speak French and Spanish, 35 that speak Russian and Spanish, while only 10 speak French, Russian and Spanish, how many speak either French or Russian or Spanish?",
-          "answer": "Let $F$ be the set containing the number of faculty who speak in French and $R$, $S$ that of for Russian and Spanish respectively. *[diagram: three-set Venn diagram F, R, S in universe U]*\n\n$$\\therefore n(F) = 200,\\ n(R) = 50,\\ n(S) = 100$$\n$$n(F \\cap R) = 20,\\ n(R \\cap S) = 35,\\ n(F \\cap S) = 60,$$\n$$n(F \\cap S \\cap R) = 10$$\n\nNo. of faculty who speak only in French is\n$$n(F) - n(F \\cap R) - n(F \\cap S) + n(F \\cap R \\cap S) = 200 - 20 - 60 + 10 = 130$$\n\nSimilarly, number of faculty who speak only in Russian is\n$$n(R) - n(R \\cap F) - n(R \\cap S) + n(R \\cap F \\cap S) = 50 - 20 - 35 + 10 = 5$$\n\nand number of faculty who speak only in Spanish is\n$$n(S) - n(S \\cap F) - n(S \\cap R) + n(S \\cap R \\cap F) = 100 - 60 - 35 + 10 = 15$$",
+          "answer": "Let $F$ be the set of faculty who speak French and $R$, $S$ those for Russian and Spanish respectively. *[diagram: three-set Venn diagram F, R, S in universe U]*\n\n$$\\therefore n(F) = 200,\\ n(R) = 50,\\ n(S) = 100$$\n$$n(F \\cap R) = 20,\\ n(R \\cap S) = 35,\\ n(F \\cap S) = 60,$$\n$$n(F \\cap S \\cap R) = 10$$\n\nBy the inclusion-exclusion principle, the number who speak French, Russian or Spanish is\n$$n(F \\cup R \\cup S) = n(F) + n(R) + n(S) - n(F \\cap R) - n(R \\cap S) - n(F \\cap S) + n(F \\cap R \\cap S)$$\n$$= 200 + 50 + 100 - 20 - 35 - 60 + 10 = 245.$$\nSo 245 faculty members speak either French or Russian or Spanish.",
           "years": [
             2015
           ],
@@ -2083,7 +2083,7 @@
         {
           "n": "12",
           "question": "Obtain the CNF of $\\neg(p \\to (q \\wedge r))$.",
-          "answer": "We make the truth table for $\\neg\\{p \\to (q \\wedge r)\\}$.\n\n| $p$ | $q$ | $r$ | $q \\wedge r$ | $p \\to (q \\wedge r)$ | $\\neg\\{p \\to (q \\wedge r)\\}$ |\n|:---:|:---:|:---:|:---:|:---:|:---:|\n| 1 | 1 | 1 | 1 | 1 | 0 |\n| 1 | 1 | 0 | 0 | 0 | 1 |\n| 1 | 0 | 1 | 0 | 0 | 1 |\n| 1 | 0 | 0 | 0 | 0 | 1 |\n| 0 | 1 | 1 | 1 | 1 | 0 |\n| 0 | 1 | 0 | 0 | 1 | 0 |\n| 0 | 0 | 1 | 0 | 1 | 0 |\n| 0 | 0 | 0 | 0 | 1 | 0 |\n\nThe required CNF is\n$$(\\neg p \\vee \\neg q \\vee \\neg r) \\wedge (p \\vee \\neg q \\vee \\neg r) \\wedge (\\neg p \\vee q \\vee \\neg r) \\wedge (p \\vee q \\vee r)$$\n\n---",
+          "answer": "We make the truth table for $\\neg\\{p \\to (q \\wedge r)\\}$.\n\n| $p$ | $q$ | $r$ | $q \\wedge r$ | $p \\to (q \\wedge r)$ | $\\neg\\{p \\to (q \\wedge r)\\}$ |\n|:---:|:---:|:---:|:---:|:---:|:---:|\n| 1 | 1 | 1 | 1 | 1 | 0 |\n| 1 | 1 | 0 | 0 | 0 | 1 |\n| 1 | 0 | 1 | 0 | 0 | 1 |\n| 1 | 0 | 0 | 0 | 0 | 1 |\n| 0 | 1 | 1 | 1 | 1 | 0 |\n| 0 | 1 | 0 | 0 | 1 | 0 |\n| 0 | 0 | 1 | 0 | 1 | 0 |\n| 0 | 0 | 0 | 0 | 1 | 0 |\n\nThe CNF takes one maxterm for each row where the formula is 0 (rows 1, 5, 6, 7, 8). The required CNF is\n$$(\\neg p \\vee \\neg q \\vee \\neg r) \\wedge (p \\vee \\neg q \\vee \\neg r) \\wedge (p \\vee \\neg q \\vee r) \\wedge (p \\vee q \\vee \\neg r) \\wedge (p \\vee q \\vee r).$$",
           "years": [
             2018
           ],
@@ -2225,7 +2225,7 @@
               "text": "$q$"
             }
           ],
-          "answer": "d",
+          "answer": "a",
           "asPrinted": true,
           "years": [
             2013,
@@ -2283,7 +2283,7 @@
               "text": "none of these"
             }
           ],
-          "answer": "a",
+          "answer": "d",
           "asPrinted": true,
           "years": [
             2014,
@@ -2340,7 +2340,7 @@
               "text": "none of these"
             }
           ],
-          "answer": "d",
+          "answer": "b",
           "asPrinted": true,
           "years": [
             2015
@@ -2368,7 +2368,7 @@
               "text": "$\\sim(p\\land q)$"
             }
           ],
-          "answer": "a",
+          "answer": "b",
           "asPrinted": false,
           "years": [
             2015,
@@ -2397,7 +2397,7 @@
               "text": "none of these"
             }
           ],
-          "answer": "d",
+          "answer": "a",
           "asPrinted": true,
           "years": [
             2016
@@ -2453,7 +2453,7 @@
               "text": "none of these"
             }
           ],
-          "answer": "a",
+          "answer": "b",
           "asPrinted": true,
           "years": [
             2017
@@ -2509,7 +2509,7 @@
               "text": "none of these"
             }
           ],
-          "answer": "c",
+          "answer": "b",
           "asPrinted": true,
           "years": [
             2017
@@ -2537,7 +2537,7 @@
               "text": "None of these"
             }
           ],
-          "answer": "d",
+          "answer": "c",
           "asPrinted": true,
           "years": [
             2018
@@ -2565,7 +2565,7 @@
               "text": "$\\sim q\\to\\sim p$"
             }
           ],
-          "answer": "d",
+          "answer": "b",
           "asPrinted": true,
           "years": [
             2018
@@ -2865,7 +2865,7 @@
         {
           "n": "8",
           "question": "Prove that $[(p\\lor q)\\to(p\\to r)]\\to[(q\\to r)\\to r]$ is a tautology.",
-          "answer": "Let us construct the truth table (all eight rows of the final column evaluate to 1):\n\n| $p$ | $q$ | $r$ | $p\\to r$ | $p\\lor q$ | $(p\\lor q)\\to(p\\to r)$ | $q\\to r$ | $(q\\to r)\\to r$ | Formula |\n|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|\n| 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |\n| 1 | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 |\n| 1 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |\n| 1 | 0 | 0 | 0 | 1 | 0 | 1 | 0 | 1 |\n| 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |\n| 0 | 1 | 0 | 1 | 1 | 1 | 0 | 1 | 1 |\n| 0 | 0 | 1 | 1 | 0 | 1 | 1 | 1 | 1 |\n| 0 | 0 | 0 | 1 | 0 | 1 | 1 | 0 | 1 |\n\nSo, $[(p\\lor q)\\to(p\\to r)]\\to[(q\\to r)\\to r]$ is a tautology.\n\n> *Note: the column layout above is reconstructed to match the book's printed final column, which is all 1's. Intermediate cells were partly compressed in the scan; the final \"Formula\" column (all 1's, hence tautology) is as printed.*",
+          "answer": "Let us construct the truth table for $F = [(p\\lor q)\\to(p\\to r)]\\to[(q\\to r)\\to r]$.\n\n| $p$ | $q$ | $r$ | $p\\to r$ | $p\\lor q$ | $(p\\lor q)\\to(p\\to r)$ | $q\\to r$ | $(q\\to r)\\to r$ | $F$ |\n|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|\n| 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |\n| 1 | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 |\n| 1 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |\n| 1 | 0 | 0 | 0 | 1 | 0 | 1 | 0 | 1 |\n| 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |\n| 0 | 1 | 0 | 1 | 1 | 1 | 0 | 1 | 1 |\n| 0 | 0 | 1 | 1 | 0 | 1 | 1 | 1 | 1 |\n| 0 | 0 | 0 | 1 | 0 | 1 | 1 | 0 | 0 |\n\nIn the last row $p = q = r = 0$: the antecedent $(p\\lor q)\\to(p\\to r) = 0\\to 1 = 1$, while the consequent $(q\\to r)\\to r = 1\\to 0 = 0$, so $F = 1\\to 0 = 0$.\n\nSince the final column is not all 1's (it is 0 when $p = q = r = 0$), the statement is **not a tautology**; it is a contingency. (So the claim that it is a tautology is incorrect.)",
           "years": [
             2016
           ],
@@ -3360,7 +3360,7 @@
         {
           "n": "8",
           "question": "Show that the set of matrices $S = \\left\\{ \\begin{pmatrix} \\alpha & 0 \\\\ \\beta & 0 \\end{pmatrix} : \\alpha, \\beta \\in R \\right\\}$ is a left ideal but not a right ideal of $2 \\times 2$ real matrices.",
-          "answer": "A subring $S$ of a ring $R$ is said to be a **left ideal** of $R$ if $a \\in S, r \\in R \\Rightarrow r \\cdot a \\in S$, and a **right ideal** of $R$ if $a \\in S, r \\in R \\Rightarrow a \\cdot r \\in S$.\n\nLet $S_1 = \\begin{pmatrix} \\alpha_1 & 0 \\\\ \\beta_1 & 0 \\end{pmatrix}, S_2 = \\begin{pmatrix} \\alpha_2 & 0 \\\\ \\beta_2 & 0 \\end{pmatrix}$ be 2 elements of $S$. Then\n$$S_1 - S_2 = \\begin{pmatrix} \\alpha_1 - \\alpha_2 & 0 \\\\ \\beta_1 - \\beta_2 & 0 \\end{pmatrix} \\in S$$\nand $S_1 \\cdot S_2 \\in S$, so $S_1 \\cdot S_2 \\in S$ and $S_2 \\cdot S_1 \\in S$. Therefore $S$ is a subring of $2 \\times 2$ real matrices.\n\nLet $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ be a $2 \\times 2$ real matrix. Then\n$$S_1 \\cdot A = \\begin{pmatrix} \\alpha_1 & 0 \\\\ \\beta_1 & 0 \\end{pmatrix}\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = \\begin{pmatrix} \\alpha_1 a & \\alpha_1 b \\\\ \\beta_1 a & \\beta_1 b \\end{pmatrix} \\in S$$\n$$A \\cdot S_1 = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}\\begin{pmatrix} \\alpha_1 & 0 \\\\ \\beta_1 & 0 \\end{pmatrix} = \\begin{pmatrix} a\\alpha_1 + b\\beta_1 & 0 \\\\ c\\alpha_1 + d\\beta_1 & 0 \\end{pmatrix} \\in S$$\n$\\therefore$ $S$ is a left ideal but not a right ideal of $2 \\times 2$ real matrices.",
+          "answer": "A subring $S$ of a ring $R$ is said to be a **left ideal** of $R$ if $a \\in S,\\ r \\in R \\Rightarrow r \\cdot a \\in S$, and a **right ideal** of $R$ if $a \\in S,\\ r \\in R \\Rightarrow a \\cdot r \\in S$.\n\nLet $S_1 = \\begin{pmatrix} \\alpha_1 & 0 \\\\ \\beta_1 & 0 \\end{pmatrix},\\ S_2 = \\begin{pmatrix} \\alpha_2 & 0 \\\\ \\beta_2 & 0 \\end{pmatrix}$ be two elements of $S$. Then\n$$S_1 - S_2 = \\begin{pmatrix} \\alpha_1 - \\alpha_2 & 0 \\\\ \\beta_1 - \\beta_2 & 0 \\end{pmatrix} \\in S, \\qquad S_1 \\cdot S_2 = \\begin{pmatrix} \\alpha_1\\alpha_2 & 0 \\\\ \\beta_1\\alpha_2 & 0 \\end{pmatrix} \\in S,$$\nso $S$ is a subring of the ring of $2 \\times 2$ real matrices.\n\nLet $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ be any $2 \\times 2$ real matrix. Then\n$$A \\cdot S_1 = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}\\begin{pmatrix} \\alpha_1 & 0 \\\\ \\beta_1 & 0 \\end{pmatrix} = \\begin{pmatrix} a\\alpha_1 + b\\beta_1 & 0 \\\\ c\\alpha_1 + d\\beta_1 & 0 \\end{pmatrix} \\in S,$$\nso $r \\cdot a \\in S$ for all $r \\in R,\\ a \\in S$; hence $S$ is a **left ideal**.\n\nBut\n$$S_1 \\cdot A = \\begin{pmatrix} \\alpha_1 & 0 \\\\ \\beta_1 & 0 \\end{pmatrix}\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = \\begin{pmatrix} \\alpha_1 a & \\alpha_1 b \\\\ \\beta_1 a & \\beta_1 b \\end{pmatrix},$$\nwhose second column $(\\alpha_1 b,\\ \\beta_1 b)$ is non-zero in general (take, e.g., $b \\ne 0,\\ \\alpha_1 \\ne 0$). So $S_1 \\cdot A \\notin S$, and therefore $S$ is **not a right ideal** of the $2 \\times 2$ real matrices.",
           "years": [],
           "model": true
         },
@@ -3898,7 +3898,7 @@
               "text": "none of these"
             }
           ],
-          "answer": "b",
+          "answer": "a",
           "asPrinted": false,
           "years": [
             2016
@@ -3954,7 +3954,7 @@
               "text": "none of these"
             }
           ],
-          "answer": "b",
+          "answer": "c",
           "asPrinted": false,
           "years": [
             2017,
@@ -4431,7 +4431,7 @@
         {
           "n": "1",
           "question": "Consider $K_6$, the complete graph on the six vertices $a, b, c, d, e, f$. The graph $G_1$ is obtained from $K_6$ by deleting the edge $ab$. The graph $G_2$ is obtained from $G_1$ by deleting the edge $cd$. What are the chromatic numbers of $G_1$ and $G_2$?",
-          "answer": "Let us draw $K_6$, $G_1$ and $G_2$. *[diagram: $K_6$ on hexagonally-placed vertices $a, b, c, d, e, f$ with all edges; $G_1$ is $K_6$ with edge $ab$ removed; $G_2$ is $G_1$ with edge $cd$ also removed]*\n\nThe chromatic number of $G_1$ is 4.\nThe chromatic number of $G_2$ is 4.",
+          "answer": "Let us draw $K_6$, $G_1$ and $G_2$. *[diagram: $K_6$ on hexagonally-placed vertices $a, b, c, d, e, f$ with all edges; $G_1$ is $K_6$ with edge $ab$ removed; $G_2$ is $G_1$ with edge $cd$ also removed]*\n\nIn $G_1 = K_6 - ab$, the four vertices $c, d, e, f$ are still pairwise adjacent (a $K_4$), needing 4 colours; both $a$ and $b$ are adjacent to all of $c, d, e, f$, so each needs a colour different from those four. Since $a$ and $b$ are now non-adjacent, they may share one new colour. Hence\n$$\\chi(G_1) = 5.$$\nIn $G_2 = G_1 - cd$, the pairs $\\{a, b\\}$ and $\\{c, d\\}$ are each non-adjacent, so colour $a, b$ with colour 1 and $c, d$ with colour 2; the vertices $e, f$ are adjacent to everything and to each other, needing colours 3 and 4 (and $\\{a,c,e,f\\}$ still form a $K_4$, so 4 colours are necessary). Hence\n$$\\chi(G_2) = 4.$$",
           "years": [
             2012,
             2016
@@ -4441,7 +4441,7 @@
         {
           "n": "2",
           "question": "A new flag is to be designed with 6 vertical stripes using 4 colours. In how many ways can this be done so that no 2 adjacent stripes have the same colour?",
-          "answer": "Considering the cases (each column shows a valid stripe pattern from top to bottom):\n\n| Case 1 | Case 2 | Case 3 |\n|:---:|:---:|:---:|\n| A | C | A |\n| B | D | B |\n| A | A | C |\n| B | B | D |\n| C | A | A |\n| D | B | B |\n| $2\\times 2 = 4$ | $2\\times 2 = 4$ | $2\\times 2\\times 2 = 8$ |\n\nSo the required number of ways $= 4 + 4 + 8 = 16$.",
+          "answer": "Colour the 6 stripes one after another. The first stripe can be any of the 4 colours. Each later stripe only has to differ from the stripe immediately before it, so it has $4 - 1 = 3$ choices.\n\n$$\\text{Number of ways} = 4 \\times 3 \\times 3 \\times 3 \\times 3 \\times 3 = 4 \\times 3^5 = 4 \\times 243 = 972.$$\n\n(Equivalently, this is the chromatic polynomial of a path on 6 vertices evaluated at $\\lambda = 4$: $\\lambda(\\lambda-1)^5 = 4 \\cdot 3^5 = 972$.)",
           "years": [
             2012,
             2016
