@@ -2028,7 +2028,7 @@
         {
           "n": "6",
           "question": "State Pigeonhole Principle and solve: A box contains 10 blue balls, 20 red balls, 8 green balls, 15 yellow balls and 25 white balls. How many balls must we choose to ensure that we have 12 balls of the same colour?",
-          "answer": "**Pigeonhole Principle:** If $n$ pigeonholes are occupied by $kn + 1$ or more pigeons, where $k \\in \\mathbb{N}$, then at least one pigeonhole is occupied by $k + 1$ or more pigeons.\n\nHere $n = 5$, $k + 1 = 12$. So, $k = 11$. Hence $nk + 1 = 56$.\n\nSo 56 balls are to be drawn.",
+          "answer": "**Pigeonhole Principle:** If $n$ pigeonholes are occupied by $kn + 1$ or more pigeons, where $k \\in \\mathbb{N}$, then at least one pigeonhole is occupied by $k + 1$ or more pigeons.\n\nHere the pigeonholes are the $n = 5$ colours and we want $k + 1 = 12$ of one colour, so $k = 11$. The plain formula gives $nk + 1 = 56$, but it assumes every colour has at least 11 balls. Blue has only 10 and green only 8, so the worst case can hold at most all of those.\n\nWorst case with no colour reaching 12: $11$ red $+ 11$ yellow $+ 11$ white $+ 10$ blue $+ 8$ green $= 51$ balls. The next ball (the 52nd) must be red, yellow or white and forces 12 of that colour.\n\nSo 52 balls are to be drawn.",
           "years": [
             2015
           ],
